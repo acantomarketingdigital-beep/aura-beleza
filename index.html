@@ -867,6 +867,43 @@ setInterval(() => { const next = (currentSlide + 1) % slides.length; goSlide(nex
 document.getElementById('hamburgerBtn').addEventListener('click', () => document.getElementById('mobileMenu').classList.add('open'));
 document.getElementById('mobileClose').addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('open'));
 function closeMobileMenu() { document.getElementById('mobileMenu').classList.remove('open'); }
+
+// ── SUPABASE — SERVIÇOS DINÂMICOS ──
+const SB_URL = 'https://wyasxmvyryuyldqbnjwe.supabase.co';
+const SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Ind5YXN4bXZ5cnl1eWxkcWJuandlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIxNjk5NDksImV4cCI6MjA5Nzc0NTk0OX0.gHSrvhP3yopHmH7eLAYq-at3rRLtwBWyCxZNqWl2GT8';
+const WA = '5511921028116';
+
+async function carregarServicos() {
+  try {
+    const res = await fetch(
+      `${SB_URL}/rest/v1/aura_servicos?select=*&order=categoria.asc,ordem.asc`,
+      { headers: { apikey: SB_KEY, Authorization: `Bearer ${SB_KEY}` } }
+    );
+    if (!res.ok) return;
+    const servicos = await res.json();
+    if (!Array.isArray(servicos) || servicos.length === 0) return;
+
+    const grupos = {};
+    servicos.forEach(s => {
+      if (!grupos[s.categoria]) grupos[s.categoria] = [];
+      grupos[s.categoria].push(s);
+    });
+
+    Object.entries(grupos).forEach(([cat, items]) => {
+      const list = document.querySelector(`#panel-${cat} .servico-list`);
+      if (!list) return;
+      list.innerHTML = items.map(s => `
+        <div class="servico-item">
+          <span class="servico-item-name">${s.nome}</span>
+          <span class="servico-item-price">${s.preco}</span>
+          <a href="https://wa.me/${WA}?text=${encodeURIComponent(s.whatsapp_msg || s.nome)}" class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a>
+        </div>`).join('');
+    });
+  } catch (e) {
+    // fallback silencioso: conteúdo estático permanece visível
+  }
+}
+carregarServicos();
 </script>
 </body>
 </html>
