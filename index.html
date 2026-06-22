@@ -295,7 +295,7 @@
   .servico-panel { display:none; max-width:900px; margin:0 auto; background:var(--black-card); border:1px solid rgba(201,168,76,.1); }
   .servico-panel.active { display:block; animation:panelIn .4s ease; }
   @keyframes panelIn { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
-  .servico-header { display:grid; grid-template-columns:60px 1fr; align-items:center; padding:32px 40px; border-bottom:1px solid rgba(201,168,76,.1); gap:20px; }
+  .servico-header { display:grid; grid-template-columns:1fr; align-items:center; padding:28px 40px; border-bottom:1px solid rgba(201,168,76,.1); gap:20px; }
   .servico-icon-big { font-size:2rem; }
   .servico-panel-title { font-family:'Cormorant Garamond',serif; font-size:1.8rem; font-weight:300; color:var(--cream); }
   .servico-list { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:1px; background:rgba(201,168,76,.06); }
@@ -553,17 +553,17 @@
     </div>
 
     <div class="servicos-tabs reveal" style="transition-delay:.1s">
-      <button class="tab-btn active" onclick="showTab('unhas',this)">💅 Unhas</button>
-      <button class="tab-btn" onclick="showTab('cabelos',this)">✂️ Cabelos</button>
-      <button class="tab-btn" onclick="showTab('depilacao',this)">◎ Depilação</button>
-      <button class="tab-btn" onclick="showTab('estetica',this)">✦ Estética</button>
-      <button class="tab-btn" onclick="showTab('sobrancelha',this)">◈ Sobrancelha</button>
-      <button class="tab-btn" onclick="showTab('podologia',this)">☽ Podologia</button>
+      <button class="tab-btn active" onclick="showTab('unhas',this)">Unhas</button>
+      <button class="tab-btn" onclick="showTab('cabelos',this)">Cabelos</button>
+      <button class="tab-btn" onclick="showTab('depilacao',this)">Depilação</button>
+      <button class="tab-btn" onclick="showTab('estetica',this)">Estética</button>
+      <button class="tab-btn" onclick="showTab('sobrancelha',this)">Sobrancelha</button>
+      <button class="tab-btn" onclick="showTab('podologia',this)">Podologia</button>
     </div>
 
     <!-- UNHAS -->
     <div class="servico-panel active reveal" id="panel-unhas">
-      <div class="servico-header"><span class="servico-icon-big">💅</span><h3 class="servico-panel-title">Unhas</h3></div>
+      <div class="servico-header"><h3 class="servico-panel-title">Unhas</h3></div>
       <div class="servico-list">
         <div class="servico-item"><span class="servico-item-name">Mão</span><span class="servico-item-price">R$ 45</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Esmaltação+Mão." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
         <div class="servico-item"><span class="servico-item-name">Pé</span><span class="servico-item-price">R$ 50</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Esmaltação+Pé." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
@@ -579,7 +579,7 @@
 
     <!-- CABELOS -->
     <div class="servico-panel" id="panel-cabelos">
-      <div class="servico-header"><span class="servico-icon-big">✂️</span><h3 class="servico-panel-title">Cabelos</h3></div>
+      <div class="servico-header"><h3 class="servico-panel-title">Cabelos</h3></div>
       <div class="servico-list">
         <div class="servico-item"><span class="servico-item-name">Corte Feminino</span><span class="servico-item-price">R$ 210</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Corte+Feminino." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
         <div class="servico-item"><span class="servico-item-name">Corte Masculino</span><span class="servico-item-price">R$ 120</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Corte+Masculino." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
@@ -596,7 +596,7 @@
 
     <!-- DEPILAÇÃO -->
     <div class="servico-panel" id="panel-depilacao">
-      <div class="servico-header"><span class="servico-icon-big">◎</span><h3 class="servico-panel-title">Depilação Feminina</h3></div>
+      <div class="servico-header"><h3 class="servico-panel-title">Depilação Feminina</h3></div>
       <div class="servico-list">
         <div class="servico-item"><span class="servico-item-name">Axila</span><span class="servico-item-price">R$ 40</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Depilação+de+Axila." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
         <div class="servico-item"><span class="servico-item-name">Buço com linha</span><span class="servico-item-price">R$ 40</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Depilação+de+Buço+com+linha." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
@@ -611,7 +611,7 @@
 
     <!-- ESTÉTICA -->
     <div class="servico-panel" id="panel-estetica">
-      <div class="servico-header"><span class="servico-icon-big">✦</span><h3 class="servico-panel-title">Estética</h3></div>
+      <div class="servico-header"><h3 class="servico-panel-title">Estética</h3></div>
       <div class="servico-list">
         <div class="servico-item"><span class="servico-item-name">Limpeza de Pele</span><span class="servico-item-price">R$ 200</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Limpeza+de+Pele." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
         <div class="servico-item"><span class="servico-item-name">Drenagem Corporal</span><span class="servico-item-price">R$ 180</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Drenagem+Corporal." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
@@ -626,7 +626,7 @@
 
     <!-- SOBRANCELHA -->
     <div class="servico-panel" id="panel-sobrancelha">
-      <div class="servico-header"><span class="servico-icon-big">◈</span><h3 class="servico-panel-title">Sobrancelha</h3></div>
+      <div class="servico-header"><h3 class="servico-panel-title">Sobrancelha</h3></div>
       <div class="servico-list">
         <div class="servico-item"><span class="servico-item-name">Limpeza de Sobrancelha</span><span class="servico-item-price">R$ 45</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Limpeza+de+Sobrancelha." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
         <div class="servico-item"><span class="servico-item-name">Design de Sobrancelha</span><span class="servico-item-price">R$ 75</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Design+de+Sobrancelha." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
@@ -637,7 +637,7 @@
 
     <!-- PODOLOGIA -->
     <div class="servico-panel" id="panel-podologia">
-      <div class="servico-header"><span class="servico-icon-big">☽</span><h3 class="servico-panel-title">Podologia</h3></div>
+      <div class="servico-header"><h3 class="servico-panel-title">Podologia</h3></div>
       <div class="servico-list">
         <div class="servico-item"><span class="servico-item-name">Podologia</span><span class="servico-item-price">R$ 200</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Podologia." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
         <div class="servico-item"><span class="servico-item-name">Tratamento de Micose</span><span class="servico-item-price">a partir de R$ 100</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Tratamento+de+Micose." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
