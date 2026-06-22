@@ -620,30 +620,62 @@
     color: var(--cream);
   }
   .servico-list {
-    padding: 8px 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1px;
+    background: rgba(201,168,76,0.06);
   }
+
   .servico-item {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    padding: 18px 40px;
-    border-bottom: 1px solid rgba(255,255,255,0.04);
-    transition: background 0.2s ease;
+    text-align: center;
+    padding: 28px 20px 24px;
+    background: #141414;
+    gap: 10px;
+    transition: background 0.25s ease;
   }
-  .servico-item:last-child { border-bottom: none; }
-  .servico-item:hover { background: rgba(201,168,76,0.04); }
+
+  .servico-item:hover { background: #181818; }
+
   .servico-item-name {
-    font-size: 0.88rem;
-    color: var(--cream);
+    font-size: 0.85rem;
+    color: #F5F0E8;
     font-weight: 300;
+    line-height: 1.4;
   }
+
   .servico-item-price {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.1rem;
-    color: var(--gold);
+    font-size: 1.6rem;
+    color: #C9A84C;
     font-weight: 400;
+    line-height: 1;
+  }
+
+  .servico-item-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: transparent;
+    border: 1px solid rgba(201,168,76,0.35);
+    color: #C9A84C;
+    padding: 7px 18px;
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    margin-top: 4px;
     white-space: nowrap;
-    margin-left: 20px;
+  }
+
+  .servico-item-btn:hover {
+    background: #C9A84C;
+    color: #0A0A0A;
   }
   .servico-cta {
     padding: 24px 40px;
@@ -1109,7 +1141,7 @@
     .servicos-tabs { gap: 6px; }
     .tab-btn { padding: 8px 16px; font-size: 0.62rem; }
     .servico-header { padding: 20px 24px; gap: 12px; }
-    .servico-item { padding: 14px 24px; }
+    .servico-list { grid-template-columns: 1fr; }
     .servico-cta { padding: 16px 24px; flex-direction: column; align-items: flex-start; }
     .hero-ctas { flex-direction: column; align-items: center; }
     .btn-primary, .btn-secondary { width: 100%; justify-content: center; max-width: 280px; }
@@ -1275,14 +1307,46 @@
       </div>
     </div>
     <div class="servico-list">
-      <div class="servico-item"><span class="servico-item-name">Mão</span><span class="servico-item-price">R$ 45</span></div>
-      <div class="servico-item"><span class="servico-item-name">Pé</span><span class="servico-item-price">R$ 50</span></div>
-      <div class="servico-item"><span class="servico-item-name">Esmaltação em gel + cutilagem (mão)</span><span class="servico-item-price">R$ 90</span></div>
-      <div class="servico-item"><span class="servico-item-name">Banho de gel + cutilagem (mão)</span><span class="servico-item-price">R$ 210</span></div>
-      <div class="servico-item"><span class="servico-item-name">Alongamento (mão)</span><span class="servico-item-price">R$ 320</span></div>
-      <div class="servico-item"><span class="servico-item-name">Esmaltação Importada (mão)</span><span class="servico-item-price">R$ 15</span></div>
-      <div class="servico-item"><span class="servico-item-name">SPA dos Pés com pedicure</span><span class="servico-item-price">R$ 120</span></div>
-      <div class="servico-item"><span class="servico-item-name">Plástica dos Pés com pedicure</span><span class="servico-item-price">R$ 130</span></div>
+      <div class="servico-item">
+        <span class="servico-item-name">Mão</span>
+        <span class="servico-item-price">R$ 45</span>
+        <a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Esmaltação+Mão." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a>
+      </div>
+      <div class="servico-item">
+        <span class="servico-item-name">Pé</span>
+        <span class="servico-item-price">R$ 50</span>
+        <a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Esmaltação+Pé." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a>
+      </div>
+      <div class="servico-item">
+        <span class="servico-item-name">Esmaltação em gel + cutilagem (mão)</span>
+        <span class="servico-item-price">R$ 90</span>
+        <a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Esmaltação+em+gel+%2B+cutilagem+%28mão%29." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a>
+      </div>
+      <div class="servico-item">
+        <span class="servico-item-name">Banho de gel + cutilagem (mão)</span>
+        <span class="servico-item-price">R$ 210</span>
+        <a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Banho+de+gel+%2B+cutilagem+%28mão%29." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a>
+      </div>
+      <div class="servico-item">
+        <span class="servico-item-name">Alongamento (mão)</span>
+        <span class="servico-item-price">R$ 320</span>
+        <a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Alongamento+%28mão%29." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a>
+      </div>
+      <div class="servico-item">
+        <span class="servico-item-name">Esmaltação Importada (mão)</span>
+        <span class="servico-item-price">R$ 15</span>
+        <a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Esmaltação+Importada+%28mão%29." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a>
+      </div>
+      <div class="servico-item">
+        <span class="servico-item-name">SPA dos Pés com pedicure</span>
+        <span class="servico-item-price">R$ 120</span>
+        <a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+SPA+dos+Pés+com+pedicure." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a>
+      </div>
+      <div class="servico-item">
+        <span class="servico-item-name">Plástica dos Pés com pedicure</span>
+        <span class="servico-item-price">R$ 130</span>
+        <a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Plástica+dos+Pés+com+pedicure." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a>
+      </div>
     </div>
     <div class="servico-cta">
       <span class="servico-cta-text">Dúvidas? Fale com a gente pelo WhatsApp</span>
@@ -1299,15 +1363,51 @@
       </div>
     </div>
     <div class="servico-list">
-      <div class="servico-item"><span class="servico-item-name">Corte Feminino</span><span class="servico-item-price">R$ 210</span></div>
-      <div class="servico-item"><span class="servico-item-name">Corte Masculino</span><span class="servico-item-price">R$ 120</span></div>
-      <div class="servico-item"><span class="servico-item-name">Corte Infantil</span><span class="servico-item-price">R$ 99</span></div>
-      <div class="servico-item"><span class="servico-item-name">Escova Simples</span><span class="servico-item-price">a partir de R$ 99</span></div>
-      <div class="servico-item"><span class="servico-item-name">Hidratação L'Oréal</span><span class="servico-item-price">a partir de R$ 198</span></div>
-      <div class="servico-item"><span class="servico-item-name">Reconstrução Joico</span><span class="servico-item-price">R$ 300</span></div>
-      <div class="servico-item"><span class="servico-item-name">Botox</span><span class="servico-item-price">a partir de R$ 300</span></div>
-      <div class="servico-item"><span class="servico-item-name">Progressiva</span><span class="servico-item-price">a partir de R$ 400</span></div>
-      <div class="servico-item"><span class="servico-item-name">Reflexo</span><span class="servico-item-price">a partir de R$ 650</span></div>
+      <div class="servico-item">
+        <span class="servico-item-name">Corte Feminino</span>
+        <span class="servico-item-price">R$ 210</span>
+        <a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Corte+Feminino." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a>
+      </div>
+      <div class="servico-item">
+        <span class="servico-item-name">Corte Masculino</span>
+        <span class="servico-item-price">R$ 120</span>
+        <a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Corte+Masculino." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a>
+      </div>
+      <div class="servico-item">
+        <span class="servico-item-name">Corte Infantil</span>
+        <span class="servico-item-price">R$ 99</span>
+        <a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Corte+Infantil." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a>
+      </div>
+      <div class="servico-item">
+        <span class="servico-item-name">Escova Simples</span>
+        <span class="servico-item-price">a partir de R$ 99</span>
+        <a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Escova+Simples." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a>
+      </div>
+      <div class="servico-item">
+        <span class="servico-item-name">Hidratação L'Oréal</span>
+        <span class="servico-item-price">a partir de R$ 198</span>
+        <a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Hidratação+L%27Oréal." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a>
+      </div>
+      <div class="servico-item">
+        <span class="servico-item-name">Reconstrução Joico</span>
+        <span class="servico-item-price">R$ 300</span>
+        <a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Reconstrução+Joico." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a>
+      </div>
+      <div class="servico-item">
+        <span class="servico-item-name">Botox</span>
+        <span class="servico-item-price">a partir de R$ 300</span>
+        <a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Botox+Capilar." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a>
+      </div>
+      <div class="servico-item">
+        <span class="servico-item-name">Progressiva</span>
+        <span class="servico-item-price">a partir de R$ 400</span>
+        <a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Progressiva." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a>
+      </div>
+      <div class="servico-item">
+        <span class="servico-item-name">Reflexo</span>
+        <span class="servico-item-price">a partir de R$ 650</span>
+        <a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Reflexo." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a>
+      </div>
     </div>
     <div class="servico-cta">
       <span class="servico-cta-text">Consulte disponibilidade e agende agora</span>
@@ -1324,13 +1424,41 @@
       </div>
     </div>
     <div class="servico-list">
-      <div class="servico-item"><span class="servico-item-name">Axila</span><span class="servico-item-price">R$ 40</span></div>
-      <div class="servico-item"><span class="servico-item-name">Buço com linha</span><span class="servico-item-price">R$ 40</span></div>
-      <div class="servico-item"><span class="servico-item-name">Rosto</span><span class="servico-item-price">R$ 80</span></div>
-      <div class="servico-item"><span class="servico-item-name">Íntima</span><span class="servico-item-price">R$ 60</span></div>
-      <div class="servico-item"><span class="servico-item-name">Perna Inteira</span><span class="servico-item-price">R$ 85</span></div>
-      <div class="servico-item"><span class="servico-item-name">Virilha Simples</span><span class="servico-item-price">R$ 65</span></div>
-      <div class="servico-item"><span class="servico-item-name">Virilha Completa</span><span class="servico-item-price">R$ 95</span></div>
+      <div class="servico-item">
+        <span class="servico-item-name">Axila</span>
+        <span class="servico-item-price">R$ 40</span>
+        <a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Depilação+de+Axila." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a>
+      </div>
+      <div class="servico-item">
+        <span class="servico-item-name">Buço com linha</span>
+        <span class="servico-item-price">R$ 40</span>
+        <a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Depilação+de+Buço+com+linha." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a>
+      </div>
+      <div class="servico-item">
+        <span class="servico-item-name">Rosto</span>
+        <span class="servico-item-price">R$ 80</span>
+        <a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Depilação+de+Rosto." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a>
+      </div>
+      <div class="servico-item">
+        <span class="servico-item-name">Íntima</span>
+        <span class="servico-item-price">R$ 60</span>
+        <a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Depilação+Íntima." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a>
+      </div>
+      <div class="servico-item">
+        <span class="servico-item-name">Perna Inteira</span>
+        <span class="servico-item-price">R$ 85</span>
+        <a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Depilação+Perna+Inteira." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a>
+      </div>
+      <div class="servico-item">
+        <span class="servico-item-name">Virilha Simples</span>
+        <span class="servico-item-price">R$ 65</span>
+        <a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Depilação+Virilha+Simples." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a>
+      </div>
+      <div class="servico-item">
+        <span class="servico-item-name">Virilha Completa</span>
+        <span class="servico-item-price">R$ 95</span>
+        <a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Depilação+Virilha+Completa." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a>
+      </div>
     </div>
     <div class="servico-cta">
       <span class="servico-cta-text">Agende sua depilação com nossa equipe</span>
@@ -1347,13 +1475,41 @@
       </div>
     </div>
     <div class="servico-list">
-      <div class="servico-item"><span class="servico-item-name">Limpeza de Pele</span><span class="servico-item-price">R$ 200</span></div>
-      <div class="servico-item"><span class="servico-item-name">Drenagem Corporal</span><span class="servico-item-price">R$ 180</span></div>
-      <div class="servico-item"><span class="servico-item-name">Massagem Relaxante</span><span class="servico-item-price">R$ 200</span></div>
-      <div class="servico-item"><span class="servico-item-name">Massagem Modeladora</span><span class="servico-item-price">R$ 220</span></div>
-      <div class="servico-item"><span class="servico-item-name">Massagem Express (30')</span><span class="servico-item-price">R$ 99</span></div>
-      <div class="servico-item"><span class="servico-item-name">Drenagem Facial</span><span class="servico-item-price">R$ 120</span></div>
-      <div class="servico-item"><span class="servico-item-name">Banho de Lua (corpo inteiro)</span><span class="servico-item-price">R$ 350</span></div>
+      <div class="servico-item">
+        <span class="servico-item-name">Limpeza de Pele</span>
+        <span class="servico-item-price">R$ 200</span>
+        <a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Limpeza+de+Pele." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a>
+      </div>
+      <div class="servico-item">
+        <span class="servico-item-name">Drenagem Corporal</span>
+        <span class="servico-item-price">R$ 180</span>
+        <a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Drenagem+Corporal." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a>
+      </div>
+      <div class="servico-item">
+        <span class="servico-item-name">Massagem Relaxante</span>
+        <span class="servico-item-price">R$ 200</span>
+        <a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Massagem+Relaxante." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a>
+      </div>
+      <div class="servico-item">
+        <span class="servico-item-name">Massagem Modeladora</span>
+        <span class="servico-item-price">R$ 220</span>
+        <a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Massagem+Modeladora." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a>
+      </div>
+      <div class="servico-item">
+        <span class="servico-item-name">Massagem Express (30')</span>
+        <span class="servico-item-price">R$ 99</span>
+        <a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Massagem+Express+%2830+minutos%29." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a>
+      </div>
+      <div class="servico-item">
+        <span class="servico-item-name">Drenagem Facial</span>
+        <span class="servico-item-price">R$ 120</span>
+        <a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Drenagem+Facial." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a>
+      </div>
+      <div class="servico-item">
+        <span class="servico-item-name">Banho de Lua (corpo inteiro)</span>
+        <span class="servico-item-price">R$ 350</span>
+        <a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Banho+de+Lua+%28corpo+inteiro%29." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a>
+      </div>
     </div>
     <div class="servico-cta">
       <span class="servico-cta-text">Cuide-se com nossos tratamentos exclusivos</span>
@@ -1370,9 +1526,21 @@
       </div>
     </div>
     <div class="servico-list">
-      <div class="servico-item"><span class="servico-item-name">Limpeza</span><span class="servico-item-price">R$ 45</span></div>
-      <div class="servico-item"><span class="servico-item-name">Design</span><span class="servico-item-price">R$ 75</span></div>
-      <div class="servico-item"><span class="servico-item-name">Tintura</span><span class="servico-item-price">R$ 80</span></div>
+      <div class="servico-item">
+        <span class="servico-item-name">Limpeza de Sobrancelha</span>
+        <span class="servico-item-price">R$ 45</span>
+        <a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Limpeza+de+Sobrancelha." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a>
+      </div>
+      <div class="servico-item">
+        <span class="servico-item-name">Design de Sobrancelha</span>
+        <span class="servico-item-price">R$ 75</span>
+        <a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Design+de+Sobrancelha." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a>
+      </div>
+      <div class="servico-item">
+        <span class="servico-item-name">Tintura de Sobrancelha</span>
+        <span class="servico-item-price">R$ 80</span>
+        <a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Tintura+de+Sobrancelha." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a>
+      </div>
     </div>
     <div class="servico-cta">
       <span class="servico-cta-text">Realce o seu olhar com a nossa especialista</span>
@@ -1389,9 +1557,21 @@
       </div>
     </div>
     <div class="servico-list">
-      <div class="servico-item"><span class="servico-item-name">Podologia</span><span class="servico-item-price">R$ 200</span></div>
-      <div class="servico-item"><span class="servico-item-name">Tratamento de Micose</span><span class="servico-item-price">a partir de R$ 100</span></div>
-      <div class="servico-item"><span class="servico-item-name">Calos e Calosidades</span><span class="servico-item-price">R$ 150</span></div>
+      <div class="servico-item">
+        <span class="servico-item-name">Podologia</span>
+        <span class="servico-item-price">R$ 200</span>
+        <a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Podologia." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a>
+      </div>
+      <div class="servico-item">
+        <span class="servico-item-name">Tratamento de Micose</span>
+        <span class="servico-item-price">a partir de R$ 100</span>
+        <a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Tratamento+de+Micose." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a>
+      </div>
+      <div class="servico-item">
+        <span class="servico-item-name">Calos e Calosidades</span>
+        <span class="servico-item-price">R$ 150</span>
+        <a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Tratamento+de+Calos+e+Calosidades." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a>
+      </div>
     </div>
     <div class="servico-cta">
       <span class="servico-cta-text">Tratamento especializado para os seus pés</span>
