@@ -44,15 +44,15 @@
   /* ── NAV ── */
   nav {
     position: fixed; top:0; width:100%; z-index:1000;
-    padding: 20px 40px;
+    padding: 14px 40px;
     display: flex; align-items: center; justify-content: space-between;
-    transition: background .4s ease, padding .4s ease;
+    background: rgba(10,10,10,0.96);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+    transition: padding .4s ease;
   }
   nav.scrolled {
-    background: rgba(10,10,10,0.94);
-    backdrop-filter: blur(16px);
-    padding: 12px 40px;
-    border-bottom: 1px solid rgba(201,168,76,0.15);
+    padding: 10px 40px;
   }
   .nav-logo { display:flex; align-items:center; gap:12px; text-decoration:none; }
   .nav-logo-icon { width:44px; height:44px; }
@@ -378,8 +378,8 @@
     .servicos-foto-grid { grid-template-columns:repeat(2,1fr); }
   }
   @media (max-width:768px) {
-    nav { padding:16px 20px; }
-    nav.scrolled { padding:12px 20px; }
+    nav { padding:10px 20px; }
+    nav.scrolled { padding:8px 20px; }
     .nav-links, .nav-cta { display:none; }
     .hamburger { display:flex; }
     .diff-grid { grid-template-columns:repeat(2,1fr); }
@@ -421,7 +421,7 @@
 <!-- NAV -->
 <nav id="navbar">
   <a href="#" class="nav-logo" aria-label="AURA Beleza e Estética">
-    <img src="logo-horizontal.png" alt="AURA Beleza & Estética" style="height:44px;width:auto;object-fit:contain;">
+    <img src="logo-horizontal.png" alt="AURA Beleza & Estética" style="height:58px;width:auto;object-fit:contain;">
   </a>
   <ul class="nav-links">
     <li><a href="#sobre">Sobre</a></li>
