@@ -23,13 +23,14 @@
     --cream-muted: #B8AD9E;
   }
 
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; overflow-x: hidden; }
 
   body {
     background: var(--black);
     color: var(--cream);
     font-family: 'Inter', sans-serif;
     overflow-x: hidden;
+    max-width: 100%;
     line-height: 1.6;
   }
 
@@ -361,13 +362,18 @@
   .footer-copy span { color:var(--gold); }
 
   /* ── WHATSAPP FIXO ── */
-  .whatsapp-float { position:fixed; bottom:32px; right:32px; z-index:999; display:flex; align-items:center; gap:12px; text-decoration:none; }
-  .whatsapp-bubble { background:var(--black-card); border:1px solid rgba(201,168,76,.3); color:var(--cream); padding:10px 20px; font-size:.72rem; letter-spacing:.1em; white-space:nowrap; opacity:0; transform:translateX(10px); transition:all .3s ease; pointer-events:none; }
-  .whatsapp-float:hover .whatsapp-bubble { opacity:1; transform:translateX(0); }
-  .whatsapp-btn { width:60px; height:60px; background:#25D366; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 24px rgba(37,211,102,.4); animation:waPulse 2.5s ease-in-out infinite; transition:transform .3s ease; flex-shrink:0; }
-  .whatsapp-btn:hover { transform:scale(1.1); }
-  .whatsapp-btn svg { width:28px; height:28px; fill:white; }
-  @keyframes waPulse { 0%,100%{box-shadow:0 4px 24px rgba(37,211,102,.4)} 50%{box-shadow:0 4px 40px rgba(37,211,102,.7),0 0 0 8px rgba(37,211,102,.1)} }
+  .whatsapp-float {
+    position: fixed; bottom: 32px; right: 32px; z-index: 999;
+    display: flex; align-items: center; gap: 10px;
+    background: #25D366; color: #fff; text-decoration: none;
+    padding: 14px 22px 14px 18px; border-radius: 50px;
+    font-family: 'Inter', sans-serif; font-size: .78rem; font-weight: 600; letter-spacing: .04em;
+    box-shadow: 0 4px 20px rgba(37,211,102,.35);
+    transition: transform .3s ease, box-shadow .3s ease;
+    white-space: nowrap;
+  }
+  .whatsapp-float:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(37,211,102,.5); }
+  .whatsapp-float svg { width: 22px; height: 22px; fill: white; flex-shrink: 0; }
 
   /* ── KEYFRAMES ── */
   @keyframes fadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
@@ -400,8 +406,8 @@
     .footer-top { grid-template-columns:1fr; gap:40px; }
     footer { padding:48px 20px 32px; }
     .loc-map { height:300px; }
-    .whatsapp-float { bottom:20px; right:20px; }
-    .whatsapp-btn { width:52px; height:52px; }
+    .whatsapp-float { bottom:20px; right:20px; padding:13px 16px; font-size:0; gap:0; }
+    .whatsapp-float svg { width:26px; height:26px; }
     .parallax-section { min-height:80vh; }
     .parallax-bg { background-attachment:scroll; inset:0; }
   }
@@ -732,7 +738,7 @@
     <div class="footer-top">
       <div>
         <div class="footer-brand-logo">
-          <img src="logo-horizontal.png" alt="AURA Beleza & Estética" style="height:40px;width:auto;object-fit:contain;">
+          <img src="logo-horizontal.png" alt="AURA Beleza & Estética" style="height:80px;width:auto;object-fit:contain;">
         </div>
         <p class="footer-desc">Studio de beleza premium em Vila Olímpia. Cabelos, unhas, estética, sobrancelha, depilação e podologia.</p>
         <div class="footer-social">
@@ -771,11 +777,9 @@
 </footer>
 
 <!-- WHATSAPP FIXO -->
-<a href="https://wa.me/5511921028116?text=Vim+do+site+e+gostaria+de+agendar+um+horário+na+AURA." class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp">
-  <span class="whatsapp-bubble">Agendar horário</span>
-  <div class="whatsapp-btn">
-    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM5.077 21.783l.688-2.514a9.37 9.37 0 01-1.25-4.7C4.515 9.784 8.76 5.54 14.052 5.54c2.565 0 4.97.999 6.779 2.814a9.548 9.548 0 012.807 6.79c-.002 5.295-4.247 9.54-9.538 9.54a9.507 9.507 0 01-4.554-1.163l-4.47 1.262zm4.739-2.73l.289.172a7.893 7.893 0 004.006 1.089c4.366 0 7.921-3.556 7.923-7.927a7.896 7.896 0 00-2.326-5.626 7.86 7.86 0 00-5.595-2.322c-4.369 0-7.925 3.556-7.927 7.926a7.904 7.904 0 001.218 4.228l.19.303-.808 2.956 3.03-.799z"/></svg>
-  </div>
+<a href="https://wa.me/5511921028116?text=Vim+do+site+e+gostaria+de+agendar+um+horário+na+AURA." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Agendar pelo WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.38 5.07L2 22l5.07-1.36A9.94 9.94 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm4.93 13.44c-.21.58-1.22 1.11-1.68 1.18-.43.06-.97.09-1.57-.1-.36-.11-.83-.27-1.42-.52-2.49-1.08-4.12-3.6-4.24-3.76-.12-.16-.98-1.3-.98-2.49 0-1.18.62-1.77.85-2.01.22-.24.48-.3.64-.3h.46c.15 0 .35-.06.54.41.21.5.7 1.71.76 1.83.06.12.1.27.02.43-.08.16-.12.27-.24.41-.12.14-.25.32-.36.43-.12.12-.24.25-.1.49.14.24.61 1.01 1.31 1.63.9.8 1.66 1.05 1.9 1.17.24.12.38.1.52-.06.14-.16.59-.69.75-.93.16-.24.32-.2.54-.12.22.08 1.4.66 1.64.78.24.12.4.18.46.28.06.1.06.58-.15 1.16z"/></svg>
+  Agendar horário
 </a>
 
 <script>
