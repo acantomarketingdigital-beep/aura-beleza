@@ -426,6 +426,122 @@
     *, *::before, *::after { animation-duration:.01ms !important; transition-duration:.01ms !important; }
     .parallax-bg { background-attachment:scroll; }
   }
+
+  /* ── ADMIN ── */
+  .admin-overlay {
+    position: fixed; inset: 0; z-index: 2000;
+    background: rgba(0,0,0,0.88); backdrop-filter: blur(10px);
+    display: none; align-items: center; justify-content: center; padding: 20px;
+  }
+  .admin-overlay.open { display: flex; }
+  .admin-login {
+    background: var(--black-card); border: 1px solid rgba(201,168,76,0.25);
+    padding: 48px 40px 40px; width: 100%; max-width: 380px;
+    position: relative; animation: panelIn .3s ease;
+  }
+  .admin-login-mark {
+    width: 52px; height: 52px; background: var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cormorant Garamond',serif; font-size: 1.6rem; font-weight: 600;
+    color: var(--black); margin: 0 auto 24px;
+  }
+  .admin-login h3 {
+    font-family: 'Cormorant Garamond',serif; font-size: 1.6rem; font-weight: 300;
+    color: var(--cream); text-align: center; margin-bottom: 4px;
+  }
+  .admin-login-sub {
+    font-size: .68rem; letter-spacing: .2em; text-transform: uppercase;
+    color: var(--cream-muted); text-align: center; margin-bottom: 32px;
+  }
+  .admin-input {
+    width: 100%; background: #0d0d0d; border: 1px solid rgba(201,168,76,0.15);
+    color: var(--cream); padding: 12px 16px; font-size: .88rem;
+    font-family: 'Inter',sans-serif; outline: none; margin-bottom: 12px;
+    transition: border-color .3s;
+  }
+  .admin-input:focus { border-color: rgba(201,168,76,0.5); }
+  .admin-input::placeholder { color: rgba(255,255,255,0.25); }
+  .admin-error { font-size: .72rem; color: #e05c5c; min-height: 18px; margin-bottom: 8px; text-align: center; }
+  .admin-btn-primary {
+    width: 100%; background: var(--gold); color: var(--black); border: none;
+    padding: 14px; font-size: .75rem; letter-spacing: .2em; text-transform: uppercase;
+    font-weight: 600; font-family: 'Inter',sans-serif; cursor: pointer; transition: opacity .3s;
+  }
+  .admin-btn-primary:hover { opacity: .88; }
+  .admin-btn-primary:disabled { opacity: .5; cursor: not-allowed; }
+  .admin-close-btn {
+    position: absolute; top: 16px; right: 20px; background: none; border: none;
+    color: var(--cream-muted); font-size: 1.2rem; cursor: pointer; transition: color .3s; line-height: 1;
+  }
+  .admin-close-btn:hover { color: var(--gold); }
+  .admin-panel {
+    background: var(--black-card); border: 1px solid rgba(201,168,76,0.15);
+    width: 100%; max-width: 860px; max-height: 88vh;
+    flex-direction: column; animation: panelIn .3s ease; overflow: hidden;
+  }
+  .admin-panel-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 20px 32px; border-bottom: 1px solid rgba(201,168,76,0.12); flex-shrink: 0;
+  }
+  .admin-panel-title { font-family: 'Cormorant Garamond',serif; font-size: 1.4rem; font-weight: 300; color: var(--cream); }
+  .admin-panel-title span { color: var(--gold); font-style: italic; }
+  .admin-logout-btn {
+    background: transparent; border: 1px solid rgba(201,168,76,0.25);
+    color: var(--cream-muted); padding: 7px 18px; font-size: .65rem;
+    letter-spacing: .18em; text-transform: uppercase; font-family: 'Inter',sans-serif;
+    cursor: pointer; transition: all .3s;
+  }
+  .admin-logout-btn:hover { border-color: var(--gold); color: var(--gold); }
+  .admin-panel-tabs {
+    display: flex; gap: 2px; padding: 16px 32px 0; flex-shrink: 0; flex-wrap: wrap;
+  }
+  .admin-tab-btn {
+    background: transparent; border: 1px solid rgba(201,168,76,0.12);
+    color: var(--cream-muted); padding: 8px 18px; font-size: .65rem;
+    letter-spacing: .15em; text-transform: uppercase; font-family: 'Inter',sans-serif;
+    cursor: pointer; transition: all .3s;
+  }
+  .admin-tab-btn:hover { border-color: rgba(201,168,76,0.4); color: var(--cream); }
+  .admin-tab-btn.active { background: var(--gold); border-color: var(--gold); color: var(--black); font-weight: 600; }
+  .admin-panel-content { flex: 1; overflow-y: auto; padding: 24px 32px 32px; }
+  .admin-panel-content::-webkit-scrollbar { width: 4px; }
+  .admin-panel-content::-webkit-scrollbar-track { background: transparent; }
+  .admin-panel-content::-webkit-scrollbar-thumb { background: rgba(201,168,76,0.25); border-radius: 2px; }
+  .admin-row {
+    display: grid; grid-template-columns: 1fr 160px 36px 36px;
+    gap: 8px; align-items: center;
+    padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  .admin-row:last-of-type { border-bottom: none; }
+  .admin-field {
+    background: #0d0d0d; border: 1px solid rgba(201,168,76,0.12);
+    color: var(--cream); padding: 8px 12px; font-size: .82rem;
+    font-family: 'Inter',sans-serif; outline: none; width: 100%; transition: border-color .3s;
+  }
+  .admin-field:focus { border-color: rgba(201,168,76,0.45); }
+  .admin-icon-btn {
+    width: 36px; height: 36px; display: flex; align-items: center; justify-content: center;
+    background: transparent; border: 1px solid; cursor: pointer; font-size: .9rem;
+    transition: all .25s; flex-shrink: 0;
+  }
+  .admin-save-btn { border-color: rgba(201,168,76,0.3); color: var(--gold); }
+  .admin-save-btn:hover { background: var(--gold); color: var(--black); }
+  .admin-del-btn { border-color: rgba(224,92,92,0.25); color: #e05c5c; }
+  .admin-del-btn:hover { background: #e05c5c; color: #fff; }
+  .admin-add-btn {
+    display: flex; align-items: center; gap: 8px; background: transparent;
+    border: 1px dashed rgba(201,168,76,0.2); color: var(--gold); padding: 10px 20px;
+    font-size: .7rem; letter-spacing: .15em; text-transform: uppercase;
+    font-family: 'Inter',sans-serif; cursor: pointer; width: 100%; margin-top: 16px;
+    transition: all .3s; justify-content: center;
+  }
+  .admin-add-btn:hover { border-color: var(--gold); background: rgba(201,168,76,0.05); }
+  .admin-saving { opacity: .45; pointer-events: none; }
+  @media (max-width: 600px) {
+    .admin-login { padding: 40px 24px 32px; }
+    .admin-panel-header, .admin-panel-tabs, .admin-panel-content { padding-left: 20px; padding-right: 20px; }
+    .admin-row { grid-template-columns: 1fr 110px 34px 34px; gap: 6px; }
+  }
 </style>
 </head>
 <body>
@@ -768,10 +884,47 @@
     </div>
     <div class="footer-bottom">
       <p class="footer-copy">© 2025 <span>AURA</span> Beleza & Estética. Todos os direitos reservados.</p>
-      <p class="footer-copy">Vila Olímpia · São Paulo, SP</p>
+      <div style="display:flex;align-items:center;gap:20px;">
+        <p class="footer-copy">Vila Olímpia · São Paulo, SP</p>
+        <a href="#" id="admin-trigger" style="font-size:0.55rem;color:rgba(255,255,255,0.15);letter-spacing:0.2em;text-decoration:none;transition:color 0.3s;" onmouseover="this.style.color='rgba(201,168,76,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.15)'">admin</a>
+      </div>
     </div>
   </div>
 </footer>
+
+<!-- ADMIN MODAL -->
+<div class="admin-overlay" id="adminOverlay">
+
+  <!-- LOGIN -->
+  <div class="admin-login" id="adminLogin">
+    <button class="admin-close-btn" onclick="fecharAdmin()">✕</button>
+    <div class="admin-login-mark">A</div>
+    <h3>Painel Admin</h3>
+    <p class="admin-login-sub">AURA Beleza & Estética</p>
+    <input type="email" class="admin-input" id="adminEmail" placeholder="Email" autocomplete="email">
+    <input type="password" class="admin-input" id="adminPass" placeholder="Senha" autocomplete="current-password">
+    <p class="admin-error" id="adminError"></p>
+    <button class="admin-btn-primary" id="adminLoginBtn" onclick="fazerLogin()">Entrar</button>
+  </div>
+
+  <!-- PAINEL -->
+  <div class="admin-panel" id="adminPanel" style="display:none">
+    <div class="admin-panel-header">
+      <span class="admin-panel-title">Painel <span>AURA</span></span>
+      <button class="admin-logout-btn" onclick="fazerLogout()">Sair</button>
+    </div>
+    <div class="admin-panel-tabs">
+      <button class="admin-tab-btn active" onclick="adminShowTab('unhas',this)">Unhas</button>
+      <button class="admin-tab-btn" onclick="adminShowTab('cabelos',this)">Cabelos</button>
+      <button class="admin-tab-btn" onclick="adminShowTab('depilacao',this)">Depilação</button>
+      <button class="admin-tab-btn" onclick="adminShowTab('estetica',this)">Estética</button>
+      <button class="admin-tab-btn" onclick="adminShowTab('sobrancelha',this)">Sobrancelha</button>
+      <button class="admin-tab-btn" onclick="adminShowTab('podologia',this)">Podologia</button>
+    </div>
+    <div class="admin-panel-content" id="adminContent"></div>
+  </div>
+
+</div>
 
 <!-- WHATSAPP FIXO -->
 <a href="https://wa.me/5511921028116?text=Vim+do+site+e+gostaria+de+agendar+um+horário+na+AURA." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Agendar pelo WhatsApp">
@@ -904,6 +1057,170 @@ async function carregarServicos() {
   }
 }
 carregarServicos();
+
+// ── ADMIN SYSTEM ──
+let adminToken = null;
+let adminServicos = {};
+let adminCatAtual = 'unhas';
+const CAT_LABEL = { unhas:'Unhas', cabelos:'Cabelos', depilacao:'Depilação', estetica:'Estética', sobrancelha:'Sobrancelha', podologia:'Podologia' };
+
+document.getElementById('admin-trigger').addEventListener('click', (e) => {
+  e.preventDefault();
+  document.getElementById('adminOverlay').classList.add('open');
+  setTimeout(() => document.getElementById('adminEmail').focus(), 100);
+});
+
+document.getElementById('adminOverlay').addEventListener('click', (e) => {
+  if (e.target === document.getElementById('adminOverlay')) fecharAdmin();
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && document.getElementById('adminOverlay').classList.contains('open')) fecharAdmin();
+  if (e.key === 'Enter' && document.getElementById('adminOverlay').classList.contains('open') && !adminToken) fazerLogin();
+});
+
+function fecharAdmin() {
+  document.getElementById('adminOverlay').classList.remove('open');
+  document.getElementById('adminError').textContent = '';
+  if (adminToken) {
+    fetch(`${SB_URL}/auth/v1/logout`, { method:'POST', headers:{ apikey:SB_KEY, Authorization:`Bearer ${adminToken}` } });
+    adminToken = null; adminServicos = {};
+    setTimeout(() => {
+      document.getElementById('adminPanel').style.display = 'none';
+      document.getElementById('adminLogin').style.display = '';
+    }, 200);
+  }
+}
+
+async function fazerLogin() {
+  const email = document.getElementById('adminEmail').value.trim();
+  const pass  = document.getElementById('adminPass').value;
+  const btn   = document.getElementById('adminLoginBtn');
+  const err   = document.getElementById('adminError');
+  if (!email || !pass) { err.textContent = 'Preencha email e senha.'; return; }
+  btn.disabled = true; btn.textContent = 'Entrando…'; err.textContent = '';
+  try {
+    const res  = await fetch(`${SB_URL}/auth/v1/token?grant_type=password`, {
+      method: 'POST',
+      headers: { apikey: SB_KEY, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password: pass })
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error_description || data.message || 'Credenciais inválidas');
+    adminToken = data.access_token;
+    await carregarServicosAdmin();
+    document.getElementById('adminLogin').style.display = 'none';
+    document.getElementById('adminPanel').style.display = 'flex';
+    adminShowTab('unhas', document.querySelector('.admin-tab-btn'));
+  } catch(e) {
+    err.textContent = e.message;
+  } finally {
+    btn.disabled = false; btn.textContent = 'Entrar';
+  }
+}
+
+async function fazerLogout() {
+  if (adminToken) {
+    fetch(`${SB_URL}/auth/v1/logout`, { method:'POST', headers:{ apikey:SB_KEY, Authorization:`Bearer ${adminToken}` } });
+  }
+  adminToken = null; adminServicos = {};
+  document.getElementById('adminPanel').style.display = 'none';
+  document.getElementById('adminLogin').style.display = '';
+  document.getElementById('adminEmail').value = '';
+  document.getElementById('adminPass').value = '';
+  document.getElementById('adminOverlay').classList.remove('open');
+}
+
+async function carregarServicosAdmin() {
+  const res  = await fetch(`${SB_URL}/rest/v1/aura_servicos?select=*&order=categoria.asc,ordem.asc`, {
+    headers: { apikey: SB_KEY, Authorization: `Bearer ${adminToken}` }
+  });
+  const data = await res.json();
+  adminServicos = {};
+  data.forEach(s => { if (!adminServicos[s.categoria]) adminServicos[s.categoria] = []; adminServicos[s.categoria].push({...s}); });
+}
+
+function adminShowTab(cat, btn) {
+  adminCatAtual = cat;
+  document.querySelectorAll('.admin-tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderAdminCat(cat);
+}
+
+function renderAdminCat(cat) {
+  const items = adminServicos[cat] || [];
+  document.getElementById('adminContent').innerHTML =
+    `<div id="admin-rows">${items.map(renderAdminRow).join('')}</div>` +
+    (items.length < 9 ? `<button class="admin-add-btn" onclick="adicionarServico('${cat}')">+ Adicionar serviço</button>` : '');
+}
+
+function renderAdminRow(s) {
+  const n = esc(s.nome), p = esc(s.preco);
+  return `<div class="admin-row" id="row-${s.id}">
+    <input class="admin-field" id="nome-${s.id}" value="${n}" placeholder="Nome do serviço">
+    <input class="admin-field" id="preco-${s.id}" value="${p}" placeholder="Preço">
+    <button class="admin-icon-btn admin-save-btn" onclick="salvarServico(${s.id})" title="Salvar">✓</button>
+    <button class="admin-icon-btn admin-del-btn" onclick="deletarServico(${s.id},'${esc(s.categoria)}')" title="Deletar">✕</button>
+  </div>`;
+}
+
+function esc(str) {
+  return String(str||'').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+async function salvarServico(id) {
+  const nome  = document.getElementById(`nome-${id}`).value.trim();
+  const preco = document.getElementById(`preco-${id}`).value.trim();
+  if (!nome || !preco) return;
+  const row = document.getElementById(`row-${id}`);
+  row.classList.add('admin-saving');
+  try {
+    const res = await fetch(`${SB_URL}/rest/v1/aura_servicos?id=eq.${id}`, {
+      method: 'PATCH',
+      headers: { apikey:SB_KEY, Authorization:`Bearer ${adminToken}`, 'Content-Type':'application/json', Prefer:'return=minimal' },
+      body: JSON.stringify({ nome, preco, updated_at: new Date().toISOString() })
+    });
+    if (!res.ok) throw new Error('Erro ao salvar');
+    Object.values(adminServicos).flat().forEach(s => { if (s.id === id) { s.nome = nome; s.preco = preco; } });
+    carregarServicos();
+  } catch(e) { alert(e.message); }
+  finally { row.classList.remove('admin-saving'); }
+}
+
+async function deletarServico(id, cat) {
+  if (!confirm('Deletar este serviço?')) return;
+  const row = document.getElementById(`row-${id}`);
+  row.classList.add('admin-saving');
+  try {
+    const res = await fetch(`${SB_URL}/rest/v1/aura_servicos?id=eq.${id}`, {
+      method: 'DELETE',
+      headers: { apikey:SB_KEY, Authorization:`Bearer ${adminToken}` }
+    });
+    if (!res.ok) throw new Error('Erro ao deletar');
+    adminServicos[cat] = (adminServicos[cat]||[]).filter(s => s.id !== id);
+    renderAdminCat(cat);
+    carregarServicos();
+  } catch(e) { alert(e.message); row.classList.remove('admin-saving'); }
+}
+
+async function adicionarServico(cat) {
+  const items  = adminServicos[cat] || [];
+  const ordem  = items.length + 1;
+  try {
+    const res  = await fetch(`${SB_URL}/rest/v1/aura_servicos`, {
+      method: 'POST',
+      headers: { apikey:SB_KEY, Authorization:`Bearer ${adminToken}`, 'Content-Type':'application/json', Prefer:'return=representation' },
+      body: JSON.stringify({ categoria:cat, nome:'Novo serviço', preco:'R$ 0', whatsapp_msg:`Vim do site e quero agendar um serviço de ${CAT_LABEL[cat]}.`, ordem })
+    });
+    if (!res.ok) throw new Error('Erro ao adicionar');
+    const [novo] = await res.json();
+    if (!adminServicos[cat]) adminServicos[cat] = [];
+    adminServicos[cat].push(novo);
+    renderAdminCat(cat);
+    carregarServicos();
+    setTimeout(() => { const inp = document.getElementById(`nome-${novo.id}`); if (inp) { inp.focus(); inp.select(); } }, 50);
+  } catch(e) { alert(e.message); }
+}
 </script>
 </body>
 </html>
