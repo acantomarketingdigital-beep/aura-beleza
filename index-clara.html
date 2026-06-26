@@ -543,14 +543,72 @@
     .admin-row { grid-template-columns: 1fr 110px 34px 34px; gap: 6px; }
   }
 
-  /* ── ADMIN: força tema escuro no overlay (independente do tema da página) ── */
+  /* ── SERVIÇO DESC ── */
+  .servico-item-price { display: none; }
+  .servico-item-desc { font-size: .74rem; color: var(--cream-muted); line-height: 1.4; font-weight: 300; text-align: center; margin-bottom: 2px; }
+
+  /* ── NAV INSTAGRAM ── */
+  .nav-ig { display:flex; align-items:center; color:var(--gold); text-decoration:none; transition:opacity .3s; }
+  .nav-ig:hover { opacity:.65; }
+  @media (max-width:768px) { .nav-ig { display:none; } }
+
+  /* ── GALERIA RESULTADOS ── */
+  #galeria { padding: 100px 40px; position: relative; }
+  #galeria::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg,transparent,var(--gold),transparent); }
+  .galeria-grid { max-width: 1100px; margin: 60px auto 0; display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
+  .galeria-item { position: relative; overflow: hidden; height: 320px; cursor: pointer; }
+  .galeria-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .6s ease; filter: brightness(.85); }
+  .galeria-item:hover img { transform: scale(1.06); filter: brightness(.6); }
+  .galeria-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 40%, rgba(10,10,10,.8) 100%);
+    display: flex; flex-direction: column; align-items: center; justify-content: flex-end;
+    padding: 24px 16px; transition: background .4s ease;
+  }
+  .galeria-item:hover .galeria-overlay { background: linear-gradient(180deg, rgba(139,105,20,.15) 0%, rgba(10,10,10,.85) 100%); }
+  .galeria-linha { width: 28px; height: 1px; background: var(--gold); margin-bottom: 10px; transition: width .4s ease; }
+  .galeria-item:hover .galeria-linha { width: 48px; }
+  .galeria-label { font-size: .68rem; letter-spacing: .3em; text-transform: uppercase; color: var(--cream); font-family: 'Inter',sans-serif; font-weight: 600; text-align: center; }
+  .galeria-nota { text-align: center; margin-top: 40px; font-size: .78rem; color: var(--cream-muted); font-weight: 300; }
+  .galeria-nota a { color: var(--gold); text-decoration: none; transition: opacity .3s; }
+  .galeria-nota a:hover { opacity: .75; }
+  @media (max-width:768px) { .galeria-grid { grid-template-columns: repeat(2,1fr); } .galeria-item { height: 240px; } #galeria { padding: 60px 20px; } }
+  @media (max-width:480px) { .galeria-grid { grid-template-columns: 1fr; } }
+
+  /* ── GRUPO WHATSAPP ── */
+  #grupo-wa {
+    padding: 80px 40px;
+    background: linear-gradient(135deg, #1A1500 0%, #0A0A0A 100%);
+    border-top: 1px solid rgba(201,168,76,.15);
+    border-bottom: 1px solid rgba(201,168,76,.15);
+    text-align: center;
+  }
+  .grupo-wa-icon { margin-bottom: 16px; display: block; line-height: 1; }
+  .grupo-wa-tag { font-size: .6rem; letter-spacing: .35em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; display: block; }
+  .grupo-wa-title { font-family: 'Cormorant Garamond',serif; font-size: clamp(1.8rem,4vw,3rem); font-weight: 300; color: #F5F0E8; line-height: 1.1; margin-bottom: 16px; }
+  .grupo-wa-title em { color: var(--gold); font-style: italic; }
+  .grupo-wa-sub { font-size: .88rem; color: #B8AD9E; max-width: 520px; margin: 0 auto 36px; line-height: 1.7; font-weight: 300; }
+  .btn-wa-grupo {
+    display: inline-flex; align-items: center; gap: 12px;
+    background: #25D366; color: #fff; padding: 18px 40px;
+    font-size: .8rem; font-weight: 700; font-family: 'Inter',sans-serif;
+    letter-spacing: .08em; text-transform: uppercase; text-decoration: none;
+    border-radius: 4px; transition: all .3s ease;
+    box-shadow: 0 4px 24px rgba(37,211,102,.3);
+  }
+  .btn-wa-grupo:hover { transform: translateY(-3px); box-shadow: 0 8px 36px rgba(37,211,102,.45); }
+  .btn-wa-grupo svg { width: 24px; height: 24px; fill: white; flex-shrink: 0; }
+  .grupo-wa-fine { font-size: .7rem; color: #B8AD9E; margin-top: 20px; opacity: .6; }
+  @media (max-width:768px) { #grupo-wa { padding: 60px 24px; } }
+
+  /* ── TEMA CLARO: galeria overlay claro ── */
+  .galeria-overlay { background: linear-gradient(180deg, transparent 40%, rgba(250,250,250,.8) 100%); }
+  .galeria-item:hover .galeria-overlay { background: linear-gradient(180deg, rgba(139,105,20,.1) 0%, rgba(250,250,250,.88) 100%); }
+
+  /* ── TEMA CLARO: admin mantém dark ── */
   .admin-overlay {
-    --black: #0A0A0A;
-    --black-card: #141414;
-    --black-section: #111111;
-    --cream: #F5F0E8;
-    --cream-muted: #B8AD9E;
-    --gold: #C9A84C;
+    --black: #0A0A0A; --black-card: #141414; --black-section: #111111;
+    --cream: #F5F0E8; --cream-muted: #B8AD9E; --gold: #C9A84C;
     background: rgba(0,0,0,0.88);
   }
 </style>
@@ -568,6 +626,9 @@
     <li><a href="#depoimentos">Depoimentos</a></li>
     <li><a href="#localizacao">Localização</a></li>
   </ul>
+  <a href="https://www.instagram.com/studiocarioca_elviraferraz/" class="nav-ig" target="_blank" rel="noopener" aria-label="Instagram">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+  </a>
   <a href="https://wa.me/5511921028116?text=Vim+do+site+e+gostaria+de+agendar+um+horário." class="nav-cta" target="_blank" rel="noopener">Agendar</a>
   <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
     <span></span><span></span><span></span>
@@ -601,7 +662,6 @@
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M5.077 21.783l.688-2.514a9.37 9.37 0 01-1.25-4.7C4.515 9.784 8.76 5.54 14.052 5.54c2.565 0 4.97.999 6.779 2.814a9.548 9.548 0 012.807 6.79c-.002 5.295-4.247 9.54-9.538 9.54a9.507 9.507 0 01-4.554-1.163l-4.47 1.262zm4.739-2.73l.289.172a7.893 7.893 0 004.006 1.089c4.366 0 7.921-3.556 7.923-7.927a7.896 7.896 0 00-2.326-5.626 7.86 7.86 0 00-5.595-2.322c-4.369 0-7.925 3.556-7.927 7.926a7.904 7.904 0 001.218 4.228l.19.303-.808 2.956 3.03-.799z"/></svg>
         Agendar pelo WhatsApp
       </a>
-      <a href="#servicos" class="btn-secondary">Ver Serviços & Preços</a>
     </div>
   </div>
 
@@ -653,10 +713,11 @@
       </div>
     </div>
     <div class="reveal-right">
-      <span class="sobre-tag">Nossa História</span>
-      <h2 class="sobre-title">Um espaço criado para <em>realçar</em> a sua beleza</h2>
-      <p class="sobre-text">A AURA nasceu da paixão por transformar. Mais do que um studio de beleza, somos um refúgio onde cada detalhe foi pensado para que você se sinta especial desde o primeiro momento que cruza nossa porta.</p>
-      <p class="sobre-text">Localizado no coração da Vila Olímpia, nosso ambiente sofisticado e acolhedor combina profissionalismo de alto nível com o conforto que você merece. Cada atendimento é único, personalizado e pensado para você.</p>
+      <span class="sobre-tag">Sobre Nós</span>
+      <h2 class="sobre-title">Onde a beleza encontra a <em>essência</em></h2>
+      <p class="sobre-text">Inspirado no significado da palavra "aura" — a energia única e exclusiva que envolve cada indivíduo e revela sua essência — nosso espaço celebra a beleza em sua forma mais autêntica.</p>
+      <p class="sobre-text">Aura é aquilo que transmitimos ao mundo: nossa energia, nossa personalidade e a forma única como ocupamos cada espaço. Por isso, nosso propósito é realçar e potencializar, com delicadeza, aquilo que já existe em você, destacando sua melhor versão sem perder sua essência.</p>
+      <p class="sobre-text">Com excelência técnica, tendências atuais, atendimento personalizado e um ambiente refinado, oferecemos mais do que serviços de beleza: criamos experiências que despertam confiança, valorizam a individualidade e elevam a autoestima.</p>
       <div class="sobre-linha"></div>
       <a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+conhecer+a+AURA." class="btn-primary" target="_blank" rel="noopener">Fale Conosco</a>
     </div>
@@ -681,107 +742,184 @@
   <!-- PREÇOS DETALHADOS -->
   <section id="servicos">
     <div class="section-header reveal">
-      <span class="section-tag">Tabela de preços</span>
-      <h2 class="section-title">Serviços & <em>Preços</em></h2>
+      <span class="section-tag">Nossos Serviços</span>
+      <h2 class="section-title">Nossos <em>Serviços</em></h2>
       <p class="section-sub">Selecione uma categoria para ver todos os serviços disponíveis</p>
     </div>
 
     <div class="servicos-tabs reveal" style="transition-delay:.1s">
-      <button class="tab-btn active" onclick="showTab('unhas',this)">Unhas</button>
-      <button class="tab-btn" onclick="showTab('cabelos',this)">Cabelos</button>
+      <button class="tab-btn active" onclick="showTab('cabelos',this)">Cabelo</button>
       <button class="tab-btn" onclick="showTab('depilacao',this)">Depilação</button>
       <button class="tab-btn" onclick="showTab('estetica',this)">Estética</button>
-      <button class="tab-btn" onclick="showTab('sobrancelha',this)">Sobrancelha</button>
+      <button class="tab-btn" onclick="showTab('maquiagem',this)">Maquiagem</button>
       <button class="tab-btn" onclick="showTab('podologia',this)">Podologia</button>
-    </div>
-
-    <!-- UNHAS -->
-    <div class="servico-panel active reveal" id="panel-unhas">
-      <div class="servico-header"><h3 class="servico-panel-title">Unhas</h3></div>
-      <div class="servico-list">
-        <div class="servico-item"><span class="servico-item-name">Mão</span><span class="servico-item-price">R$ 45</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Esmaltação+Mão." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
-        <div class="servico-item"><span class="servico-item-name">Pé</span><span class="servico-item-price">R$ 50</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Esmaltação+Pé." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
-        <div class="servico-item"><span class="servico-item-name">Esmaltação em gel + cutilagem (mão)</span><span class="servico-item-price">R$ 90</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Esmaltação+em+gel+%2B+cutilagem+%28mão%29." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
-        <div class="servico-item"><span class="servico-item-name">Banho de gel + cutilagem (mão)</span><span class="servico-item-price">R$ 210</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Banho+de+gel+%2B+cutilagem+%28mão%29." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
-        <div class="servico-item"><span class="servico-item-name">Alongamento (mão)</span><span class="servico-item-price">R$ 320</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Alongamento+%28mão%29." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
-        <div class="servico-item"><span class="servico-item-name">Esmaltação Importada (mão)</span><span class="servico-item-price">R$ 15</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Esmaltação+Importada+%28mão%29." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
-        <div class="servico-item"><span class="servico-item-name">SPA dos Pés com pedicure</span><span class="servico-item-price">R$ 120</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+SPA+dos+Pés+com+pedicure." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
-        <div class="servico-item"><span class="servico-item-name">Plástica dos Pés com pedicure</span><span class="servico-item-price">R$ 130</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Plástica+dos+Pés+com+pedicure." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
-      </div>
-      <div class="servico-cta"><span class="servico-cta-text">Dúvidas? Fale com a gente</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+tenho+dúvidas+sobre+os+serviços+de+unhas." class="btn-primary" target="_blank" rel="noopener">Falar com a equipe</a></div>
+      <button class="tab-btn" onclick="showTab('sobrancelha',this)">Sobrancelha</button>
+      <button class="tab-btn" onclick="showTab('unhas',this)">Unhas</button>
+      <button class="tab-btn" onclick="showTab('barbearia',this)">Barbearia</button>
     </div>
 
     <!-- CABELOS -->
-    <div class="servico-panel" id="panel-cabelos">
+    <div class="servico-panel active reveal" id="panel-cabelos">
       <div class="servico-header"><h3 class="servico-panel-title">Cabelos</h3></div>
       <div class="servico-list">
-        <div class="servico-item"><span class="servico-item-name">Corte Feminino</span><span class="servico-item-price">R$ 210</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Corte+Feminino." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
-        <div class="servico-item"><span class="servico-item-name">Corte Masculino</span><span class="servico-item-price">R$ 120</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Corte+Masculino." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
-        <div class="servico-item"><span class="servico-item-name">Corte Infantil</span><span class="servico-item-price">R$ 99</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Corte+Infantil." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
-        <div class="servico-item"><span class="servico-item-name">Escova Simples</span><span class="servico-item-price">a partir de R$ 99</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Escova+Simples." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
-        <div class="servico-item"><span class="servico-item-name">Hidratação L'Oréal</span><span class="servico-item-price">a partir de R$ 198</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Hidratação+L'Oréal." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
-        <div class="servico-item"><span class="servico-item-name">Reconstrução Joico</span><span class="servico-item-price">R$ 300</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Reconstrução+Joico." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
-        <div class="servico-item"><span class="servico-item-name">Botox Capilar</span><span class="servico-item-price">a partir de R$ 300</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Botox+Capilar." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
-        <div class="servico-item"><span class="servico-item-name">Progressiva</span><span class="servico-item-price">a partir de R$ 400</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Progressiva." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
-        <div class="servico-item"><span class="servico-item-name">Reflexo</span><span class="servico-item-price">a partir de R$ 650</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Reflexo." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
+        <div class="servico-item"><span class="servico-item-name">Corte Feminino</span><span class="servico-item-desc">Corte personalizado com lavagem e finalização</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Corte+Feminino." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
+        <div class="servico-item"><span class="servico-item-name">Corte Masculino</span><span class="servico-item-desc">Corte moderno com acabamento profissional</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Corte+Masculino." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
+        <div class="servico-item"><span class="servico-item-name">Corte Infantil</span><span class="servico-item-desc">Corte delicado e divertido para os pequenos</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Corte+Infantil." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
+        <div class="servico-item"><span class="servico-item-name">Escova Simples</span><span class="servico-item-desc">Escova modeladora com brilho e maciez</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Escova+Simples." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
+        <div class="servico-item"><span class="servico-item-name">Hidratação L'Oréal</span><span class="servico-item-desc">Tratamento intensivo de hidratação profunda</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Hidratação+L'Oréal." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
+        <div class="servico-item"><span class="servico-item-name">Reconstrução Joico</span><span class="servico-item-desc">Reconstrução dos fios com tecnologia avançada</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Reconstrução+Joico." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
+        <div class="servico-item"><span class="servico-item-name">Botox Capilar</span><span class="servico-item-desc">Redução de volume e brilho intenso</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Botox+Capilar." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
+        <div class="servico-item"><span class="servico-item-name">Progressiva</span><span class="servico-item-desc">Alisamento duradouro com proteção dos fios</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Progressiva." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
+        <div class="servico-item"><span class="servico-item-name">Reflexo</span><span class="servico-item-desc">Iluminação personalizada para realçar sua cor natural</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Reflexo." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
       </div>
-      <div class="servico-cta"><span class="servico-cta-text">Consulte disponibilidade</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+tenho+dúvidas+sobre+os+serviços+de+cabelo." class="btn-primary" target="_blank" rel="noopener">Falar com a equipe</a></div>
+      <div class="servico-cta"><span class="servico-cta-text">Cada fio conta uma história. Deixe nossa equipe contar a sua.</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+tenho+dúvidas+sobre+os+serviços+de+cabelo." class="btn-primary" target="_blank" rel="noopener">Falar com a equipe</a></div>
     </div>
 
     <!-- DEPILAÇÃO -->
     <div class="servico-panel" id="panel-depilacao">
       <div class="servico-header"><h3 class="servico-panel-title">Depilação Feminina</h3></div>
       <div class="servico-list">
-        <div class="servico-item"><span class="servico-item-name">Axila</span><span class="servico-item-price">R$ 40</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Depilação+de+Axila." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
-        <div class="servico-item"><span class="servico-item-name">Buço com linha</span><span class="servico-item-price">R$ 40</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Depilação+de+Buço+com+linha." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
-        <div class="servico-item"><span class="servico-item-name">Rosto</span><span class="servico-item-price">R$ 80</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Depilação+de+Rosto." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
-        <div class="servico-item"><span class="servico-item-name">Íntima</span><span class="servico-item-price">R$ 60</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Depilação+Íntima." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
-        <div class="servico-item"><span class="servico-item-name">Perna Inteira</span><span class="servico-item-price">R$ 85</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Depilação+Perna+Inteira." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
-        <div class="servico-item"><span class="servico-item-name">Virilha Simples</span><span class="servico-item-price">R$ 65</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Depilação+Virilha+Simples." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
-        <div class="servico-item"><span class="servico-item-name">Virilha Completa</span><span class="servico-item-price">R$ 95</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Depilação+Virilha+Completa." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
+        <div class="servico-item"><span class="servico-item-name">Axila</span><span class="servico-item-desc">Depilação completa com cera ou linha</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Depilação+de+Axila." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
+        <div class="servico-item"><span class="servico-item-name">Buço com linha</span><span class="servico-item-desc">Remoção suave e precisa com linha</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Depilação+de+Buço+com+linha." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
+        <div class="servico-item"><span class="servico-item-name">Rosto</span><span class="servico-item-desc">Depilação facial completa e delicada</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Depilação+de+Rosto." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
+        <div class="servico-item"><span class="servico-item-name">Íntima</span><span class="servico-item-desc">Depilação íntima com máximo conforto e higiene</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Depilação+Íntima." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
+        <div class="servico-item"><span class="servico-item-name">Perna Inteira</span><span class="servico-item-desc">Depilação da perna inteira com cera quente</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Depilação+Perna+Inteira." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
+        <div class="servico-item"><span class="servico-item-name">Virilha Simples</span><span class="servico-item-desc">Modelagem e remoção dos pelos da virilha</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Depilação+Virilha+Simples." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
+        <div class="servico-item"><span class="servico-item-name">Virilha Completa</span><span class="servico-item-desc">Remoção completa com acabamento impecável</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Depilação+Virilha+Completa." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
       </div>
-      <div class="servico-cta"><span class="servico-cta-text">Agende com nossa especialista</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+tenho+dúvidas+sobre+depilação." class="btn-primary" target="_blank" rel="noopener">Falar com a equipe</a></div>
+      <div class="servico-cta"><span class="servico-cta-text">Suavidade e precisão em cada detalhe.</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+tenho+dúvidas+sobre+depilação." class="btn-primary" target="_blank" rel="noopener">Falar com a equipe</a></div>
     </div>
 
     <!-- ESTÉTICA -->
     <div class="servico-panel" id="panel-estetica">
       <div class="servico-header"><h3 class="servico-panel-title">Estética</h3></div>
       <div class="servico-list">
-        <div class="servico-item"><span class="servico-item-name">Limpeza de Pele</span><span class="servico-item-price">R$ 200</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Limpeza+de+Pele." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
-        <div class="servico-item"><span class="servico-item-name">Drenagem Corporal</span><span class="servico-item-price">R$ 180</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Drenagem+Corporal." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
-        <div class="servico-item"><span class="servico-item-name">Massagem Relaxante</span><span class="servico-item-price">R$ 200</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Massagem+Relaxante." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
-        <div class="servico-item"><span class="servico-item-name">Massagem Modeladora</span><span class="servico-item-price">R$ 220</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Massagem+Modeladora." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
-        <div class="servico-item"><span class="servico-item-name">Massagem Express (30')</span><span class="servico-item-price">R$ 99</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Massagem+Express+%2830+minutos%29." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
-        <div class="servico-item"><span class="servico-item-name">Drenagem Facial</span><span class="servico-item-price">R$ 120</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Drenagem+Facial." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
-        <div class="servico-item"><span class="servico-item-name">Banho de Lua (corpo inteiro)</span><span class="servico-item-price">R$ 350</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Banho+de+Lua+%28corpo+inteiro%29." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
+        <div class="servico-item"><span class="servico-item-name">Limpeza de Pele</span><span class="servico-item-desc">Limpeza profunda com extração e máscara</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Limpeza+de+Pele." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
+        <div class="servico-item"><span class="servico-item-name">Drenagem Corporal</span><span class="servico-item-desc">Técnica manual para redução de retenção</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Drenagem+Corporal." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
+        <div class="servico-item"><span class="servico-item-name">Massagem Relaxante</span><span class="servico-item-desc">Massagem com óleos essenciais — agendamento prévio</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Massagem+Relaxante." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
+        <div class="servico-item"><span class="servico-item-name">Massagem Modeladora</span><span class="servico-item-desc">Técnica de contorno e definição corporal — agendamento prévio</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Massagem+Modeladora." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
+        <div class="servico-item"><span class="servico-item-name">Massagem Express (30')</span><span class="servico-item-desc">Alívio rápido de tensões musculares — agendamento prévio</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Massagem+Express+%2830+minutos%29." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
+        <div class="servico-item"><span class="servico-item-name">Drenagem Facial</span><span class="servico-item-desc">Drenagem linfática facial com técnica japonesa</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Drenagem+Facial." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
+        <div class="servico-item"><span class="servico-item-name">Banho de Lua (corpo inteiro)</span><span class="servico-item-desc">Esfoliação e hidratação completa do corpo</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Banho+de+Lua+%28corpo+inteiro%29." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
       </div>
-      <div class="servico-cta"><span class="servico-cta-text">Cuide-se com nossos tratamentos</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+tenho+dúvidas+sobre+estética." class="btn-primary" target="_blank" rel="noopener">Falar com a equipe</a></div>
+      <div class="servico-cta"><span class="servico-cta-text">Seu bem-estar começa aqui.</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+tenho+dúvidas+sobre+estética." class="btn-primary" target="_blank" rel="noopener">Falar com a equipe</a></div>
     </div>
 
-    <!-- SOBRANCELHA -->
-    <div class="servico-panel" id="panel-sobrancelha">
-      <div class="servico-header"><h3 class="servico-panel-title">Sobrancelha</h3></div>
+    <!-- MAQUIAGEM -->
+    <div class="servico-panel" id="panel-maquiagem">
+      <div class="servico-header"><h3 class="servico-panel-title">Maquiagem</h3></div>
       <div class="servico-list">
-        <div class="servico-item"><span class="servico-item-name">Limpeza de Sobrancelha</span><span class="servico-item-price">R$ 45</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Limpeza+de+Sobrancelha." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
-        <div class="servico-item"><span class="servico-item-name">Design de Sobrancelha</span><span class="servico-item-price">R$ 75</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Design+de+Sobrancelha." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
-        <div class="servico-item"><span class="servico-item-name">Tintura de Sobrancelha</span><span class="servico-item-price">R$ 80</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Tintura+de+Sobrancelha." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
+        <div class="servico-item"><span class="servico-item-name">Maquiagem Social</span><span class="servico-item-desc">Make leve e duradoura para ocasiões especiais — agendamento prévio obrigatório</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Maquiagem+Social." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
+        <div class="servico-item"><span class="servico-item-name">Maquiagem para Noiva</span><span class="servico-item-desc">Make exclusiva para o dia mais especial — agendamento prévio obrigatório</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Maquiagem+para+Noiva." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
+        <div class="servico-item"><span class="servico-item-name">Maquiagem para Festa</span><span class="servico-item-desc">Make impactante e duradoura para festas — agendamento prévio obrigatório</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Maquiagem+para+Festa." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
       </div>
-      <div class="servico-cta"><span class="servico-cta-text">Realce o seu olhar</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+tenho+dúvidas+sobre+sobrancelha." class="btn-primary" target="_blank" rel="noopener">Falar com a equipe</a></div>
+      <div class="servico-cta"><span class="servico-cta-text">Realce sua beleza para cada momento especial.</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+tenho+dúvidas+sobre+maquiagem." class="btn-primary" target="_blank" rel="noopener">Falar com a equipe</a></div>
     </div>
 
     <!-- PODOLOGIA -->
     <div class="servico-panel" id="panel-podologia">
       <div class="servico-header"><h3 class="servico-panel-title">Podologia</h3></div>
       <div class="servico-list">
-        <div class="servico-item"><span class="servico-item-name">Podologia</span><span class="servico-item-price">R$ 200</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Podologia." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
-        <div class="servico-item"><span class="servico-item-name">Tratamento de Micose</span><span class="servico-item-price">a partir de R$ 100</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Tratamento+de+Micose." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
-        <div class="servico-item"><span class="servico-item-name">Calos e Calosidades</span><span class="servico-item-price">R$ 150</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Tratamento+de+Calos+e+Calosidades." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
+        <div class="servico-item"><span class="servico-item-name">Podologia</span><span class="servico-item-desc">Cuidado completo e especializado para os pés</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Podologia." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
+        <div class="servico-item"><span class="servico-item-name">Tratamento de Micose</span><span class="servico-item-desc">Tratamento antifúngico com protocolo especializado</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Tratamento+de+Micose." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
+        <div class="servico-item"><span class="servico-item-name">Calos e Calosidades</span><span class="servico-item-desc">Remoção segura com hidratação e acabamento</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Tratamento+de+Calos+e+Calosidades." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
       </div>
-      <div class="servico-cta"><span class="servico-cta-text">Tratamento especializado para seus pés</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+tenho+dúvidas+sobre+podologia." class="btn-primary" target="_blank" rel="noopener">Falar com a equipe</a></div>
+      <div class="servico-cta"><span class="servico-cta-text">Cuide dos seus pés com quem entende.</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+tenho+dúvidas+sobre+podologia." class="btn-primary" target="_blank" rel="noopener">Falar com a equipe</a></div>
+    </div>
+
+    <!-- SOBRANCELHA -->
+    <div class="servico-panel" id="panel-sobrancelha">
+      <div class="servico-header"><h3 class="servico-panel-title">Sobrancelha</h3></div>
+      <div class="servico-list">
+        <div class="servico-item"><span class="servico-item-name">Limpeza de Sobrancelha</span><span class="servico-item-desc">Remoção dos fios excedentes com linha ou pinça</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Limpeza+de+Sobrancelha." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
+        <div class="servico-item"><span class="servico-item-name">Design de Sobrancelha</span><span class="servico-item-desc">Mapeamento e design personalizado para o seu rosto</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Design+de+Sobrancelha." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
+        <div class="servico-item"><span class="servico-item-name">Tintura de Sobrancelha</span><span class="servico-item-desc">Coloração para definição e preenchimento</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Tintura+de+Sobrancelha." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
+      </div>
+      <div class="servico-cta"><span class="servico-cta-text">O olhar que transforma tudo.</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+tenho+dúvidas+sobre+sobrancelha." class="btn-primary" target="_blank" rel="noopener">Falar com a equipe</a></div>
+    </div>
+
+    <!-- UNHAS -->
+    <div class="servico-panel" id="panel-unhas">
+      <div class="servico-header"><h3 class="servico-panel-title">Unhas</h3></div>
+      <div class="servico-list">
+        <div class="servico-item"><span class="servico-item-name">Mão</span><span class="servico-item-desc">Corte e/ou lixamento das unhas, cutilagem e esmaltação</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Esmaltação+Mão." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
+        <div class="servico-item"><span class="servico-item-name">Pé</span><span class="servico-item-desc">Cuidado completo dos pés com cutilagem e esmaltação</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Esmaltação+Pé." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
+        <div class="servico-item"><span class="servico-item-name">Esmaltação em gel + cutilagem (mão)</span><span class="servico-item-desc">Esmaltação em gel de longa duração com cutilagem</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Esmaltação+em+gel+%2B+cutilagem+%28mão%29." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
+        <div class="servico-item"><span class="servico-item-name">Banho de gel + cutilagem (mão)</span><span class="servico-item-desc">Revestimento em gel para unhas naturais mais fortes</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Banho+de+gel+%2B+cutilagem+%28mão%29." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
+        <div class="servico-item"><span class="servico-item-name">Alongamento (mão)</span><span class="servico-item-desc">Extensão em gel ou fibra com acabamento natural</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Alongamento+%28mão%29." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
+        <div class="servico-item"><span class="servico-item-name">Esmaltação Importada (mão)</span><span class="servico-item-desc">Esmaltes importados de alta durabilidade</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Esmaltação+Importada+%28mão%29." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
+        <div class="servico-item"><span class="servico-item-name">SPA dos Pés com pedicure</span><span class="servico-item-desc">Hidratação, esfoliação e massagem nos pés</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+SPA+dos+Pés+com+pedicure." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
+        <div class="servico-item"><span class="servico-item-name">Plástica dos Pés com pedicure</span><span class="servico-item-desc">Tratamento estético completo para os pés</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Plástica+dos+Pés+com+pedicure." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
+      </div>
+      <div class="servico-cta"><span class="servico-cta-text">Arte e delicadeza nas pontas dos seus dedos.</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+tenho+dúvidas+sobre+os+serviços+de+unhas." class="btn-primary" target="_blank" rel="noopener">Falar com a equipe</a></div>
+    </div>
+
+    <!-- BARBEARIA -->
+    <div class="servico-panel" id="panel-barbearia">
+      <div class="servico-header"><h3 class="servico-panel-title">Barbearia</h3></div>
+      <div class="servico-list">
+        <div class="servico-item"><span class="servico-item-name">Corte Masculino</span><span class="servico-item-desc">Corte moderno com acabamento profissional — agendamento prévio obrigatório</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Corte+Masculino+na+Barbearia." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
+        <div class="servico-item"><span class="servico-item-name">Barba</span><span class="servico-item-desc">Modelagem e acabamento de barba com navalha — agendamento prévio obrigatório</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Barba." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
+        <div class="servico-item"><span class="servico-item-name">Corte + Barba</span><span class="servico-item-desc">Combo completo com acabamento impecável — agendamento prévio obrigatório</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Corte+%2B+Barba." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
+      </div>
+      <div class="servico-cta"><span class="servico-cta-text">Estilo e precisão para o homem moderno.</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+tenho+dúvidas+sobre+barbearia." class="btn-primary" target="_blank" rel="noopener">Falar com a equipe</a></div>
     </div>
 
   </section>
 </div>
+
+<!-- GALERIA DE RESULTADOS -->
+<div class="content-section">
+  <section id="galeria">
+    <div class="section-header reveal">
+      <span class="section-tag">Galeria</span>
+      <h2 class="section-title">Nossos <em>Resultados</em></h2>
+      <p class="section-sub">Confira alguns dos nossos trabalhos</p>
+    </div>
+    <div class="galeria-grid">
+      <div class="galeria-item reveal">
+        <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=80" alt="Cabelos" loading="lazy">
+        <div class="galeria-overlay"><div class="galeria-linha"></div><span class="galeria-label">Cabelos</span></div>
+      </div>
+      <div class="galeria-item reveal" style="transition-delay:.1s">
+        <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&q=80" alt="Unhas" loading="lazy">
+        <div class="galeria-overlay"><div class="galeria-linha"></div><span class="galeria-label">Unhas</span></div>
+      </div>
+      <div class="galeria-item reveal" style="transition-delay:.2s">
+        <img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=600&q=80" alt="Estética" loading="lazy">
+        <div class="galeria-overlay"><div class="galeria-linha"></div><span class="galeria-label">Estética</span></div>
+      </div>
+      <div class="galeria-item reveal" style="transition-delay:.1s">
+        <img src="https://images.unsplash.com/photo-1522337094846-8a818192de1f?w=600&q=80" alt="Sobrancelha" loading="lazy">
+        <div class="galeria-overlay"><div class="galeria-linha"></div><span class="galeria-label">Sobrancelha</span></div>
+      </div>
+      <div class="galeria-item reveal" style="transition-delay:.2s">
+        <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=600&q=80" alt="Bem-estar" loading="lazy">
+        <div class="galeria-overlay"><div class="galeria-linha"></div><span class="galeria-label">Bem-estar</span></div>
+      </div>
+      <div class="galeria-item reveal" style="transition-delay:.3s">
+        <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600&q=80" alt="Studio Aura" loading="lazy">
+        <div class="galeria-overlay"><div class="galeria-linha"></div><span class="galeria-label">Studio Aura</span></div>
+      </div>
+    </div>
+    <p class="galeria-nota">📸 Fotos em breve: acompanhe nossos resultados reais no <a href="https://www.instagram.com/studiocarioca_elviraferraz/" target="_blank" rel="noopener">Instagram</a></p>
+  </section>
+</div>
+
+<!-- GRUPO WHATSAPP -->
+<section id="grupo-wa">
+  <span class="grupo-wa-icon">
+    <svg width="40" height="40" viewBox="0 0 24 24" fill="#25D366" xmlns="http://www.w3.org/2000/svg"><path d=".057 24l1.687-6.163C.588 16.03.041 13.988.042 11.89.045 5.334 5.38.001 11.934.001c3.18.001 6.167 1.24 8.413 3.488 2.244 2.248 3.48 5.236 3.479 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+  </span>
+  <span class="grupo-wa-tag">COMUNIDADE EXCLUSIVA</span>
+  <h2 class="grupo-wa-title">Entre para o nosso grupo de <em>Novidades</em></h2>
+  <p class="grupo-wa-sub">Promoções exclusivas, lançamentos e dicas de beleza direto no seu WhatsApp. Seja a primeira a saber!</p>
+  <a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+entrar+no+grupo+de+novidades+da+AURA!" class="btn-wa-grupo" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d=".057 24l1.687-6.163C.588 16.03.041 13.988.042 11.89.045 5.334 5.38.001 11.934.001c3.18.001 6.167 1.24 8.413 3.488 2.244 2.248 3.48 5.236 3.479 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+    📲 Entrar no Grupo Agora
+  </a>
+  <p class="grupo-wa-fine">Grupo gratuito · Saia quando quiser · Sem spam</p>
+</section>
 
 <!-- PARALLAX 3 – DEPOIMENTOS -->
 <section class="parallax-section" id="parallax-final" style="min-height:70vh;">
@@ -794,26 +932,26 @@
     <div class="depo-slider">
       <div class="depo-slide active">
         <span class="depo-stars">★★★★★</span>
-        <p class="depo-text">Ambiente incrível, atendimento super atencioso e resultado impecável. Saí com as unhas perfeitas. Com certeza o melhor studio da Vila Olímpia!</p>
+        <p class="depo-text">Fui pela primeira vez sem expectativa e saí completamente encantada. O ambiente é lindo, a equipe é super atenciosa e o resultado do design de sobrancelha ficou perfeito para o meu rosto.</p>
         <div class="depo-author">
-          <div class="depo-avatar">A</div>
-          <div><div class="depo-name">Amanda Rodrigues</div><div class="depo-role">Cliente desde 2023 · Unhas & Sobrancelha</div></div>
+          <div class="depo-avatar">F</div>
+          <div><div class="depo-name">Fernanda Oliveira</div><div class="depo-role">Cliente · Design de Sobrancelha</div></div>
         </div>
       </div>
       <div class="depo-slide">
         <span class="depo-stars">★★★★★</span>
-        <p class="depo-text">Fiz a escova e a hidratação e fiquei completamente apaixonada! O cabelo ficou leve, brilhante e sedoso. A equipe é super profissional.</p>
+        <p class="depo-text">Faço minhas unhas aqui há meses e nunca me decepcionei. O SPA dos pés então é uma experiência à parte — saio me sentindo renovada. Indico de olhos fechados!</p>
         <div class="depo-author">
-          <div class="depo-avatar">C</div>
-          <div><div class="depo-name">Camila Ferreira</div><div class="depo-role">Cliente recorrente · Cabelos</div></div>
+          <div class="depo-avatar">J</div>
+          <div><div class="depo-name">Juliana Martins</div><div class="depo-role">Cliente VIP · Unhas & SPA dos Pés</div></div>
         </div>
       </div>
       <div class="depo-slide">
         <span class="depo-stars">★★★★★</span>
-        <p class="depo-text">A massagem modeladora foi transformadora! Me sinto outra pessoa. Profissionais extremamente qualificadas. Indico pra todo mundo!</p>
+        <p class="depo-text">Vim fazer a progressiva e além do resultado incrível, adorei o atendimento personalizado. Senti que realmente se importaram com a saúde do meu cabelo, não só com o resultado imediato.</p>
         <div class="depo-author">
-          <div class="depo-avatar">P</div>
-          <div><div class="depo-name">Patricia Lima</div><div class="depo-role">Cliente VIP · Estética Corporal</div></div>
+          <div class="depo-avatar">R</div>
+          <div><div class="depo-name">Renata Costa</div><div class="depo-role">Cliente recorrente · Cabelos</div></div>
         </div>
       </div>
       <div class="depo-controls">
@@ -842,7 +980,7 @@
         </div>
         <div class="loc-item">
           <div class="loc-item-icon">🕐</div>
-          <div><div class="loc-item-label">Horário</div><div class="loc-item-value">Seg – Sex: 9h às 20h<br>Sábado: 9h às 18h<br>Domingo: Fechado</div></div>
+          <div><div class="loc-item-label">Horário</div><div class="loc-item-value">Seg – Sex: 9h às 19h<br>Sábado: 9h às 19h<br>Domingo: Fechado</div></div>
         </div>
       </div>
       <a href="https://wa.me/5511921028116?text=Vim+do+site+e+gostaria+de+agendar+um+horário." class="btn-primary" target="_blank" rel="noopener">
@@ -869,6 +1007,14 @@
           <img src="logo-horizontal.png" alt="AURA Beleza & Estética" style="height:80px;width:auto;object-fit:contain;">
         </div>
         <p class="footer-desc">Studio de beleza premium em Vila Olímpia. Cabelos, unhas, estética, sobrancelha, depilação e podologia.</p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/studiocarioca_elviraferraz/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://wa.me/5511921028116" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M5.077 21.783l.688-2.514a9.37 9.37 0 01-1.25-4.7C4.515 9.784 8.76 5.54 14.052 5.54c2.565 0 4.97.999 6.779 2.814a9.548 9.548 0 012.807 6.79c-.002 5.295-4.247 9.54-9.538 9.54a9.507 9.507 0 01-4.554-1.163l-4.47 1.262zm4.739-2.73l.289.172a7.893 7.893 0 004.006 1.089c4.366 0 7.921-3.556 7.923-7.927a7.896 7.896 0 00-2.326-5.626 7.86 7.86 0 00-5.595-2.322c-4.369 0-7.925 3.556-7.927 7.926a7.904 7.904 0 001.218 4.228l.19.303-.808 2.956 3.03-.799z"/></svg>
+          </a>
+        </div>
       </div>
       <div>
         <h4 class="footer-col-title">Serviços</h4>
@@ -887,8 +1033,8 @@
           <li><a href="https://wa.me/5511921028116" target="_blank" rel="noopener">(11) 92102-8116</a></li>
           <li><a href="#">R. Elvira Ferraz, 309</a></li>
           <li><a href="#">Vila Olímpia · SP</a></li>
-          <li><a href="#">Seg-Sex: 9h – 20h</a></li>
-          <li><a href="#">Sáb: 9h – 18h</a></li>
+          <li><a href="#">Seg-Sex: 9h – 19h</a></li>
+          <li><a href="#">Sáb: 9h – 19h</a></li>
         </ul>
       </div>
     </div>
@@ -1058,7 +1204,6 @@ async function carregarServicos() {
       list.innerHTML = items.map(s => `
         <div class="servico-item">
           <span class="servico-item-name">${s.nome}</span>
-          <span class="servico-item-price">${s.preco}</span>
           <a href="https://wa.me/${WA}?text=${encodeURIComponent(s.whatsapp_msg || s.nome)}" class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a>
         </div>`).join('');
     });
@@ -1072,7 +1217,7 @@ carregarServicos();
 let adminToken = null;
 let adminServicos = {};
 let adminCatAtual = 'unhas';
-const CAT_LABEL = { unhas:'Unhas', cabelos:'Cabelos', depilacao:'Depilação', estetica:'Estética', sobrancelha:'Sobrancelha', podologia:'Podologia' };
+const CAT_LABEL = { cabelos:'Cabelos', depilacao:'Depilação', estetica:'Estética', maquiagem:'Maquiagem', podologia:'Podologia', sobrancelha:'Sobrancelha', unhas:'Unhas', barbearia:'Barbearia' };
 
 document.getElementById('admin-trigger').addEventListener('click', (e) => {
   e.preventDefault();
