@@ -20,20 +20,20 @@
     --detalhes-ouro:        #C5A880; /* ouro envelhecido — bordas e linhas decorativas */
 
     /* ── Mapeamento para variáveis do tema base ── */
-    --gold:         #8B6914; /* ouro escuro — botões e links (contraste WCAG AA) */
+    --gold:         #9B7A1F;
     --gold-light:   #C9A84C;
-    --gold-dark:    #8B6914;
-    --black:        var(--bg-claro);              /* fundo geral */
-    --black-card:   #F0EDE8;
-    --black-section:#F5F2ED;
-    --cream:        var(--texto-principal-claro); /* texto principal */
-    --cream-muted:  var(--texto-secundario-claro);/* texto secundário */
+    --gold-dark:    #6B5010;
+    --black:        #1A1208;
+    --black-card:   #FDF6EC;
+    --black-section:#F7EFE3;
+    --cream:        #1A1208;
+    --cream-muted:  #6B5B45;
   }
 
   html { scroll-behavior: smooth; overflow-x: hidden; }
 
   body {
-    background: var(--black);
+    background: #FDF6EC;
     color: var(--cream);
     font-family: 'Inter', sans-serif;
     overflow-x: hidden;
@@ -61,6 +61,7 @@
   }
   nav.scrolled {
     padding: 10px 40px;
+    background: rgba(253,246,236,0.96);
   }
   .nav-logo { display:flex; align-items:center; gap:12px; text-decoration:none; }
   .nav-logo-icon { width:44px; height:44px; }
@@ -412,6 +413,10 @@
     .servicos-foto-grid { grid-template-columns:1fr; }
     .servico-foto-card { height:280px; }
     .servico-foto-btn { opacity:1; transform:translateY(0); }
+    .servico-list { grid-template-columns: 1fr 1fr; }
+    .servico-item { padding: 20px 12px 18px; }
+    .servico-item-name { font-size: 0.78rem; }
+    .servico-item-btn { font-size: 0.58rem; padding: 6px 12px; }
     .footer-top { grid-template-columns:1fr; gap:40px; }
     footer { padding:48px 20px 32px; }
     .loc-map { height:300px; }
@@ -425,7 +430,7 @@
     .servicos-tabs { gap:6px; }
     .tab-btn { padding:8px 16px; font-size:.62rem; }
     .servico-header { padding:20px 24px; gap:12px; }
-    .servico-list { grid-template-columns:1fr; }
+    .servico-list { grid-template-columns: 1fr 1fr; }
     .servico-cta { padding:16px 24px; flex-direction:column; align-items:flex-start; }
     .hero-ctas { flex-direction:column; align-items:center; }
     .btn-primary, .btn-secondary { width:100%; justify-content:center; max-width:280px; }
@@ -586,16 +591,16 @@
   /* ── GRUPO WHATSAPP ── */
   #grupo-wa {
     padding: 80px 40px;
-    background: linear-gradient(135deg, #1A1500 0%, #0A0A0A 100%);
-    border-top: 1px solid rgba(201,168,76,.15);
-    border-bottom: 1px solid rgba(201,168,76,.15);
+    background: linear-gradient(135deg, rgba(201,168,76,0.12) 0%, rgba(201,168,76,0.06) 100%);
+    border-top: 1px solid rgba(201,168,76,0.25);
+    border-bottom: 1px solid rgba(201,168,76,0.25);
     text-align: center;
   }
   .grupo-wa-icon { margin-bottom: 16px; display: block; line-height: 1; }
   .grupo-wa-tag { font-size: .6rem; letter-spacing: .35em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; display: block; }
-  .grupo-wa-title { font-family: 'Cormorant Garamond',serif; font-size: clamp(1.8rem,4vw,3rem); font-weight: 300; color: #F5F0E8; line-height: 1.1; margin-bottom: 16px; }
+  .grupo-wa-title { font-family: 'Cormorant Garamond',serif; font-size: clamp(1.8rem,4vw,3rem); font-weight: 300; color: #1A1208; line-height: 1.1; margin-bottom: 16px; }
   .grupo-wa-title em { color: var(--gold); font-style: italic; }
-  .grupo-wa-sub { font-size: .88rem; color: #B8AD9E; max-width: 520px; margin: 0 auto 36px; line-height: 1.7; font-weight: 300; }
+  .grupo-wa-sub { font-size: .88rem; color: #6B5B45; max-width: 520px; margin: 0 auto 36px; line-height: 1.7; font-weight: 300; }
   .btn-wa-grupo {
     display: inline-flex; align-items: center; gap: 12px;
     background: #25D366; color: #fff; padding: 18px 40px;
@@ -606,7 +611,7 @@
   }
   .btn-wa-grupo:hover { transform: translateY(-3px); box-shadow: 0 8px 36px rgba(37,211,102,.45); }
   .btn-wa-grupo svg { width: 24px; height: 24px; fill: white; flex-shrink: 0; }
-  .grupo-wa-fine { font-size: .7rem; color: #B8AD9E; margin-top: 20px; opacity: .6; }
+  .grupo-wa-fine { font-size: .7rem; color: #6B5B45; margin-top: 20px; opacity: .6; }
   @media (max-width:768px) { #grupo-wa { padding: 60px 24px; } }
 
   /* ── TEMA CLARO: galeria overlay atualizado ── */
@@ -638,10 +643,10 @@
   .parallax-section p   { color: #5A4A42; text-shadow: none; }
 
   /* Seletores nomeados: precisão para classes específicas */
-  .hero-title           { color: #2B1E17; text-shadow: none; }
+  .hero-title           { color: #1A1208; text-shadow: 0 2px 20px rgba(253,246,236,0.8); }
   .hero-title span      { color: #8B6914; }
-  .hero-subtitle        { color: #5A4A42; text-shadow: none; }
-  .hero-eyebrow         { color: #8B6914; }
+  .hero-subtitle        { color: #6B5B45; text-shadow: none; }
+  .hero-eyebrow         { color: #6B5B45; }
   .parallax-title       { color: #2B1E17; text-shadow: none; }
   .parallax-title em    { color: #8B6914; }
   .parallax-sub         { color: #5A4A42; }
@@ -655,13 +660,19 @@
   .depo-role            { color: #5A4A42; }
   .depo-stars           { color: #8B6914; }
 
+  /* ── TEMA CLARO: seções de conteúdo ── */
+  .content-section { background: #FDF6EC; }
+  .content-section-alt { background: #F7EFE3; }
+
   /* ── TEMA CLARO: cards de serviço e diferenciais ── */
-  .diff-item { border-color: rgba(197,168,128,.2); }
-  .diff-item:hover { border-color: var(--detalhes-ouro); }
-  .servico-panel { border-color: rgba(197,168,128,.18); }
+  .diff-item { background: #FFFFFF; border: 1px solid rgba(155,122,31,0.15); box-shadow: 0 2px 20px rgba(155,122,31,0.08); }
+  .diff-item:hover { border-color: rgba(155,122,31,0.4); box-shadow: 0 8px 32px rgba(155,122,31,0.15); }
+  .servico-panel { background: #FFFFFF; border: 1px solid rgba(155,122,31,0.2); }
   .servico-header,
   .servico-cta { border-color: rgba(197,168,128,.15); }
-  .servico-list { background: rgba(197,168,128,.06); }
+  .servico-list { background: rgba(155,122,31,0.08); }
+  .servico-item { background: #FFFFFF; }
+  .servico-item:hover { background: #FDF6EC; }
 
   /* ── TEMA CLARO: mapa e localização ── */
   .loc-map-overlay {
@@ -702,8 +713,19 @@
     <li><a href="#depoimentos">Depoimentos</a></li>
     <li><a href="#localizacao">Localização</a></li>
   </ul>
-  <a href="https://www.instagram.com/studiocarioca_elviraferraz/" class="nav-ig" target="_blank" rel="noopener" aria-label="Instagram">
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+  <a href="https://www.instagram.com/studiocarioca_elviraferraz/" target="_blank" rel="noopener" aria-label="Instagram" style="display:flex;align-items:center;">
+    <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="ig-grad" cx="30%" cy="107%" r="150%">
+          <stop offset="0%" stop-color="#fdf497"/>
+          <stop offset="5%" stop-color="#fdf497"/>
+          <stop offset="45%" stop-color="#fd5949"/>
+          <stop offset="60%" stop-color="#d6249f"/>
+          <stop offset="90%" stop-color="#285AEB"/>
+        </radialGradient>
+      </defs>
+      <path fill="url(#ig-grad)" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+    </svg>
   </a>
   <a href="https://wa.me/5511921028116?text=Vim+do+site+e+gostaria+de+agendar+um+horário." class="nav-cta" target="_blank" rel="noopener">Agendar</a>
   <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
@@ -954,7 +976,7 @@
     </div>
     <div class="galeria-grid">
       <div class="galeria-item reveal">
-        <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=80" alt="Cabelos" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=600&q=80&auto=format&fit=crop" alt="Cabelos" loading="lazy">
         <div class="galeria-overlay"><div class="galeria-linha"></div><span class="galeria-label">Cabelos</span></div>
       </div>
       <div class="galeria-item reveal" style="transition-delay:.1s">
@@ -962,19 +984,19 @@
         <div class="galeria-overlay"><div class="galeria-linha"></div><span class="galeria-label">Unhas</span></div>
       </div>
       <div class="galeria-item reveal" style="transition-delay:.2s">
-        <img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=600&q=80" alt="Estética" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&q=80&auto=format&fit=crop" alt="Estética" loading="lazy">
         <div class="galeria-overlay"><div class="galeria-linha"></div><span class="galeria-label">Estética</span></div>
       </div>
       <div class="galeria-item reveal" style="transition-delay:.1s">
-        <img src="https://images.unsplash.com/photo-1522337094846-8a818192de1f?w=600&q=80" alt="Sobrancelha" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=600&q=80&auto=format&fit=crop" alt="Sobrancelha" loading="lazy">
         <div class="galeria-overlay"><div class="galeria-linha"></div><span class="galeria-label">Sobrancelha</span></div>
       </div>
       <div class="galeria-item reveal" style="transition-delay:.2s">
-        <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=600&q=80" alt="Bem-estar" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=600&q=80&auto=format&fit=crop" alt="Bem-estar" loading="lazy">
         <div class="galeria-overlay"><div class="galeria-linha"></div><span class="galeria-label">Bem-estar</span></div>
       </div>
       <div class="galeria-item reveal" style="transition-delay:.3s">
-        <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600&q=80" alt="Studio Aura" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=600&q=80&auto=format&fit=crop" alt="Studio Aura" loading="lazy">
         <div class="galeria-overlay"><div class="galeria-linha"></div><span class="galeria-label">Studio Aura</span></div>
       </div>
     </div>
@@ -1084,8 +1106,19 @@
         </div>
         <p class="footer-desc">Studio de beleza premium em Vila Olímpia. Cabelos, unhas, estética, sobrancelha, depilação e podologia.</p>
         <div class="footer-social">
-          <a href="https://www.instagram.com/studiocarioca_elviraferraz/" target="_blank" rel="noopener" aria-label="Instagram">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          <a href="https://www.instagram.com/studiocarioca_elviraferraz/" target="_blank" rel="noopener" aria-label="Instagram" style="display:flex;align-items:center;justify-content:center;">
+            <svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <radialGradient id="ig-grad-footer" cx="30%" cy="107%" r="150%">
+                  <stop offset="0%" stop-color="#fdf497"/>
+                  <stop offset="5%" stop-color="#fdf497"/>
+                  <stop offset="45%" stop-color="#fd5949"/>
+                  <stop offset="60%" stop-color="#d6249f"/>
+                  <stop offset="90%" stop-color="#285AEB"/>
+                </radialGradient>
+              </defs>
+              <path fill="url(#ig-grad-footer)" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+            </svg>
           </a>
           <a href="https://wa.me/5511921028116" target="_blank" rel="noopener" aria-label="WhatsApp">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M5.077 21.783l.688-2.514a9.37 9.37 0 01-1.25-4.7C4.515 9.784 8.76 5.54 14.052 5.54c2.565 0 4.97.999 6.779 2.814a9.548 9.548 0 012.807 6.79c-.002 5.295-4.247 9.54-9.538 9.54a9.507 9.507 0 01-4.554-1.163l-4.47 1.262zm4.739-2.73l.289.172a7.893 7.893 0 004.006 1.089c4.366 0 7.921-3.556 7.923-7.927a7.896 7.896 0 00-2.326-5.626 7.86 7.86 0 00-5.595-2.322c-4.369 0-7.925 3.556-7.927 7.926a7.904 7.904 0 001.218 4.228l.19.303-.808 2.956 3.03-.799z"/></svg>
