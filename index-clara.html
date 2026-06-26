@@ -13,14 +13,21 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --gold: #8B6914;
-    --gold-light: #C9A84C;
-    --gold-dark: #8B6914;
-    --black: #FAFAFA;
-    --black-card: #F0EDE8;
-    --black-section: #F5F2ED;
-    --cream: #1A1A1A;
-    --cream-muted: #5A5550;
+    /* ── Paleta semântica tema claro ── */
+    --bg-claro:             #FDFBF7; /* off-white creme suave */
+    --texto-principal-claro:#2B1E17; /* marrom café profundo */
+    --texto-secundario-claro:#5A4A42;/* marrom médio */
+    --detalhes-ouro:        #C5A880; /* ouro envelhecido — bordas e linhas decorativas */
+
+    /* ── Mapeamento para variáveis do tema base ── */
+    --gold:         #8B6914; /* ouro escuro — botões e links (contraste WCAG AA) */
+    --gold-light:   #C9A84C;
+    --gold-dark:    #8B6914;
+    --black:        var(--bg-claro);              /* fundo geral */
+    --black-card:   #F0EDE8;
+    --black-section:#F5F2ED;
+    --cream:        var(--texto-principal-claro); /* texto principal */
+    --cream-muted:  var(--texto-secundario-claro);/* texto secundário */
   }
 
   html { scroll-behavior: smooth; overflow-x: hidden; }
@@ -47,7 +54,7 @@
     position: fixed; top:0; width:100%; z-index:1000;
     padding: 14px 40px;
     display: flex; align-items: center; justify-content: space-between;
-    background: rgba(250,250,250,0.96);
+    background: rgba(253,251,247,0.96);
     backdrop-filter: blur(16px);
     border-bottom: 1px solid rgba(201,168,76,0.15);
     transition: padding .4s ease;
@@ -66,7 +73,7 @@
   .nav-cta:hover { background:var(--gold); color:var(--black); }
   .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none; padding:4px; }
   .hamburger span { display:block; width:24px; height:1.5px; background:var(--gold); transition:all .3s; }
-  .mobile-menu { display:none; position:fixed; inset:0; background:rgba(250,250,250,.98); z-index:999; flex-direction:column; align-items:center; justify-content:center; gap:36px; }
+  .mobile-menu { display:none; position:fixed; inset:0; background:rgba(253,251,247,.98); z-index:999; flex-direction:column; align-items:center; justify-content:center; gap:36px; }
   .mobile-menu.open { display:flex; }
   .mobile-menu a { font-family:'Cormorant Garamond',serif; font-size:2rem; color:var(--cream); text-decoration:none; transition:color .3s; }
   .mobile-menu a:hover { color:var(--gold); }
@@ -111,10 +118,12 @@
   #parallax-hero .parallax-overlay {
     background: linear-gradient(
       180deg,
-      rgba(250,250,250,0.45) 0%,
-      rgba(250,250,250,0.15) 40%,
-      rgba(250,250,250,0.65) 100%
+      rgba(253,251,247,0.72) 0%,
+      rgba(253,251,247,0.60) 40%,
+      rgba(253,251,247,0.82) 100%
     );
+    -webkit-backdrop-filter: blur(1.5px);
+    backdrop-filter: blur(1.5px);
   }
 
   /* ── PARALLAX 2 – CTA MEIO ── */
@@ -122,7 +131,9 @@
     background-image: url('parallax-servicos.jpg');
   }
   #parallax-meio .parallax-overlay {
-    background: linear-gradient(135deg, rgba(250,250,250,0.82) 0%, rgba(250,250,250,0.55) 50%, rgba(250,250,250,0.82) 100%);
+    background: rgba(253,251,247,0.82);
+    -webkit-backdrop-filter: blur(1.5px);
+    backdrop-filter: blur(1.5px);
   }
 
   /* ── PARALLAX 3 – CTA FINAL ── */
@@ -130,7 +141,9 @@
     background-image: url('parallax-depo.jpg');
   }
   #parallax-final .parallax-overlay {
-    background: linear-gradient(180deg, rgba(250,250,250,0.7) 0%, rgba(250,250,250,0.45) 50%, rgba(250,250,250,0.75) 100%);
+    background: linear-gradient(180deg, rgba(253,251,247,0.78) 0%, rgba(253,251,247,0.65) 50%, rgba(253,251,247,0.82) 100%);
+    -webkit-backdrop-filter: blur(1.5px);
+    backdrop-filter: blur(1.5px);
   }
 
   /* ── CANVAS PARTÍCULAS ── */
@@ -601,14 +614,71 @@
   .grupo-wa-fine { font-size: .7rem; color: #B8AD9E; margin-top: 20px; opacity: .6; }
   @media (max-width:768px) { #grupo-wa { padding: 60px 24px; } }
 
-  /* ── TEMA CLARO: galeria overlay claro ── */
-  .galeria-overlay { background: linear-gradient(180deg, transparent 40%, rgba(250,250,250,.8) 100%); }
-  .galeria-item:hover .galeria-overlay { background: linear-gradient(180deg, rgba(139,105,20,.1) 0%, rgba(250,250,250,.88) 100%); }
+  /* ── TEMA CLARO: galeria overlay atualizado ── */
+  .galeria-overlay {
+    background: linear-gradient(180deg, transparent 40%, rgba(253,251,247,.88) 100%);
+  }
+  .galeria-item:hover .galeria-overlay {
+    background: linear-gradient(180deg, rgba(197,168,128,.12) 0%, rgba(253,251,247,.92) 100%);
+  }
 
-  /* ── TEMA CLARO: admin mantém dark ── */
+  /* ── TEMA CLARO: linhas douradas decorativas com ouro envelhecido ── */
+  #diferenciais::before,
+  #depoimentos::before,
+  #galeria::before {
+    background: linear-gradient(90deg, transparent, var(--detalhes-ouro), transparent);
+  }
+  .sobre-linha { background: var(--detalhes-ouro); }
+  .parallax-divider { background: linear-gradient(90deg, transparent, var(--detalhes-ouro), transparent); }
+  .hero-divider  { background: linear-gradient(90deg, transparent, var(--detalhes-ouro), transparent); }
+  .servico-foto-linha, .galeria-linha { background: var(--detalhes-ouro); }
+  .diff-item::after { background: linear-gradient(135deg, rgba(197,168,128,.08), transparent); }
+
+  /* ── TEMA CLARO: texto sobre parallax — contraste garantido ── */
+  .hero-title,
+  .parallax-title {
+    color: var(--texto-principal-claro);
+    text-shadow: 0 1px 8px rgba(253,251,247,0.4);
+  }
+  .hero-subtitle,
+  .hero-eyebrow,
+  .parallax-sub,
+  .parallax-tag {
+    color: var(--texto-secundario-claro);
+  }
+  .hero-title span,
+  .parallax-title em { color: var(--gold); }
+
+  /* ── TEMA CLARO: cards de serviço e diferenciais ── */
+  .diff-item { border-color: rgba(197,168,128,.2); }
+  .diff-item:hover { border-color: var(--detalhes-ouro); }
+  .servico-panel { border-color: rgba(197,168,128,.18); }
+  .servico-header,
+  .servico-cta { border-color: rgba(197,168,128,.15); }
+  .servico-list { background: rgba(197,168,128,.06); }
+
+  /* ── TEMA CLARO: mapa e localização ── */
+  .loc-map-overlay {
+    background: linear-gradient(0deg, rgba(253,251,247,.96) 0%, transparent 100%);
+  }
+  .loc-item-icon { border-color: rgba(197,168,128,.25); }
+
+  /* ── TEMA CLARO: footer ── */
+  .footer-top { border-bottom-color: rgba(0,0,0,.06); }
+  .footer-social a { border-color: rgba(197,168,128,.25); }
+
+  /* ── TEMA CLARO: admin mantém dark (isolado por cascata) ── */
   .admin-overlay {
-    --black: #0A0A0A; --black-card: #141414; --black-section: #111111;
-    --cream: #F5F0E8; --cream-muted: #B8AD9E; --gold: #C9A84C;
+    --bg-claro:              #0A0A0A;
+    --texto-principal-claro: #F5F0E8;
+    --texto-secundario-claro:#B8AD9E;
+    --detalhes-ouro:         #C9A84C;
+    --black:        #0A0A0A;
+    --black-card:   #141414;
+    --black-section:#111111;
+    --cream:        #F5F0E8;
+    --cream-muted:  #B8AD9E;
+    --gold:         #C9A84C;
     background: rgba(0,0,0,0.88);
   }
 </style>
