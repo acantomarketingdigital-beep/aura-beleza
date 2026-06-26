@@ -116,14 +116,9 @@
     background-image: url('hero-bg.jpg');
   }
   #parallax-hero .parallax-overlay {
-    background: linear-gradient(
-      180deg,
-      rgba(253,251,247,0.72) 0%,
-      rgba(253,251,247,0.60) 40%,
-      rgba(253,251,247,0.82) 100%
-    );
-    -webkit-backdrop-filter: blur(1.5px);
-    backdrop-filter: blur(1.5px);
+    background: rgba(253,251,247,0.82);
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
   }
 
   /* ── PARALLAX 2 – CTA MEIO ── */
@@ -141,9 +136,9 @@
     background-image: url('parallax-depo.jpg');
   }
   #parallax-final .parallax-overlay {
-    background: linear-gradient(180deg, rgba(253,251,247,0.78) 0%, rgba(253,251,247,0.65) 50%, rgba(253,251,247,0.82) 100%);
-    -webkit-backdrop-filter: blur(1.5px);
-    backdrop-filter: blur(1.5px);
+    background: rgba(253,251,247,0.82);
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
   }
 
   /* ── CANVAS PARTÍCULAS ── */
@@ -634,20 +629,31 @@
   .servico-foto-linha, .galeria-linha { background: var(--detalhes-ouro); }
   .diff-item::after { background: linear-gradient(135deg, rgba(197,168,128,.08), transparent); }
 
-  /* ── TEMA CLARO: texto sobre parallax — contraste garantido ── */
-  .hero-title,
-  .parallax-title {
-    color: var(--texto-principal-claro);
-    text-shadow: 0 1px 8px rgba(253,251,247,0.4);
-  }
-  .hero-subtitle,
-  .hero-eyebrow,
-  .parallax-sub,
-  .parallax-tag {
-    color: var(--texto-secundario-claro);
-  }
-  .hero-title span,
-  .parallax-title em { color: var(--gold); }
+  /* ── TEMA CLARO: texto sobre parallax — contraste total, sem text-shadow ── */
+
+  /* Seletores amplos: cobre qualquer h/p dentro de qualquer parallax */
+  .parallax-section h1,
+  .parallax-section h2,
+  .parallax-section h3 { color: #2B1E17; text-shadow: none; }
+  .parallax-section p   { color: #5A4A42; text-shadow: none; }
+
+  /* Seletores nomeados: precisão para classes específicas */
+  .hero-title           { color: #2B1E17; text-shadow: none; }
+  .hero-title span      { color: #8B6914; }
+  .hero-subtitle        { color: #5A4A42; text-shadow: none; }
+  .hero-eyebrow         { color: #8B6914; }
+  .parallax-title       { color: #2B1E17; text-shadow: none; }
+  .parallax-title em    { color: #8B6914; }
+  .parallax-sub         { color: #5A4A42; }
+  .parallax-tag         { color: #8B6914; }
+
+  /* Depoimentos dentro do parallax-final */
+  .depo-text            { color: #2B1E17; }
+  .depo-text::before,
+  .depo-text::after     { color: #8B6914; }
+  .depo-name            { color: #2B1E17; }
+  .depo-role            { color: #5A4A42; }
+  .depo-stars           { color: #8B6914; }
 
   /* ── TEMA CLARO: cards de serviço e diferenciais ── */
   .diff-item { border-color: rgba(197,168,128,.2); }
