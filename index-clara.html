@@ -182,18 +182,25 @@
   .content-section { position:relative; z-index:10; background:var(--black); }
   .content-section-alt { position:relative; z-index:10; background:var(--black-section); }
 
-  /* ── DIFERENCIAIS ── */
-  #diferenciais { padding:100px 40px; position:relative; }
-  #diferenciais::before { content:''; position:absolute; top:0;left:0;right:0; height:1px; background:linear-gradient(90deg,transparent,var(--gold),transparent); }
-  .diff-grid { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:repeat(4,1fr); gap:2px; }
-  .diff-item { padding:48px 32px; text-align:center; border:1px solid rgba(201,168,76,.08); position:relative; transition:all .4s ease; background:var(--black-card); }
-  .diff-item::after { content:''; position:absolute; inset:0; background:linear-gradient(135deg,rgba(201,168,76,.04),transparent); opacity:0; transition:opacity .4s; }
-  .diff-item:hover { border-color:rgba(201,168,76,.3); transform:translateY(-4px); }
-  .diff-item:hover::after { opacity:1; }
-  .diff-icon { font-size:1.8rem; margin-bottom:16px; display:block; }
-  .diff-num { font-family:'Cormorant Garamond',serif; font-size:3rem; font-weight:300; color:var(--gold); line-height:1; margin-bottom:4px; }
-  .diff-label { font-size:.7rem; letter-spacing:.2em; text-transform:uppercase; color:var(--cream-muted); margin-bottom:12px; }
-  .diff-desc { font-size:.82rem; color:var(--cream-muted); line-height:1.6; font-weight:300; }
+  /* ── PROMOÇÕES ── */
+  #promocoes { padding:80px 40px; position:relative; }
+  #promocoes::before { content:''; position:absolute; top:0;left:0;right:0; height:1px; background:linear-gradient(90deg,transparent,var(--gold),transparent); }
+  .promo-header { max-width:900px; margin:0 auto 48px; text-align:center; }
+  .promo-tag { font-size:.65rem; letter-spacing:.35em; text-transform:uppercase; color:var(--gold); margin-bottom:16px; display:block; }
+  .promo-title { font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,4vw,3rem); font-weight:300; color:var(--cream); margin-bottom:16px; }
+  .promo-subtitle { font-size:.85rem; color:var(--cream-muted); line-height:1.7; font-weight:300; max-width:600px; margin:0 auto; }
+  .promo-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; max-width:900px; margin:0 auto; }
+  .promo-card { aspect-ratio:3/4; position:relative; overflow:hidden; background:var(--black-card); border:1px solid rgba(201,168,76,.15); cursor:pointer; transition:transform .3s ease; }
+  .promo-card:hover { transform:translateY(-6px); box-shadow:0 16px 48px rgba(201,168,76,.12); }
+  .promo-card-bg { position:absolute; inset:0; }
+  .promo-card-overlay { position:absolute; inset:0; background:linear-gradient(to top,rgba(0,0,0,.85) 0%,rgba(0,0,0,.2) 50%,transparent 100%); }
+  .promo-badge { position:absolute; top:16px; right:16px; background:var(--gold); color:var(--black); font-size:.58rem; font-weight:700; letter-spacing:.15em; text-transform:uppercase; padding:4px 10px; z-index:2; }
+  .promo-card-body { position:absolute; bottom:0; left:0; right:0; padding:24px 20px; z-index:2; }
+  .promo-card-name { font-family:'Cormorant Garamond',serif; font-size:1.35rem; font-weight:400; color:#FFFFFF; line-height:1.2; margin-bottom:6px; }
+  .promo-card-desc { font-size:.72rem; color:rgba(255,255,255,.7); margin-bottom:16px; font-weight:300; }
+  .promo-card-btn { display:inline-block; border:1px solid rgba(201,168,76,.6); color:var(--gold); font-size:.6rem; letter-spacing:.18em; text-transform:uppercase; padding:7px 16px; text-decoration:none; transition:all .25s ease; }
+  .promo-card-btn:hover { background:var(--gold); color:var(--black); }
+  .promo-nota { text-align:center; font-size:.75rem; color:var(--cream-muted); margin-top:32px; opacity:.7; }
 
   /* ── SOBRE ── */
   #sobre { padding:120px 40px; max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:100px; align-items:center; }
@@ -392,7 +399,6 @@
 
   /* ── RESPONSIVO ── */
   @media (max-width:1024px) {
-    .diff-grid { grid-template-columns:repeat(2,1fr); }
     #sobre { grid-template-columns:1fr; gap:60px; }
     #localizacao { grid-template-columns:1fr; gap:48px; }
     .footer-top { grid-template-columns:1fr 1fr; }
@@ -403,8 +409,8 @@
     nav.scrolled { padding:8px 20px; }
     .nav-links, .nav-cta { display:none; }
     .hamburger { display:flex; }
-    .diff-grid { grid-template-columns:repeat(2,1fr); }
-    #diferenciais { padding:60px 20px; }
+    .promo-grid { grid-template-columns:1fr; }
+    #promocoes { padding:60px 20px; }
     #sobre { padding:80px 20px; }
     #servicos { padding:60px 20px 80px; }
     #depoimentos, #localizacao { padding:80px 20px; }
@@ -426,7 +432,7 @@
     .parallax-bg { background-attachment:scroll; inset:0; }
   }
   @media (max-width:480px) {
-    .diff-grid { grid-template-columns:1fr; }
+    .promo-grid { grid-template-columns:1fr; }
     .servicos-tabs { gap:6px; }
     .tab-btn { padding:8px 16px; font-size:.62rem; }
     .servico-header { padding:20px 24px; gap:12px; }
@@ -632,7 +638,6 @@
   .parallax-divider { background: linear-gradient(90deg, transparent, var(--detalhes-ouro), transparent); }
   .hero-divider  { background: linear-gradient(90deg, transparent, var(--detalhes-ouro), transparent); }
   .servico-foto-linha, .galeria-linha { background: var(--detalhes-ouro); }
-  .diff-item::after { background: linear-gradient(135deg, rgba(197,168,128,.08), transparent); }
 
   /* ── TEMA CLARO: texto sobre parallax — contraste total, sem text-shadow ── */
 
@@ -664,9 +669,14 @@
   .content-section { background: #FDF6EC; }
   .content-section-alt { background: #F7EFE3; }
 
-  /* ── TEMA CLARO: cards de serviço e diferenciais ── */
-  .diff-item { background: #FFFFFF; border: 1px solid rgba(155,122,31,0.15); box-shadow: 0 2px 20px rgba(155,122,31,0.08); }
-  .diff-item:hover { border-color: rgba(155,122,31,0.4); box-shadow: 0 8px 32px rgba(155,122,31,0.15); }
+  /* ── TEMA CLARO: cards de serviço e promoção ── */
+  .promo-card { border: 1px solid rgba(155,122,31,0.2); }
+  .promo-card-overlay { background: linear-gradient(to top,rgba(26,18,8,.5) 0%,rgba(26,18,8,.05) 50%,transparent 100%); }
+  .promo-card-name { color: #1A1208; }
+  .promo-card-desc { color: rgba(26,18,8,.65); }
+  .promo-badge { background: var(--gold); color: #FFFFFF; }
+  .promo-card-btn { border-color: rgba(155,122,31,.6); color: var(--gold); }
+  .promo-card-btn:hover { background: var(--gold); color: #FFFFFF; }
   .servico-panel { background: #FFFFFF; border: 1px solid rgba(155,122,31,0.2); }
   .servico-header,
   .servico-cta { border-color: rgba(197,168,128,.15); }
@@ -699,14 +709,6 @@
     background: rgba(0,0,0,0.88);
   }
 
-  /* ── HERO CAROUSEL ── */
-  .hero-carousel { position: relative; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; z-index: 2; }
-  .hero-slide { position: absolute; width: 100%; display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity .8s ease; pointer-events: none; }
-  .hero-slide.active { opacity: 1; pointer-events: auto; }
-  .hero-slide-text { font-size: .88rem; color: var(--cream-muted); max-width: 420px; margin: 0 auto 28px; font-weight: 300; line-height: 1.6; }
-  .hero-dots { position: absolute; bottom: 100px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; z-index: 4; }
-  .hero-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(155,122,31,.25); border: 1px solid rgba(155,122,31,.45); cursor: pointer; transition: all .3s ease; padding: 0; }
-  .hero-dot.active { background: var(--gold); width: 24px; border-radius: 4px; }
 </style>
 </head>
 <body>
@@ -765,96 +767,68 @@
   <div class="parallax-overlay"></div>
   <canvas id="particles-canvas"></canvas>
 
-  <div class="hero-carousel">
-    <!-- Slide 1 — Boas-vindas -->
-    <div class="hero-slide active">
-      <div class="parallax-content">
-        <p class="hero-eyebrow">Vila Olímpia · São Paulo</p>
-        <h1 class="hero-title">AURA<br><span>Beleza</span></h1>
-        <p class="hero-subtitle">& Estética</p>
-        <div class="hero-divider"></div>
-        <div class="hero-ctas">
-          <a href="https://wa.me/5511921028116?text=Vim+do+site+e+gostaria+de+agendar+um+horário+na+AURA." class="btn-primary" target="_blank" rel="noopener">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M5.077 21.783l.688-2.514a9.37 9.37 0 01-1.25-4.7C4.515 9.784 8.76 5.54 14.052 5.54c2.565 0 4.97.999 6.779 2.814a9.548 9.548 0 012.807 6.79c-.002 5.295-4.247 9.54-9.538 9.54a9.507 9.507 0 01-4.554-1.163l-4.47 1.262zm4.739-2.73l.289.172a7.893 7.893 0 004.006 1.089c4.366 0 7.921-3.556 7.923-7.927a7.896 7.896 0 00-2.326-5.626 7.86 7.86 0 00-5.595-2.322c-4.369 0-7.925 3.556-7.927 7.926a7.904 7.904 0 001.218 4.228l.19.303-.808 2.956 3.03-.799z"/></svg>
-            Agendar pelo WhatsApp
-          </a>
-        </div>
-      </div>
-    </div>
-    <!-- Slide 2 — Promoção do Mês -->
-    <div class="hero-slide">
-      <div class="parallax-content">
-        <p class="hero-eyebrow">Promoção do Mês</p>
-        <h1 class="hero-title">SPA dos<br><span>Pés</span></h1>
-        <p class="hero-subtitle">Pedicure + Hidratação</p>
-        <div class="hero-divider"></div>
-        <p class="hero-slide-text">Experiência completa de cuidado e relaxamento para os seus pés</p>
-        <div class="hero-ctas">
-          <a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+saber+sobre+a+promoção+do+SPA+dos+Pés." class="btn-primary" target="_blank" rel="noopener">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M5.077 21.783l.688-2.514a9.37 9.37 0 01-1.25-4.7C4.515 9.784 8.76 5.54 14.052 5.54c2.565 0 4.97.999 6.779 2.814a9.548 9.548 0 012.807 6.79c-.002 5.295-4.247 9.54-9.538 9.54a9.507 9.507 0 01-4.554-1.163l-4.47 1.262zm4.739-2.73l.289.172a7.893 7.893 0 004.006 1.089c4.366 0 7.921-3.556 7.923-7.927a7.896 7.896 0 00-2.326-5.626 7.86 7.86 0 00-5.595-2.322c-4.369 0-7.925 3.556-7.927 7.926a7.904 7.904 0 001.218 4.228l.19.303-.808 2.956 3.03-.799z"/></svg>
-            Agendar pelo WhatsApp
-          </a>
-        </div>
-      </div>
-    </div>
-    <!-- Slide 3 — Destaque Maquiagem -->
-    <div class="hero-slide">
-      <div class="parallax-content">
-        <p class="hero-eyebrow">Novidade</p>
-        <h1 class="hero-title">Maquiagem</h1>
-        <p class="hero-subtitle">Social & Eventos</p>
-        <div class="hero-divider"></div>
-        <p class="hero-slide-text">Make profissional para ocasiões especiais. Agendamento prévio obrigatório.</p>
-        <div class="hero-ctas">
-          <a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Maquiagem." class="btn-primary" target="_blank" rel="noopener">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M5.077 21.783l.688-2.514a9.37 9.37 0 01-1.25-4.7C4.515 9.784 8.76 5.54 14.052 5.54c2.565 0 4.97.999 6.779 2.814a9.548 9.548 0 012.807 6.79c-.002 5.295-4.247 9.54-9.538 9.54a9.507 9.507 0 01-4.554-1.163l-4.47 1.262zm4.739-2.73l.289.172a7.893 7.893 0 004.006 1.089c4.366 0 7.921-3.556 7.923-7.927a7.896 7.896 0 00-2.326-5.626 7.86 7.86 0 00-5.595-2.322c-4.369 0-7.925 3.556-7.927 7.926a7.904 7.904 0 001.218 4.228l.19.303-.808 2.956 3.03-.799z"/></svg>
-            Agendar pelo WhatsApp
-          </a>
-        </div>
-      </div>
-    </div>
-    <!-- Dots -->
-    <div class="hero-dots">
-      <button class="hero-dot active" aria-label="Slide 1" type="button"></button>
-      <button class="hero-dot" aria-label="Slide 2" type="button"></button>
-      <button class="hero-dot" aria-label="Slide 3" type="button"></button>
+  <div class="parallax-content">
+    <p class="hero-eyebrow">Vila Olímpia · São Paulo</p>
+    <h1 class="hero-title">AURA<br><span>Beleza</span></h1>
+    <p class="hero-subtitle">& Estética</p>
+    <div class="hero-divider"></div>
+    <div class="hero-ctas">
+      <a href="https://wa.me/5511921028116?text=Vim+do+site+e+gostaria+de+agendar+um+horário+na+AURA." class="btn-primary" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M5.077 21.783l.688-2.514a9.37 9.37 0 01-1.25-4.7C4.515 9.784 8.76 5.54 14.052 5.54c2.565 0 4.97.999 6.779 2.814a9.548 9.548 0 012.807 6.79c-.002 5.295-4.247 9.54-9.538 9.54a9.507 9.507 0 01-4.554-1.163l-4.47 1.262zm4.739-2.73l.289.172a7.893 7.893 0 004.006 1.089c4.366 0 7.921-3.556 7.923-7.927a7.896 7.896 0 00-2.326-5.626 7.86 7.86 0 00-5.595-2.322c-4.369 0-7.925 3.556-7.927 7.926a7.904 7.904 0 001.218 4.228l.19.303-.808 2.956 3.03-.799z"/></svg>
+        Agendar pelo WhatsApp
+      </a>
     </div>
   </div>
 
-  <a href="#diferenciais" class="hero-scroll" aria-label="Role para baixo">
+  <a href="#promocoes" class="hero-scroll" aria-label="Role para baixo">
     <div class="scroll-line"></div>
   </a>
 </section>
 
-<!-- DIFERENCIAIS -->
+<!-- PROMOÇÕES -->
 <div class="content-section">
-  <section id="diferenciais">
-    <div class="diff-grid">
-      <div class="diff-item reveal">
-        <span class="diff-icon">✦</span>
-        <div class="diff-num">6+</div>
-        <div class="diff-label">Categorias</div>
-        <div class="diff-desc">Cabelos, unhas, estética, sobrancelha, depilação e podologia</div>
+  <section id="promocoes">
+    <div class="promo-header">
+      <span class="promo-tag">OFERTAS ESPECIAIS</span>
+      <h2 class="promo-title">Promoções da Semana</h2>
+      <p class="promo-subtitle">Aproveite nossas ofertas exclusivas. Agende pelo WhatsApp e informe a promoção desejada.</p>
+    </div>
+    <div class="promo-grid">
+      <!-- PROMOÇÃO 1: Para trocar a arte, substitua o background-image desta div pela URL da nova imagem. Tamanho ideal: 600x800px (formato 3:4) -->
+      <div class="promo-card reveal">
+        <div class="promo-card-bg" style="background:linear-gradient(135deg,#FFF8E8,#FDF0D0);"></div>
+        <div class="promo-card-overlay"></div>
+        <span class="promo-badge">PROMOÇÃO</span>
+        <div class="promo-card-body">
+          <div class="promo-card-name">SPA dos Pés Completo</div>
+          <div class="promo-card-desc">Pedicure + Hidratação + Massagem</div>
+          <a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+a+promoção+SPA+dos+Pés" class="promo-card-btn" target="_blank" rel="noopener">Agendar</a>
+        </div>
       </div>
-      <div class="diff-item reveal" style="transition-delay:.1s">
-        <span class="diff-icon">◈</span>
-        <div class="diff-num">100%</div>
-        <div class="diff-label">Profissional</div>
-        <div class="diff-desc">Equipe especializada com anos de experiência e produtos premium</div>
+      <!-- PROMOÇÃO 2: Para trocar a arte, substitua o background-image desta div pela URL da nova imagem. Tamanho ideal: 600x800px (formato 3:4) -->
+      <div class="promo-card reveal" style="transition-delay:.1s">
+        <div class="promo-card-bg" style="background:linear-gradient(135deg,#F0F8F0,#E8F5E8);"></div>
+        <div class="promo-card-overlay"></div>
+        <span class="promo-badge">DESTAQUE</span>
+        <div class="promo-card-body">
+          <div class="promo-card-name">Design de Sobrancelha</div>
+          <div class="promo-card-desc">Limpeza + Design + Tintura</div>
+          <a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+a+promoção+Design+de+Sobrancelha" class="promo-card-btn" target="_blank" rel="noopener">Agendar</a>
+        </div>
       </div>
-      <div class="diff-item reveal" style="transition-delay:.2s">
-        <span class="diff-icon">◆</span>
-        <div class="diff-num">Vila</div>
-        <div class="diff-label">Olímpia</div>
-        <div class="diff-desc">Localização central em São Paulo, fácil acesso e estacionamento</div>
-      </div>
-      <div class="diff-item reveal" style="transition-delay:.3s">
-        <span class="diff-icon">❋</span>
-        <div class="diff-num">5★</div>
-        <div class="diff-label">Atendimento</div>
-        <div class="diff-desc">Experiência única de beleza em ambiente exclusivo e acolhedor</div>
+      <!-- PROMOÇÃO 3: Para trocar a arte, substitua o background-image desta div pela URL da nova imagem. Tamanho ideal: 600x800px (formato 3:4) -->
+      <div class="promo-card reveal" style="transition-delay:.2s">
+        <div class="promo-card-bg" style="background:linear-gradient(135deg,#F8F0FF,#F0E8FF);"></div>
+        <div class="promo-card-overlay"></div>
+        <span class="promo-badge">NOVIDADE</span>
+        <div class="promo-card-body">
+          <div class="promo-card-name">Maquiagem Social</div>
+          <div class="promo-card-desc">Make profissional com agendamento prévio</div>
+          <a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+a+promoção+Maquiagem+Social" class="promo-card-btn" target="_blank" rel="noopener">Agendar</a>
+        </div>
       </div>
     </div>
+    <p class="promo-nota">🗓️ Promoções renovadas semanalmente · Sujeito à disponibilidade de agenda</p>
   </section>
 
   <!-- SOBRE -->
@@ -1157,7 +1131,6 @@
 
 <!-- Âncoras de navegação -->
 <div id="produtos"></div>
-<div id="promocoes"></div>
 <div id="social"></div>
 
 <!-- FOOTER -->
@@ -1551,26 +1524,6 @@ async function adicionarServico(cat) {
   } catch(e) { alert(e.message); }
 }
 
-// ── HERO CAROUSEL ──
-(function() {
-  const slides = document.querySelectorAll('.hero-slide');
-  const dots   = document.querySelectorAll('.hero-dot');
-  if (!slides.length) return;
-  let current = 0, timer;
-  function goTo(n) {
-    slides[current].classList.remove('active');
-    dots[current].classList.remove('active');
-    current = (n + slides.length) % slides.length;
-    slides[current].classList.add('active');
-    dots[current].classList.add('active');
-  }
-  dots.forEach((d, i) => d.addEventListener('click', () => {
-    clearInterval(timer);
-    goTo(i);
-    timer = setInterval(() => goTo(current + 1), 5000);
-  }));
-  timer = setInterval(() => goTo(current + 1), 5000);
-})();
 </script>
 </body>
 </html>
