@@ -1283,6 +1283,7 @@ async function carregarServicos() {
       list.innerHTML = items.map(s => `
         <div class="servico-item">
           <span class="servico-item-name">${s.nome}</span>
+          ${s.descricao ? `<span class="servico-item-desc">${s.descricao}</span>` : ''}
           <a href="https://wa.me/${WA}?text=${encodeURIComponent(s.whatsapp_msg || s.nome)}" class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a>
         </div>`).join('');
     });
