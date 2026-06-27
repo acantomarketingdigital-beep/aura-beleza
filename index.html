@@ -604,6 +604,15 @@
   .btn-wa-grupo svg { width: 24px; height: 24px; fill: white; flex-shrink: 0; }
   .grupo-wa-fine { font-size: .7rem; color: #B8AD9E; margin-top: 20px; opacity: .6; }
   @media (max-width:768px) { #grupo-wa { padding: 60px 24px; } }
+
+  /* ── HERO CAROUSEL ── */
+  .hero-carousel { position: relative; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; z-index: 2; }
+  .hero-slide { position: absolute; width: 100%; display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity .8s ease; pointer-events: none; }
+  .hero-slide.active { opacity: 1; pointer-events: auto; }
+  .hero-slide-text { font-size: .88rem; color: var(--cream-muted); max-width: 420px; margin: 0 auto 28px; font-weight: 300; line-height: 1.6; }
+  .hero-dots { position: absolute; bottom: 100px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; z-index: 4; }
+  .hero-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(201,168,76,.25); border: 1px solid rgba(201,168,76,.45); cursor: pointer; transition: all .3s ease; padding: 0; }
+  .hero-dot.active { background: var(--gold); width: 24px; border-radius: 4px; }
 </style>
 </head>
 <body>
@@ -618,6 +627,9 @@
     <li><a href="#servicos">Serviços</a></li>
     <li><a href="#depoimentos">Depoimentos</a></li>
     <li><a href="#localizacao">Localização</a></li>
+    <li><a href="#produtos">Produtos</a></li>
+    <li><a href="#promocoes">Promoções</a></li>
+    <li><a href="#social">Social</a></li>
   </ul>
   <a href="https://www.instagram.com/studiocarioca_elviraferraz/" target="_blank" rel="noopener" aria-label="Instagram" style="display:flex;align-items:center;">
     <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -647,6 +659,9 @@
   <a href="#servicos" onclick="closeMobileMenu()">Serviços</a>
   <a href="#depoimentos" onclick="closeMobileMenu()">Depoimentos</a>
   <a href="#localizacao" onclick="closeMobileMenu()">Localização</a>
+  <a href="#produtos" onclick="closeMobileMenu()">Produtos</a>
+  <a href="#promocoes" onclick="closeMobileMenu()">Promoções</a>
+  <a href="#social" onclick="closeMobileMenu()">Social</a>
   <a href="https://wa.me/5511921028116?text=Vim+do+site+e+gostaria+de+agendar+um+horário." class="mobile-menu-wa" target="_blank" rel="noopener" onclick="closeMobileMenu()">Agendar pelo WhatsApp</a>
 </div>
 
@@ -656,16 +671,59 @@
   <div class="parallax-overlay"></div>
   <canvas id="particles-canvas"></canvas>
 
-  <div class="parallax-content">
-    <p class="hero-eyebrow">Vila Olímpia · São Paulo</p>
-    <h1 class="hero-title">AURA<br><span>Beleza</span></h1>
-    <p class="hero-subtitle">& Estética</p>
-    <div class="hero-divider"></div>
-    <div class="hero-ctas">
-      <a href="https://wa.me/5511921028116?text=Vim+do+site+e+gostaria+de+agendar+um+horário+na+AURA." class="btn-primary" target="_blank" rel="noopener">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M5.077 21.783l.688-2.514a9.37 9.37 0 01-1.25-4.7C4.515 9.784 8.76 5.54 14.052 5.54c2.565 0 4.97.999 6.779 2.814a9.548 9.548 0 012.807 6.79c-.002 5.295-4.247 9.54-9.538 9.54a9.507 9.507 0 01-4.554-1.163l-4.47 1.262zm4.739-2.73l.289.172a7.893 7.893 0 004.006 1.089c4.366 0 7.921-3.556 7.923-7.927a7.896 7.896 0 00-2.326-5.626 7.86 7.86 0 00-5.595-2.322c-4.369 0-7.925 3.556-7.927 7.926a7.904 7.904 0 001.218 4.228l.19.303-.808 2.956 3.03-.799z"/></svg>
-        Agendar pelo WhatsApp
-      </a>
+  <div class="hero-carousel">
+    <!-- Slide 1 — Boas-vindas -->
+    <div class="hero-slide active">
+      <div class="parallax-content">
+        <p class="hero-eyebrow">Vila Olímpia · São Paulo</p>
+        <h1 class="hero-title">AURA<br><span>Beleza</span></h1>
+        <p class="hero-subtitle">& Estética</p>
+        <div class="hero-divider"></div>
+        <div class="hero-ctas">
+          <a href="https://wa.me/5511921028116?text=Vim+do+site+e+gostaria+de+agendar+um+horário+na+AURA." class="btn-primary" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M5.077 21.783l.688-2.514a9.37 9.37 0 01-1.25-4.7C4.515 9.784 8.76 5.54 14.052 5.54c2.565 0 4.97.999 6.779 2.814a9.548 9.548 0 012.807 6.79c-.002 5.295-4.247 9.54-9.538 9.54a9.507 9.507 0 01-4.554-1.163l-4.47 1.262zm4.739-2.73l.289.172a7.893 7.893 0 004.006 1.089c4.366 0 7.921-3.556 7.923-7.927a7.896 7.896 0 00-2.326-5.626 7.86 7.86 0 00-5.595-2.322c-4.369 0-7.925 3.556-7.927 7.926a7.904 7.904 0 001.218 4.228l.19.303-.808 2.956 3.03-.799z"/></svg>
+            Agendar pelo WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Slide 2 — Promoção do Mês -->
+    <div class="hero-slide">
+      <div class="parallax-content">
+        <p class="hero-eyebrow">Promoção do Mês</p>
+        <h1 class="hero-title">SPA dos<br><span>Pés</span></h1>
+        <p class="hero-subtitle">Pedicure + Hidratação</p>
+        <div class="hero-divider"></div>
+        <p class="hero-slide-text">Experiência completa de cuidado e relaxamento para os seus pés</p>
+        <div class="hero-ctas">
+          <a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+saber+sobre+a+promoção+do+SPA+dos+Pés." class="btn-primary" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M5.077 21.783l.688-2.514a9.37 9.37 0 01-1.25-4.7C4.515 9.784 8.76 5.54 14.052 5.54c2.565 0 4.97.999 6.779 2.814a9.548 9.548 0 012.807 6.79c-.002 5.295-4.247 9.54-9.538 9.54a9.507 9.507 0 01-4.554-1.163l-4.47 1.262zm4.739-2.73l.289.172a7.893 7.893 0 004.006 1.089c4.366 0 7.921-3.556 7.923-7.927a7.896 7.896 0 00-2.326-5.626 7.86 7.86 0 00-5.595-2.322c-4.369 0-7.925 3.556-7.927 7.926a7.904 7.904 0 001.218 4.228l.19.303-.808 2.956 3.03-.799z"/></svg>
+            Agendar pelo WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Slide 3 — Destaque Maquiagem -->
+    <div class="hero-slide">
+      <div class="parallax-content">
+        <p class="hero-eyebrow">Novidade</p>
+        <h1 class="hero-title">Maquiagem</h1>
+        <p class="hero-subtitle">Social & Eventos</p>
+        <div class="hero-divider"></div>
+        <p class="hero-slide-text">Make profissional para ocasiões especiais. Agendamento prévio obrigatório.</p>
+        <div class="hero-ctas">
+          <a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Maquiagem." class="btn-primary" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M5.077 21.783l.688-2.514a9.37 9.37 0 01-1.25-4.7C4.515 9.784 8.76 5.54 14.052 5.54c2.565 0 4.97.999 6.779 2.814a9.548 9.548 0 012.807 6.79c-.002 5.295-4.247 9.54-9.538 9.54a9.507 9.507 0 01-4.554-1.163l-4.47 1.262zm4.739-2.73l.289.172a7.893 7.893 0 004.006 1.089c4.366 0 7.921-3.556 7.923-7.927a7.896 7.896 0 00-2.326-5.626 7.86 7.86 0 00-5.595-2.322c-4.369 0-7.925 3.556-7.927 7.926a7.904 7.904 0 001.218 4.228l.19.303-.808 2.956 3.03-.799z"/></svg>
+            Agendar pelo WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Dots -->
+    <div class="hero-dots">
+      <button class="hero-dot active" aria-label="Slide 1" type="button"></button>
+      <button class="hero-dot" aria-label="Slide 2" type="button"></button>
+      <button class="hero-dot" aria-label="Slide 3" type="button"></button>
     </div>
   </div>
 
@@ -804,7 +862,7 @@
         <div class="servico-item"><span class="servico-item-name">Massagem Modeladora</span><span class="servico-item-desc">Técnica de contorno e definição corporal — agendamento prévio</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Massagem+Modeladora." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
         <div class="servico-item"><span class="servico-item-name">Massagem Express (30')</span><span class="servico-item-desc">Alívio rápido de tensões musculares — agendamento prévio</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Massagem+Express+%2830+minutos%29." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
         <div class="servico-item"><span class="servico-item-name">Drenagem Facial</span><span class="servico-item-desc">Drenagem linfática facial com técnica japonesa</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Drenagem+Facial." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
-        <div class="servico-item"><span class="servico-item-name">Banho de Lua (corpo inteiro)</span><span class="servico-item-desc">Esfoliação e hidratação completa do corpo</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Banho+de+Lua+%28corpo+inteiro%29." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
+        <div class="servico-item"><span class="servico-item-name">Banho de Lua</span><span class="servico-item-desc">Esfoliação e hidratação em partes do corpo — entre em contato para definir a região desejada e montar seu ritual personalizado</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+Banho+de+Lua+%28corpo+inteiro%29." class="servico-item-btn" target="_blank" rel="noopener">↗ Agendar</a></div>
       </div>
       <div class="servico-cta"><span class="servico-cta-text">Seu bem-estar começa aqui.</span><a href="https://wa.me/5511921028116?text=Vim+do+site+e+tenho+dúvidas+sobre+estética." class="btn-primary" target="_blank" rel="noopener">Falar com a equipe</a></div>
     </div>
@@ -926,6 +984,7 @@
 </section>
 
 <!-- PARALLAX 3 – DEPOIMENTOS -->
+<div id="depoimentos"></div>
 <section class="parallax-section" id="parallax-final" style="min-height:70vh;">
   <div class="parallax-bg" id="bg3"></div>
   <div class="parallax-overlay"></div>
@@ -1001,6 +1060,11 @@
     </div>
   </div>
 </div>
+
+<!-- Âncoras de navegação -->
+<div id="produtos"></div>
+<div id="promocoes"></div>
+<div id="social"></div>
 
 <!-- FOOTER -->
 <footer>
@@ -1391,6 +1455,27 @@ async function adicionarServico(cat) {
     setTimeout(() => { const inp = document.getElementById(`nome-${novo.id}`); if (inp) { inp.focus(); inp.select(); } }, 50);
   } catch(e) { alert(e.message); }
 }
+
+// ── HERO CAROUSEL ──
+(function() {
+  const slides = document.querySelectorAll('.hero-slide');
+  const dots   = document.querySelectorAll('.hero-dot');
+  if (!slides.length) return;
+  let current = 0, timer;
+  function goTo(n) {
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = (n + slides.length) % slides.length;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+  }
+  dots.forEach((d, i) => d.addEventListener('click', () => {
+    clearInterval(timer);
+    goTo(i);
+    timer = setInterval(() => goTo(current + 1), 5000);
+  }));
+  timer = setInterval(() => goTo(current + 1), 5000);
+})();
 </script>
 </body>
 </html>
