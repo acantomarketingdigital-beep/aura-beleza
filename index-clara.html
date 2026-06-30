@@ -709,6 +709,20 @@
     background: rgba(0,0,0,0.88);
   }
 
+  /* ── ADMIN DESTAQUES ── */
+  .admin-destaque-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+  .admin-destaque-card { display:flex; flex-direction:column; gap:10px; background:rgba(201,168,76,.04); border:1px solid rgba(201,168,76,.1); padding:16px; }
+  .admin-destaque-preview { aspect-ratio:3/4; width:100%; background:#141414; overflow:hidden; position:relative; border:1px dashed rgba(201,168,76,.2); cursor:pointer; }
+  .admin-destaque-preview img { width:100%; height:100%; object-fit:cover; display:block; }
+  .admin-destaque-no-img { display:flex; align-items:center; justify-content:center; height:100%; color:var(--cream-muted); font-size:.7rem; text-align:center; padding:16px; flex-direction:column; gap:8px; }
+  .admin-upload-btn { background:transparent; border:1px solid rgba(201,168,76,.4); color:var(--gold); font-size:.63rem; letter-spacing:.1em; padding:8px 12px; cursor:pointer; transition:all .2s; width:100%; text-align:center; font-family:'Inter',sans-serif; }
+  .admin-upload-btn:hover { background:rgba(201,168,76,.1); }
+  .admin-upload-status { font-size:.68rem; min-height:18px; text-align:center; transition:color .2s; }
+  .admin-upload-status.ok { color:#4ade80; }
+  .admin-upload-status.err { color:#f87171; }
+  .admin-upload-status.loading { color:var(--gold); }
+  @media (max-width:700px) { .admin-destaque-grid { grid-template-columns:1fr; } }
+
 </style>
 </head>
 <body>
@@ -794,37 +808,37 @@
       <p class="promo-subtitle">Aproveite nossas ofertas exclusivas. Agende pelo WhatsApp e informe a promoção desejada.</p>
     </div>
     <div class="promo-grid">
-      <!-- PROMOÇÃO 1: Para trocar a arte, substitua o background-image desta div pela URL da nova imagem. Tamanho ideal: 600x800px (formato 3:4) -->
-      <div class="promo-card reveal">
+      <!-- PROMOÇÃO 1: Para trocar a arte, use o painel admin > Destaques do Mês -->
+      <div class="promo-card reveal" data-posicao="1">
         <div class="promo-card-bg" style="background:linear-gradient(135deg,#FFF8E8,#FDF0D0);"></div>
         <div class="promo-card-overlay"></div>
         <span class="promo-badge">PROMOÇÃO</span>
         <div class="promo-card-body">
           <div class="promo-card-name">SPA dos Pés Completo</div>
           <div class="promo-card-desc">Pedicure + Hidratação + Massagem</div>
-          <a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+a+promoção+SPA+dos+Pés" class="promo-card-btn" target="_blank" rel="noopener">Agendar</a>
+          <a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+saber+mais+sobre+o+DESTAQUE+DO+M%C3%8AS" class="promo-card-btn" target="_blank" rel="noopener">Agendar</a>
         </div>
       </div>
-      <!-- PROMOÇÃO 2: Para trocar a arte, substitua o background-image desta div pela URL da nova imagem. Tamanho ideal: 600x800px (formato 3:4) -->
-      <div class="promo-card reveal" style="transition-delay:.1s">
+      <!-- PROMOÇÃO 2: Para trocar a arte, use o painel admin > Destaques do Mês -->
+      <div class="promo-card reveal" data-posicao="2" style="transition-delay:.1s">
         <div class="promo-card-bg" style="background:linear-gradient(135deg,#F0F8F0,#E8F5E8);"></div>
         <div class="promo-card-overlay"></div>
         <span class="promo-badge">DESTAQUE</span>
         <div class="promo-card-body">
           <div class="promo-card-name">Design de Sobrancelha</div>
           <div class="promo-card-desc">Limpeza + Design + Tintura</div>
-          <a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+a+promoção+Design+de+Sobrancelha" class="promo-card-btn" target="_blank" rel="noopener">Agendar</a>
+          <a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+saber+mais+sobre+o+DESTAQUE+DO+M%C3%8AS" class="promo-card-btn" target="_blank" rel="noopener">Agendar</a>
         </div>
       </div>
-      <!-- PROMOÇÃO 3: Para trocar a arte, substitua o background-image desta div pela URL da nova imagem. Tamanho ideal: 600x800px (formato 3:4) -->
-      <div class="promo-card reveal" style="transition-delay:.2s">
+      <!-- PROMOÇÃO 3: Para trocar a arte, use o painel admin > Destaques do Mês -->
+      <div class="promo-card reveal" data-posicao="3" style="transition-delay:.2s">
         <div class="promo-card-bg" style="background:linear-gradient(135deg,#F8F0FF,#F0E8FF);"></div>
         <div class="promo-card-overlay"></div>
         <span class="promo-badge">NOVIDADE</span>
         <div class="promo-card-body">
           <div class="promo-card-name">Maquiagem Social</div>
           <div class="promo-card-desc">Make profissional com agendamento prévio</div>
-          <a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+a+promoção+Maquiagem+Social" class="promo-card-btn" target="_blank" rel="noopener">Agendar</a>
+          <a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+saber+mais+sobre+o+DESTAQUE+DO+M%C3%8AS" class="promo-card-btn" target="_blank" rel="noopener">Agendar</a>
         </div>
       </div>
     </div>
@@ -1221,6 +1235,7 @@
       <button class="admin-tab-btn" onclick="adminShowTab('estetica',this)">Estética</button>
       <button class="admin-tab-btn" onclick="adminShowTab('sobrancelha',this)">Sobrancelha</button>
       <button class="admin-tab-btn" onclick="adminShowTab('podologia',this)">Podologia</button>
+      <button class="admin-tab-btn" onclick="adminShowTab('destaques',this)" style="border-color:rgba(201,168,76,.4)">✦ Destaques do Mês</button>
     </div>
     <div class="admin-panel-content" id="adminContent"></div>
   </div>
@@ -1409,7 +1424,7 @@ async function fazerLogin() {
     const data = await res.json();
     if (!res.ok) throw new Error(data.error_description || data.message || 'Credenciais inválidas');
     adminToken = data.access_token;
-    await carregarServicosAdmin();
+    await Promise.all([carregarServicosAdmin(), carregarDestaquesAdmin()]);
     document.getElementById('adminLogin').style.display = 'none';
     document.getElementById('adminPanel').style.display = 'flex';
     adminShowTab('unhas', document.querySelector('.admin-tab-btn'));
@@ -1445,7 +1460,7 @@ function adminShowTab(cat, btn) {
   adminCatAtual = cat;
   document.querySelectorAll('.admin-tab-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
-  renderAdminCat(cat);
+  if (cat === 'destaques') { renderAdminDestaques(); } else { renderAdminCat(cat); }
 }
 
 function renderAdminCat(cat) {
@@ -1502,6 +1517,128 @@ async function deletarServico(id, cat) {
     renderAdminCat(cat);
     carregarServicos();
   } catch(e) { alert(e.message); row.classList.remove('admin-saving'); }
+}
+
+// ── DESTAQUES DO MÊS — FRONTEND ──
+async function carregarDestaques() {
+  try {
+    const res = await fetch(
+      `${SB_URL}/rest/v1/aura_destaques?select=*&order=posicao.asc`,
+      { headers: { apikey: SB_KEY, Authorization: `Bearer ${SB_KEY}` } }
+    );
+    if (!res.ok) return;
+    const destaques = await res.json();
+    if (!Array.isArray(destaques)) return;
+    destaques.forEach(d => {
+      const card = document.querySelector(`.promo-card[data-posicao="${d.posicao}"]`);
+      if (!card) return;
+      if (d.image_url) {
+        const bg = card.querySelector('.promo-card-bg');
+        if (bg) { bg.style.background = 'none'; bg.style.backgroundImage = `url('${d.image_url}')`; bg.style.backgroundSize = 'cover'; bg.style.backgroundPosition = 'center'; }
+      }
+      const nome = card.querySelector('.promo-card-name');
+      if (nome && d.nome) nome.textContent = d.nome;
+      const desc = card.querySelector('.promo-card-desc');
+      if (desc && d.descricao) desc.textContent = d.descricao;
+      const badge = card.querySelector('.promo-badge');
+      if (badge && d.badge) badge.textContent = d.badge;
+    });
+  } catch(e) { /* fallback: conteúdo estático */ }
+}
+carregarDestaques();
+
+// ── ADMIN DESTAQUES ──
+let adminDestaques = [];
+
+async function carregarDestaquesAdmin() {
+  try {
+    const res = await fetch(`${SB_URL}/rest/v1/aura_destaques?select=*&order=posicao.asc`, {
+      headers: { apikey: SB_KEY, Authorization: `Bearer ${adminToken}` }
+    });
+    if (res.ok) adminDestaques = await res.json();
+  } catch(e) {}
+}
+
+function renderAdminDestaques() {
+  const c = document.getElementById('adminContent');
+  c.innerHTML =
+    `<p style="font-size:.78rem;color:var(--cream-muted);margin-bottom:20px;">Clique na prévia ou no botão para enviar a arte. Formato ideal: <strong style="color:var(--gold)">600×800px (3:4)</strong>. Máx 10MB.</p>` +
+    `<div class="admin-destaque-grid">` +
+    [1,2,3].map(pos => {
+      const d = adminDestaques.find(x => x.posicao === pos) || {posicao:pos,nome:'',descricao:'',badge:'PROMOÇÃO',image_url:''};
+      const imgHtml = d.image_url
+        ? `<img src="${esc(d.image_url)}" alt="Destaque ${pos}">`
+        : `<div class="admin-destaque-no-img"><span style="font-size:1.4rem">📷</span><span>Sem imagem<br>Clique para enviar</span></div>`;
+      return `<div class="admin-destaque-card" id="admin-d-${pos}">
+          <div class="admin-destaque-preview" onclick="document.getElementById('file-d-${pos}').click()" title="Trocar imagem">${imgHtml}</div>
+          <input type="file" id="file-d-${pos}" accept="image/jpeg,image/png,image/webp" style="display:none" onchange="handleDestaqueFile(${pos},this)">
+          <button class="admin-upload-btn" onclick="document.getElementById('file-d-${pos}').click()">📷 Trocar imagem</button>
+          <div class="admin-upload-status" id="status-d-${pos}"></div>
+          <input class="admin-field" id="d-badge-${pos}" value="${esc(d.badge)}" placeholder="Badge (ex: PROMOÇÃO)" style="margin-top:4px">
+          <input class="admin-field" id="d-nome-${pos}" value="${esc(d.nome)}" placeholder="Título do card">
+          <input class="admin-field" id="d-desc-${pos}" value="${esc(d.descricao)}" placeholder="Descrição breve">
+          <button class="admin-btn-primary" onclick="salvarDestaqueTexto(${pos})" style="font-size:.65rem;padding:10px;margin-top:2px">Salvar Card ${pos}</button>
+        </div>`;
+    }).join('') +
+    `</div>`;
+}
+
+async function handleDestaqueFile(pos, input) {
+  const file = input.files[0];
+  if (!file) return;
+  if (file.size > 10 * 1024 * 1024) { setStatusD(pos, 'Arquivo muito grande (máx 10MB)', 'err'); return; }
+  setStatusD(pos, 'Enviando imagem…', 'loading');
+  try {
+    const ext = (file.name.split('.').pop() || 'jpg').toLowerCase();
+    const path = `destaque-${pos}-${Date.now()}.${ext}`;
+    const uploadRes = await fetch(`${SB_URL}/storage/v1/object/destaques/${path}`, {
+      method: 'POST',
+      headers: { apikey: SB_KEY, Authorization: `Bearer ${adminToken}`, 'Content-Type': file.type, 'x-upsert': 'true' },
+      body: file
+    });
+    if (!uploadRes.ok) { const e = await uploadRes.json(); throw new Error(e.message || 'Erro no upload'); }
+    const imageUrl = `${SB_URL}/storage/v1/object/public/destaques/${path}`;
+    const patchRes = await fetch(`${SB_URL}/rest/v1/aura_destaques?posicao=eq.${pos}`, {
+      method: 'PATCH',
+      headers: { apikey:SB_KEY, Authorization:`Bearer ${adminToken}`, 'Content-Type':'application/json', Prefer:'return=minimal' },
+      body: JSON.stringify({ image_url: imageUrl })
+    });
+    if (!patchRes.ok) throw new Error('Erro ao salvar URL no banco');
+    const d = adminDestaques.find(x => x.posicao === pos);
+    if (d) d.image_url = imageUrl;
+    const preview = document.querySelector(`#admin-d-${pos} .admin-destaque-preview`);
+    if (preview) preview.innerHTML = `<img src="${imageUrl}" alt="Destaque ${pos}">`;
+    setStatusD(pos, '✓ Imagem salva!', 'ok');
+    carregarDestaques();
+  } catch(e) { setStatusD(pos, e.message, 'err'); }
+  input.value = '';
+}
+
+async function salvarDestaqueTexto(pos) {
+  const badge = document.getElementById(`d-badge-${pos}`).value.trim();
+  const nome  = document.getElementById(`d-nome-${pos}`).value.trim();
+  const desc  = document.getElementById(`d-desc-${pos}`).value.trim();
+  setStatusD(pos, 'Salvando…', 'loading');
+  try {
+    const res = await fetch(`${SB_URL}/rest/v1/aura_destaques?posicao=eq.${pos}`, {
+      method: 'PATCH',
+      headers: { apikey:SB_KEY, Authorization:`Bearer ${adminToken}`, 'Content-Type':'application/json', Prefer:'return=minimal' },
+      body: JSON.stringify({ nome, descricao: desc, badge })
+    });
+    if (!res.ok) throw new Error('Erro ao salvar');
+    const d = adminDestaques.find(x => x.posicao === pos);
+    if (d) { d.nome = nome; d.descricao = desc; d.badge = badge; }
+    setStatusD(pos, '✓ Salvo!', 'ok');
+    carregarDestaques();
+    setTimeout(() => setStatusD(pos, '', ''), 3000);
+  } catch(e) { setStatusD(pos, e.message, 'err'); }
+}
+
+function setStatusD(pos, msg, type) {
+  const el = document.getElementById(`status-d-${pos}`);
+  if (!el) return;
+  el.textContent = msg;
+  el.className = `admin-upload-status${type ? ' ' + type : ''}`;
 }
 
 async function adicionarServico(cat) {
