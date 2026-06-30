@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projeto Social | AURA Beleza & Estética – Doação de Cabelos</title>
+<meta name="description" content="O Studio AURA participa de doação de cabelos para confecção de perucas para pacientes oncológicos. Saiba como participar.">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E8C96A;
+    --gold-dark: #8B6914;
+    --black: #0A0A0A;
+    --black-card: #141414;
+    --black-section: #111111;
+    --cream: #F5F0E8;
+    --cream-muted: #B8AD9E;
+  }
+
+  html { scroll-behavior: smooth; overflow-x: hidden; }
+
+  body {
+    background: var(--black);
+    color: var(--cream);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+    max-width: 100%;
+    line-height: 1.6;
+  }
+
+  /* ── SCROLL REVEAL ── */
+  .reveal { opacity:0; transform:translateY(40px); transition:opacity .8s ease,transform .8s ease; }
+  .reveal.visible { opacity:1; transform:translateY(0); }
+  .reveal-left { opacity:0; transform:translateX(-40px); transition:opacity .9s ease,transform .9s ease; }
+  .reveal-left.visible { opacity:1; transform:translateX(0); }
+  .reveal-right { opacity:0; transform:translateX(40px); transition:opacity .9s ease,transform .9s ease; }
+  .reveal-right.visible { opacity:1; transform:translateX(0); }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top:0; width:100%; z-index:1000;
+    padding: 14px 40px;
+    display: flex; align-items: center; justify-content: space-between;
+    background: rgba(10,10,10,0.96);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+    transition: padding .4s ease;
+  }
+  nav.scrolled { padding: 10px 40px; }
+  .nav-logo { display:flex; align-items:center; gap:12px; text-decoration:none; }
+  .nav-logo img { height:58px; width:auto; object-fit:contain; }
+  .nav-links { display:flex; gap:36px; list-style:none; }
+  .nav-links a { color:var(--cream-muted); text-decoration:none; font-size:.75rem; letter-spacing:.18em; text-transform:uppercase; transition:color .3s; }
+  .nav-links a:hover { color:var(--gold); }
+  .nav-links a.active { color:var(--gold); }
+  .nav-cta { background:transparent; border:1px solid var(--gold); color:var(--gold); padding:10px 24px; font-size:.7rem; letter-spacing:.18em; text-transform:uppercase; cursor:pointer; font-family:'Inter',sans-serif; transition:all .3s; text-decoration:none; }
+  .nav-cta:hover { background:var(--gold); color:var(--black); }
+  .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none; padding:4px; }
+  .hamburger span { display:block; width:24px; height:1.5px; background:var(--gold); transition:all .3s; }
+  .mobile-menu { display:none; position:fixed; inset:0; background:rgba(10,10,10,.98); z-index:999; flex-direction:column; align-items:center; justify-content:center; gap:36px; }
+  .mobile-menu.open { display:flex; }
+  .mobile-menu a { font-family:'Cormorant Garamond',serif; font-size:2rem; color:var(--cream); text-decoration:none; transition:color .3s; }
+  .mobile-menu a:hover, .mobile-menu a.active { color:var(--gold); }
+  .mobile-close { position:absolute; top:24px; right:32px; background:none; border:none; color:var(--gold); font-size:2rem; cursor:pointer; }
+  .mobile-menu-wa { font-family:'Cormorant Garamond',serif; font-size:2rem; color:var(--gold) !important; text-decoration:none; }
+
+  /* ── HERO ── */
+  .social-hero {
+    position: relative;
+    height: 70vh;
+    min-height: 480px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .social-hero-bg {
+    position: absolute;
+    inset: -60px 0;
+    background-image: url('https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=1800&q=90&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center 40%;
+    will-change: transform;
+  }
+  .social-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(10,10,10,0.65);
+  }
+  .social-hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 0 24px;
+    max-width: 700px;
+  }
+  .hero-tag {
+    font-size: .62rem;
+    letter-spacing: .42em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 20px;
+    animation: fadeUp .8s ease both;
+  }
+  .hero-main-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    font-weight: 300;
+    color: var(--cream);
+    line-height: 1.1;
+    animation: fadeUp .8s .15s ease both;
+  }
+  .hero-main-title em {
+    font-style: italic;
+    color: var(--gold);
+  }
+  .hero-divider {
+    width: 48px;
+    height: 1px;
+    background: var(--gold);
+    margin: 24px auto;
+    animation: fadeUp .8s .3s ease both;
+  }
+  .hero-subtitle {
+    font-size: clamp(.85rem, 2vw, 1rem);
+    color: var(--cream-muted);
+    font-weight: 300;
+    line-height: 1.8;
+    letter-spacing: .04em;
+    animation: fadeUp .8s .45s ease both;
+  }
+
+  /* ── SOBRE O PROJETO ── */
+  .social-sobre {
+    padding: 100px 40px;
+    background: var(--black);
+  }
+  .social-sobre-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .sobre-tag {
+    font-size: .6rem;
+    letter-spacing: .38em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 16px;
+  }
+  .sobre-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    font-weight: 300;
+    color: var(--cream);
+    line-height: 1.25;
+    margin-bottom: 32px;
+  }
+  .sobre-text {
+    font-size: .88rem;
+    color: var(--cream-muted);
+    line-height: 1.9;
+    font-weight: 300;
+    margin-bottom: 20px;
+  }
+  .sobre-divider {
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+    margin: 32px 0;
+  }
+  .btn-gold {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--black);
+    font-size: .7rem;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    padding: 14px 32px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all .3s;
+  }
+  .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(201,168,76,.3); }
+  .sobre-img-wrap {
+    position: relative;
+  }
+  .sobre-img-wrap img {
+    width: 100%;
+    aspect-ratio: 4/5;
+    object-fit: cover;
+    display: block;
+  }
+  .sobre-img-badge {
+    position: absolute;
+    bottom: 24px;
+    left: -20px;
+    background: var(--black-card);
+    border: 1px solid rgba(201,168,76,.3);
+    padding: 12px 20px;
+    font-size: .7rem;
+    letter-spacing: .12em;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+
+  /* ── NÚMEROS ── */
+  .social-numeros {
+    padding: 80px 40px;
+    background: var(--black-section);
+    position: relative;
+  }
+  .social-numeros::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  .numeros-header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+  .numeros-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 300;
+    color: var(--cream);
+  }
+  .numeros-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  .numero-card {
+    border: 1px solid rgba(201,168,76,.12);
+    padding: 40px 32px;
+    text-align: center;
+    background: var(--black-card);
+    transition: transform .3s, box-shadow .3s;
+  }
+  .numero-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(201,168,76,.08); }
+  .numero-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.4rem, 5vw, 3.8rem);
+    font-weight: 300;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .numero-label {
+    font-size: .6rem;
+    letter-spacing: .35em;
+    text-transform: uppercase;
+    color: var(--cream);
+    margin-bottom: 16px;
+    display: block;
+  }
+  .numero-desc {
+    font-size: .78rem;
+    color: var(--cream-muted);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  /* ── COMO FUNCIONA ── */
+  .social-como {
+    padding: 100px 40px;
+    background: var(--black);
+  }
+  .como-header {
+    text-align: center;
+    margin-bottom: 72px;
+  }
+  .como-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 300;
+    color: var(--cream);
+    margin-bottom: 12px;
+  }
+  .como-subtitle {
+    font-size: .85rem;
+    color: var(--cream-muted);
+    font-weight: 300;
+  }
+  .timeline {
+    max-width: 680px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .timeline-item {
+    display: flex;
+    gap: 28px;
+    position: relative;
+  }
+  .timeline-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 22px;
+    top: 48px;
+    bottom: -1px;
+    width: 1px;
+    background: linear-gradient(to bottom, rgba(201,168,76,.4), rgba(201,168,76,.05));
+  }
+  .timeline-num {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid rgba(201,168,76,.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    color: var(--gold);
+    flex-shrink: 0;
+    background: var(--black);
+    position: relative;
+    z-index: 1;
+  }
+  .timeline-body {
+    padding: 8px 0 52px;
+  }
+  .timeline-step-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--cream);
+    margin-bottom: 8px;
+  }
+  .timeline-step-desc {
+    font-size: .82rem;
+    color: var(--cream-muted);
+    line-height: 1.8;
+    font-weight: 300;
+  }
+
+  /* ── PARALLAX CENTRAL ── */
+  .social-parallax {
+    position: relative;
+    height: 55vh;
+    min-height: 380px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .social-parallax-bg {
+    position: absolute;
+    inset: -60px 0;
+    background-image: url('https://images.unsplash.com/photo-1522337094846-8a818192de1f?w=1800&q=90&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    will-change: transform;
+  }
+  .social-parallax-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(10,10,10,0.7);
+  }
+  .social-parallax-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 0 24px;
+  }
+  .parallax-tag {
+    font-size: .6rem;
+    letter-spacing: .42em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 16px;
+  }
+  .parallax-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    font-weight: 300;
+    color: var(--cream);
+    line-height: 1.1;
+    margin-bottom: 28px;
+  }
+  .parallax-title em {
+    font-style: italic;
+    color: var(--gold);
+  }
+  .btn-gold-outline {
+    display: inline-block;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    font-size: .7rem;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    padding: 14px 32px;
+    text-decoration: none;
+    transition: all .3s;
+  }
+  .btn-gold-outline:hover { background: var(--gold); color: var(--black); }
+
+  /* ── GALERIA ── */
+  .social-galeria {
+    padding: 100px 40px;
+    background: var(--black);
+  }
+  .galeria-header {
+    text-align: center;
+    margin-bottom: 56px;
+  }
+  .galeria-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 300;
+    color: var(--cream);
+    line-height: 1.2;
+  }
+  .galeria-title em { font-style: italic; color: var(--gold); }
+  .galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    max-width: 960px;
+    margin: 0 auto 40px;
+  }
+  .galeria-item {
+    position: relative;
+    aspect-ratio: 3/4;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  .galeria-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform .6s ease;
+  }
+  .galeria-item:hover img { transform: scale(1.06); }
+  .galeria-item-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(10,10,10,.85) 0%, rgba(10,10,10,.1) 50%, transparent 100%);
+    display: flex;
+    align-items: flex-end;
+    padding: 20px 18px;
+    opacity: 0;
+    transition: opacity .35s ease;
+  }
+  .galeria-item:hover .galeria-item-overlay { opacity: 1; }
+  .galeria-item-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: var(--cream);
+    letter-spacing: .06em;
+  }
+  .galeria-instagram {
+    text-align: center;
+    font-size: .82rem;
+    color: var(--cream-muted);
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .galeria-instagram a {
+    color: var(--cream);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: opacity .3s;
+  }
+  .galeria-instagram a:hover { opacity: .75; }
+
+  /* ── CTA FINAL ── */
+  .social-cta {
+    padding: 100px 40px;
+    background: var(--black-section);
+    position: relative;
+    text-align: center;
+  }
+  .social-cta::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  .cta-icon {
+    font-size: 2.4rem;
+    margin-bottom: 24px;
+    display: block;
+  }
+  .cta-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 300;
+    color: var(--cream);
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
+  .cta-title em { font-style: italic; color: var(--gold); }
+  .cta-subtitle {
+    font-size: .88rem;
+    color: var(--cream-muted);
+    font-weight: 300;
+    line-height: 1.8;
+    max-width: 520px;
+    margin: 0 auto 40px;
+  }
+  .cta-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* ── FOOTER ── */
+  footer { background:var(--black-section); padding:60px 40px 40px; border-top:1px solid rgba(201,168,76,.1); }
+  .footer-inner { max-width:1200px; margin:0 auto; }
+  .footer-top { display:grid; grid-template-columns:1.5fr 1fr 1fr; gap:60px; padding-bottom:48px; border-bottom:1px solid rgba(255,255,255,.06); }
+  .footer-desc { font-size:.82rem; color:var(--cream-muted); line-height:1.8; font-weight:300; margin-bottom:24px; max-width:280px; }
+  .footer-social { display:flex; gap:12px; }
+  .footer-social a { width:36px; height:36px; border:1px solid rgba(201,168,76,.2); display:flex; align-items:center; justify-content:center; color:var(--cream-muted); text-decoration:none; transition:all .3s; }
+  .footer-social a:hover { border-color:var(--gold); color:var(--gold); }
+  .footer-col-title { font-size:.65rem; letter-spacing:.3em; text-transform:uppercase; color:var(--gold); margin-bottom:24px; }
+  .footer-links { list-style:none; display:flex; flex-direction:column; gap:12px; }
+  .footer-links a { font-size:.82rem; color:var(--cream-muted); text-decoration:none; transition:color .3s; font-weight:300; }
+  .footer-links a:hover { color:var(--gold); }
+  .footer-bottom { display:flex; justify-content:space-between; align-items:center; padding-top:32px; flex-wrap:wrap; gap:12px; }
+  .footer-copy { font-size:.72rem; color:var(--cream-muted); font-weight:300; }
+  .footer-copy span { color:var(--gold); }
+
+  /* ── WHATSAPP FIXO ── */
+  .whatsapp-float {
+    position: fixed; bottom: 32px; right: 32px; z-index: 999;
+    display: flex; align-items: center; gap: 10px;
+    background: #25D366; color: #fff; text-decoration: none;
+    padding: 14px 20px;
+    font-size: .72rem; letter-spacing: .1em; text-transform: uppercase;
+    font-family: 'Inter', sans-serif; font-weight: 500;
+    box-shadow: 0 4px 20px rgba(37,211,102,.4);
+    transition: transform .3s ease, box-shadow .3s ease;
+    white-space: nowrap;
+  }
+  .whatsapp-float:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(37,211,102,.5); }
+  .whatsapp-float svg { width: 22px; height: 22px; fill: white; flex-shrink: 0; }
+
+  /* ── KEYFRAMES ── */
+  @keyframes fadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1024px) {
+    .social-sobre-inner { gap: 48px; }
+    .numeros-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 10px 20px; }
+    nav.scrolled { padding: 8px 20px; }
+    .nav-links, .nav-cta { display: none; }
+    .hamburger { display: flex; }
+    .social-sobre-inner { grid-template-columns: 1fr; gap: 48px; }
+    .sobre-img-badge { left: 0; }
+    .numeros-grid { grid-template-columns: 1fr; gap: 16px; }
+    .galeria-grid { grid-template-columns: 1fr; }
+    .social-hero { height: 60vh; }
+    .social-parallax { height: auto; min-height: 320px; padding: 80px 24px; }
+    .social-parallax-bg { inset: 0; background-attachment: scroll; }
+    .social-hero-bg { inset: 0; background-attachment: scroll; }
+    .social-sobre, .social-numeros, .social-como, .social-galeria, .social-cta { padding: 72px 24px; }
+    .footer-top { grid-template-columns: 1fr; gap: 40px; }
+    footer { padding: 48px 20px 32px; }
+    .whatsapp-float { bottom:20px; right:20px; padding:13px 16px; font-size:0; gap:0; }
+    .whatsapp-float svg { width:26px; height:26px; }
+    .cta-buttons { flex-direction: column; align-items: center; }
+    .cta-buttons a { width: 100%; max-width: 320px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo" aria-label="AURA Beleza e Estética">
+    <img src="logo-horizontal.png" alt="AURA Beleza & Estética">
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#sobre">Sobre</a></li>
+    <li><a href="index.html#servicos">Serviços</a></li>
+    <li><a href="index.html#depoimentos">Depoimentos</a></li>
+    <li><a href="index.html#localizacao">Localização</a></li>
+    <li><a href="index.html#produtos">Produtos</a></li>
+    <li><a href="index.html#promocoes">Promoções</a></li>
+    <li><a href="social.html" class="active">Social</a></li>
+  </ul>
+  <a href="https://www.instagram.com/studiocarioca_elviraferraz/" target="_blank" rel="noopener" aria-label="Instagram" style="display:flex;align-items:center;">
+    <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="ig-nav" cx="30%" cy="107%" r="150%">
+          <stop offset="0%" stop-color="#fdf497"/>
+          <stop offset="5%" stop-color="#fdf497"/>
+          <stop offset="45%" stop-color="#fd5949"/>
+          <stop offset="60%" stop-color="#d6249f"/>
+          <stop offset="90%" stop-color="#285AEB"/>
+        </radialGradient>
+      </defs>
+      <path fill="url(#ig-nav)" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+    </svg>
+  </a>
+  <a href="https://wa.me/5511921028116?text=Vim+do+site+e+gostaria+de+agendar+um+horário." class="nav-cta" target="_blank" rel="noopener">Agendar</a>
+  <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MENU MOBILE -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose" aria-label="Fechar">✕</button>
+  <a href="index.html" onclick="closeMobileMenu()">Início</a>
+  <a href="index.html#sobre" onclick="closeMobileMenu()">Sobre</a>
+  <a href="index.html#servicos" onclick="closeMobileMenu()">Serviços</a>
+  <a href="index.html#depoimentos" onclick="closeMobileMenu()">Depoimentos</a>
+  <a href="index.html#localizacao" onclick="closeMobileMenu()">Localização</a>
+  <a href="index.html#produtos" onclick="closeMobileMenu()">Produtos</a>
+  <a href="index.html#promocoes" onclick="closeMobileMenu()">Promoções</a>
+  <a href="social.html" class="active" onclick="closeMobileMenu()">Social</a>
+  <a href="https://wa.me/5511921028116?text=Vim+do+site+e+gostaria+de+agendar+um+horário." class="mobile-menu-wa" target="_blank" rel="noopener" onclick="closeMobileMenu()">Agendar pelo WhatsApp</a>
+</div>
+
+<!-- 1. HERO -->
+<section class="social-hero">
+  <div class="social-hero-bg" id="heroBg"></div>
+  <div class="social-hero-overlay"></div>
+  <div class="social-hero-content">
+    <span class="hero-tag">Projeto Social</span>
+    <h1 class="hero-main-title">
+      Beleza que<br>
+      <em>transforma vidas</em>
+    </h1>
+    <div class="hero-divider"></div>
+    <p class="hero-subtitle">Cada fio doado carrega consigo dignidade, amor e esperança</p>
+  </div>
+</section>
+
+<!-- 2. SOBRE O PROJETO -->
+<section class="social-sobre">
+  <div class="social-sobre-inner">
+    <div class="reveal-left">
+      <span class="sobre-tag">Quem somos no social</span>
+      <h2 class="sobre-title">Mais do que beleza — um ato de amor</h2>
+      <p class="sobre-text">O Studio AURA acredita que a beleza vai além do espelho. Por isso, participamos ativamente de iniciativas sociais que utilizam a beleza como instrumento de transformação e dignidade humana.</p>
+      <p class="sobre-text">Nossa equipe se une periodicamente para coletar doações de cabelo destinadas à confecção de perucas para pacientes em tratamento oncológico — devolvendo autoestima e confiança para quem mais precisa.</p>
+      <p class="sobre-text">Acreditamos que cada cliente que passa pelo nosso studio pode fazer parte dessa corrente do bem. Seja doando seus fios ou simplesmente espalhando essa mensagem.</p>
+      <div class="sobre-divider"></div>
+      <a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+saber+sobre+o+projeto+social+de+doação+de+cabelos+da+AURA." class="btn-gold" target="_blank" rel="noopener">Quero participar</a>
+    </div>
+    <div class="sobre-img-wrap reveal-right">
+      <img src="https://images.unsplash.com/photo-1559599101-f09722fb4948?w=700&q=80&auto=format&fit=crop" alt="Projeto social AURA — doação de cabelos" loading="lazy">
+      <div class="sobre-img-badge">❤️ Projeto Ativo</div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. NÚMEROS -->
+<section class="social-numeros">
+  <div class="numeros-header reveal">
+    <h2 class="numeros-title">Nosso impacto</h2>
+  </div>
+  <div class="numeros-grid">
+    <div class="numero-card reveal">
+      <div class="numero-value">∞</div>
+      <span class="numero-label">Amor</span>
+      <p class="numero-desc">Cada doação carrega uma história única de generosidade</p>
+    </div>
+    <div class="numero-card reveal" style="transition-delay:.1s">
+      <div class="numero-value">100%</div>
+      <span class="numero-label">Voluntário</span>
+      <p class="numero-desc">Todo o projeto é movido por pessoas que acreditam na transformação</p>
+    </div>
+    <div class="numero-card reveal" style="transition-delay:.2s">
+      <div class="numero-value">1 fio</div>
+      <span class="numero-label">Já faz a diferença</span>
+      <p class="numero-desc">Cabelos com mínimo 20cm podem ser doados e mudar uma vida</p>
+    </div>
+  </div>
+</section>
+
+<!-- 4. COMO FUNCIONA -->
+<section class="social-como">
+  <div class="como-header reveal">
+    <h2 class="como-title">Como doar seus cabelos</h2>
+    <p class="como-subtitle">O processo é simples e cheio de significado</p>
+  </div>
+  <div class="timeline">
+    <div class="timeline-item reveal">
+      <div class="timeline-num">1</div>
+      <div class="timeline-body">
+        <h3 class="timeline-step-title">Agende sua visita</h3>
+        <p class="timeline-step-desc">Entre em contato pelo WhatsApp e agende um horário especial para a doação</p>
+      </div>
+    </div>
+    <div class="timeline-item reveal" style="transition-delay:.1s">
+      <div class="timeline-num">2</div>
+      <div class="timeline-body">
+        <h3 class="timeline-step-title">Prepare seus fios</h3>
+        <p class="timeline-step-desc">O cabelo deve ter no mínimo 20cm, estar limpo, seco e sem coloração química recente</p>
+      </div>
+    </div>
+    <div class="timeline-item reveal" style="transition-delay:.2s">
+      <div class="timeline-num">3</div>
+      <div class="timeline-body">
+        <h3 class="timeline-step-title">O corte solidário</h3>
+        <p class="timeline-step-desc">Nossa equipe realiza o corte com todo cuidado e carinho, garantindo o melhor resultado para você e para quem receberá</p>
+      </div>
+    </div>
+    <div class="timeline-item reveal" style="transition-delay:.3s">
+      <div class="timeline-num">4</div>
+      <div class="timeline-body" style="padding-bottom:0">
+        <h3 class="timeline-step-title">A transformação acontece</h3>
+        <p class="timeline-step-desc">Os fios doados são encaminhados para confecção de perucas destinadas a pacientes em tratamento oncológico</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. PARALLAX CENTRAL -->
+<section class="social-parallax">
+  <div class="social-parallax-bg" id="parallaxBg"></div>
+  <div class="social-parallax-overlay"></div>
+  <div class="social-parallax-content">
+    <span class="parallax-tag">Faça parte</span>
+    <h2 class="parallax-title">
+      Sua beleza pode<br>
+      <em>mudar uma vida</em>
+    </h2>
+    <a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+minha+doação+de+cabelo+na+AURA." class="btn-gold-outline" target="_blank" rel="noopener">Agendar minha doação</a>
+  </div>
+</section>
+
+<!-- 6. GALERIA -->
+<section class="social-galeria">
+  <div class="galeria-header reveal">
+    <h2 class="galeria-title">
+      Momentos que<br>
+      <em>tocam o coração</em>
+    </h2>
+  </div>
+  <div class="galeria-grid">
+    <div class="galeria-item reveal">
+      <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=600&q=80" alt="Solidariedade" loading="lazy">
+      <div class="galeria-item-overlay">
+        <span class="galeria-item-label">Solidariedade</span>
+      </div>
+    </div>
+    <div class="galeria-item reveal" style="transition-delay:.1s">
+      <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=80" alt="Transformação" loading="lazy">
+      <div class="galeria-item-overlay">
+        <span class="galeria-item-label">Transformação</span>
+      </div>
+    </div>
+    <div class="galeria-item reveal" style="transition-delay:.2s">
+      <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600&q=80" alt="Esperança" loading="lazy">
+      <div class="galeria-item-overlay">
+        <span class="galeria-item-label">Esperança</span>
+      </div>
+    </div>
+  </div>
+  <div class="galeria-instagram reveal">
+    <span>📸 Acompanhe nossos momentos sociais no Instagram</span>
+    <a href="https://www.instagram.com/studiocarioca_elviraferraz/" target="_blank" rel="noopener">
+      <svg width="18" height="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="ig-galeria" cx="30%" cy="107%" r="150%">
+            <stop offset="0%" stop-color="#fdf497"/>
+            <stop offset="5%" stop-color="#fdf497"/>
+            <stop offset="45%" stop-color="#fd5949"/>
+            <stop offset="60%" stop-color="#d6249f"/>
+            <stop offset="90%" stop-color="#285AEB"/>
+          </radialGradient>
+        </defs>
+        <path fill="url(#ig-galeria)" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+      </svg>
+      @studiocarioca_elviraferraz
+    </a>
+  </div>
+</section>
+
+<!-- 7. CTA FINAL -->
+<section class="social-cta">
+  <span class="cta-icon reveal">❤️</span>
+  <h2 class="cta-title reveal">
+    Juntos somos<br>
+    <em>mais fortes</em>
+  </h2>
+  <p class="cta-subtitle reveal">Seja parte dessa corrente do bem. Agende sua doação ou indique alguém especial.</p>
+  <div class="cta-buttons reveal">
+    <a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+minha+doação+de+cabelo." class="btn-gold" target="_blank" rel="noopener">Agendar minha doação</a>
+    <a href="https://api.whatsapp.com/send?text=Conheci+o+projeto+social+do+Studio+AURA+de+doação+de+cabelos.+Acesse:+https://aura-beleza.vercel.app/social.html" class="btn-gold-outline" target="_blank" rel="noopener">Compartilhar no WhatsApp</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div style="margin-bottom:20px;">
+          <img src="logo-horizontal.png" alt="AURA Beleza & Estética" style="height:80px;width:auto;object-fit:contain;">
+        </div>
+        <p class="footer-desc">Studio de beleza premium em Vila Olímpia. Cabelos, unhas, estética, sobrancelha, depilação e podologia.</p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/studiocarioca_elviraferraz/" target="_blank" rel="noopener" aria-label="Instagram" style="display:flex;align-items:center;justify-content:center;">
+            <svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <radialGradient id="ig-footer" cx="30%" cy="107%" r="150%">
+                  <stop offset="0%" stop-color="#fdf497"/>
+                  <stop offset="5%" stop-color="#fdf497"/>
+                  <stop offset="45%" stop-color="#fd5949"/>
+                  <stop offset="60%" stop-color="#d6249f"/>
+                  <stop offset="90%" stop-color="#285AEB"/>
+                </radialGradient>
+              </defs>
+              <path fill="url(#ig-footer)" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+            </svg>
+          </a>
+          <a href="https://wa.me/5511921028116" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M5.077 21.783l.688-2.514a9.37 9.37 0 01-1.25-4.7C4.515 9.784 8.76 5.54 14.052 5.54c2.565 0 4.97.999 6.779 2.814a9.548 9.548 0 012.807 6.79c-.002 5.295-4.247 9.54-9.538 9.54a9.507 9.507 0 01-4.554-1.163l-4.47 1.262zm4.739-2.73l.289.172a7.893 7.893 0 004.006 1.089c4.366 0 7.921-3.556 7.923-7.927a7.896 7.896 0 00-2.326-5.626 7.86 7.86 0 00-5.595-2.322c-4.369 0-7.925 3.556-7.927 7.926a7.904 7.904 0 001.218 4.228l.19.303-.808 2.956 3.03-.799z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <h4 class="footer-col-title">Serviços</h4>
+        <ul class="footer-links">
+          <li><a href="index.html#servicos">Unhas</a></li>
+          <li><a href="index.html#servicos">Cabelos</a></li>
+          <li><a href="index.html#servicos">Depilação</a></li>
+          <li><a href="index.html#servicos">Estética</a></li>
+          <li><a href="index.html#servicos">Sobrancelha</a></li>
+          <li><a href="index.html#servicos">Podologia</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-col-title">Contato</h4>
+        <ul class="footer-links">
+          <li><a href="https://wa.me/5511921028116" target="_blank" rel="noopener">(11) 92102-8116</a></li>
+          <li><a href="#">R. Elvira Ferraz, 309</a></li>
+          <li><a href="#">Vila Olímpia · SP</a></li>
+          <li><a href="#">Seg-Sex: 9h – 19h</a></li>
+          <li><a href="#">Sáb: 9h – 19h</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 <span>AURA</span> Beleza & Estética. Todos os direitos reservados.</p>
+      <p class="footer-copy">Vila Olímpia · São Paulo, SP</p>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FIXO -->
+<a href="https://wa.me/5511921028116?text=Vim+do+site+e+gostaria+de+agendar+um+horário+na+AURA." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Agendar pelo WhatsApp">
+  <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M.057 24l1.687-6.163C.588 16.03.041 13.988.042 11.89.045 5.334 5.38.001 11.934.001c3.18.001 6.167 1.24 8.413 3.488 2.244 2.248 3.48 5.236 3.479 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+  Agendar horário
+</a>
+
+<script>
+// ── NAV SCROLL ──
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => { navbar.classList.toggle('scrolled', window.scrollY > 60); });
+
+// ── MOBILE MENU ──
+document.getElementById('hamburgerBtn').addEventListener('click', () => document.getElementById('mobileMenu').classList.add('open'));
+document.getElementById('mobileClose').addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('open'));
+function closeMobileMenu() { document.getElementById('mobileMenu').classList.remove('open'); }
+
+// ── SCROLL REVEAL ──
+const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+const revealObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); } });
+}, { threshold: 0.12 });
+revealEls.forEach(el => revealObs.observe(el));
+
+// ── PARALLAX ──
+const heroBg = document.getElementById('heroBg');
+const parallaxBg = document.getElementById('parallaxBg');
+function onScroll() {
+  const sy = window.scrollY;
+  if (heroBg) heroBg.style.transform = `translateY(${sy * 0.35}px)`;
+  if (parallaxBg) {
+    const rect = parallaxBg.parentElement.getBoundingClientRect();
+    const offset = (window.innerHeight / 2 - rect.top - rect.height / 2) * 0.25;
+    parallaxBg.style.transform = `translateY(${offset}px)`;
+  }
+}
+window.addEventListener('scroll', onScroll, { passive: true });
+onScroll();
+</script>
+</body>
+</html>
