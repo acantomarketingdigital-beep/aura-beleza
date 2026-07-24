@@ -354,7 +354,7 @@
   .loc-item-icon { width:44px; height:44px; border:1px solid rgba(201,168,76,.2); display:flex; align-items:center; justify-content:center; font-size:1.1rem; flex-shrink:0; color:var(--gold); }
   .loc-item-label { font-size:.65rem; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); margin-bottom:4px; }
   .loc-item-value { font-size:.88rem; color:var(--cream); font-weight:300; line-height:1.5; }
-  .loc-map { background:var(--black-card); border:1px solid rgba(201,168,76,.1); position:relative; overflow:hidden; height:420px; }
+  .loc-map { background:var(--black-card); border:1px solid rgba(201,168,76,.1); position:relative; overflow:hidden; height:420px; margin-right:56px; }
   .loc-map iframe { width:100%; height:100%; filter:grayscale(100%) invert(90%) sepia(20%) hue-rotate(180deg) brightness(.8); border:none; }
   .loc-map-overlay { position:absolute; bottom:0;left:0;right:0; padding:20px 24px; background:linear-gradient(0deg,rgba(250,250,250,.95) 0%,transparent 100%); display:flex; align-items:center; justify-content:space-between; }
   .loc-map-address { font-size:.78rem; color:var(--cream); }
@@ -747,15 +747,9 @@
 
   <div class="parallax-content">
     <p class="hero-eyebrow">Vila Olímpia · São Paulo</p>
-    <h1 class="hero-title">AURA<br><span>Beleza</span></h1>
-    <p class="hero-subtitle">& Estética</p>
+    <h1 class="hero-title">AURA</h1>
+    <p class="hero-subtitle">Beleza & Estética</p>
     <div class="hero-divider"></div>
-    <div class="hero-ctas">
-      <a href="https://wa.me/5511921028116?text=Vim+do+site+e+gostaria+de+agendar+um+horário+na+AURA." class="btn-primary" target="_blank" rel="noopener">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M5.077 21.783l.688-2.514a9.37 9.37 0 01-1.25-4.7C4.515 9.784 8.76 5.54 14.052 5.54c2.565 0 4.97.999 6.779 2.814a9.548 9.548 0 012.807 6.79c-.002 5.295-4.247 9.54-9.538 9.54a9.507 9.507 0 01-4.554-1.163l-4.47 1.262zm4.739-2.73l.289.172a7.893 7.893 0 004.006 1.089c4.366 0 7.921-3.556 7.923-7.927a7.896 7.896 0 00-2.326-5.626 7.86 7.86 0 00-5.595-2.322c-4.369 0-7.925 3.556-7.927 7.926a7.904 7.904 0 001.218 4.228l.19.303-.808 2.956 3.03-.799z"/></svg>
-        Agendar pelo WhatsApp
-      </a>
-    </div>
   </div>
 
   <a href="#promocoes" class="hero-scroll" aria-label="Role para baixo">
@@ -821,7 +815,7 @@
     </div>
     <div class="reveal-right">
       <span class="sobre-tag">Sobre Nós</span>
-      <h2 class="sobre-title">Onde a beleza encontra a <em>essência</em></h2>
+      <h2 class="sobre-title">Aura, onde a beleza encontra a <em>essência</em></h2>
       <p class="sobre-text">Inspirado no significado da palavra "aura" — a energia única e exclusiva que envolve cada indivíduo e revela sua essência — nosso espaço celebra a beleza em sua forma mais autêntica.</p>
       <p class="sobre-text">Aura é aquilo que transmitimos ao mundo: nossa energia, nossa personalidade e a forma única como ocupamos cada espaço. Por isso, nosso propósito é realçar e potencializar, com delicadeza, aquilo que já existe em você, destacando sua melhor versão sem perder sua essência.</p>
       <p class="sobre-text">Com excelência técnica, tendências atuais, atendimento personalizado e um ambiente refinado, oferecemos mais do que serviços de beleza: criamos experiências que despertam confiança, valorizam a individualidade e elevam a autoestima.</p>
@@ -1076,19 +1070,25 @@
   <div id="localizacao">
     <div class="reveal-left">
       <span class="loc-info-tag">Como nos encontrar</span>
-      <h2 class="loc-title">Estamos em Vila Olímpia</h2>
+      <h2 class="loc-title">Estamos na Vila Olímpia</h2>
       <div class="loc-items">
         <div class="loc-item">
           <div class="loc-item-icon">📍</div>
           <div><div class="loc-item-label">Endereço</div><div class="loc-item-value">R. Elvira Ferraz, 309<br>Vila Olímpia · São Paulo, SP</div></div>
         </div>
         <div class="loc-item">
-          <div class="loc-item-icon">📱</div>
+          <div class="loc-item-icon" style="padding:0;">
+            <svg width="22" height="22" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="display:block;margin:auto;"><path fill="#25D366" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path fill="#25D366" d="M5.077 21.783l.688-2.514a9.37 9.37 0 01-1.25-4.7C4.515 9.784 8.76 5.54 14.052 5.54c2.565 0 4.97.999 6.779 2.814a9.548 9.548 0 012.807 6.79c-.002 5.295-4.247 9.54-9.538 9.54a9.507 9.507 0 01-4.554-1.163l-4.47 1.262zm4.739-2.73l.289.172a7.893 7.893 0 004.006 1.089c4.366 0 7.921-3.556 7.923-7.927a7.896 7.896 0 00-2.326-5.626 7.86 7.86 0 00-5.595-2.322c-4.369 0-7.925 3.556-7.927 7.926a7.904 7.904 0 001.218 4.228l.19.303-.808 2.956 3.03-.799z"/></svg>
+          </div>
           <div><div class="loc-item-label">WhatsApp</div><div class="loc-item-value">(11) 92102-8116</div></div>
         </div>
         <div class="loc-item">
           <div class="loc-item-icon">🕐</div>
-          <div><div class="loc-item-label">Horário</div><div class="loc-item-value">Seg – Sex: 9h às 19h<br>Sábado: 9h às 19h<br>Domingo: Fechado</div></div>
+          <div><div class="loc-item-label">Horário</div><div class="loc-item-value">Segunda a sábado<br>Das 9h às 19h</div></div>
+        </div>
+        <div class="loc-item">
+          <div class="loc-item-icon">🅿️</div>
+          <div><div class="loc-item-label">Estacionamento</div><div class="loc-item-value">Próprio e gratuito</div></div>
         </div>
       </div>
       <a href="https://wa.me/5511921028116?text=Vim+do+site+e+gostaria+de+agendar+um+horário." class="btn-primary" target="_blank" rel="noopener">
