@@ -5,6 +5,59 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Projeto Social | AURA Beleza & Estética – Doação de Cabelos</title>
 <meta name="description" content="O Studio AURA participa de doação de cabelos para confecção de perucas para pacientes oncológicos. Saiba como participar.">
+<!-- ===== Google tag (gtag.js) — AURA Beleza & Estética ===== -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18440379010"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-18440379010');          /* Google Ads — conta 496-227-3484 */
+  /* gtag('config', 'G-XXXXXXXXXX'); */      /* Google Analytics 4 — descomentar e trocar pelo ID quando tiver */
+</script>
+<script>
+/* AURA — medição de conversões do Google Ads.
+   Etiquetas criadas na conta 496-227-3484 (Studio Aura Vila Olímpia):
+     Clique no WhatsApp    AW-18440379010/8Ed_CLPwv_IcEIK1h9lE   (principal, R$ 100)
+     Entrou no Grupo VIP   AW-18440379010/JnYBCMKyvvIcEIK1h9lE   (principal, R$ 10)
+     Visitou o site        AW-18440379010/Q6ndCMuvtvIcEIK1h9lE   (secundária, sinal de vida da tag)
+   Pega QUALQUER link de WhatsApp da página (wa.me, api.whatsapp, chat.whatsapp),
+   inclusive os botões criados depois pelo painel admin. */
+(function () {
+  var CONV_WHATSAPP = 'AW-18440379010/8Ed_CLPwv_IcEIK1h9lE';
+  var CONV_GRUPO    = 'AW-18440379010/JnYBCMKyvvIcEIK1h9lE';
+  var CONV_VISITA   = 'AW-18440379010/Q6ndCMuvtvIcEIK1h9lE';
+
+  /* 1) Visita ao site — conversão secundária. Se um dia a de WhatsApp zerar e esta
+        continuar contando, o problema é o botão, não o site. */
+  gtag('event', 'conversion', { send_to: CONV_VISITA });
+  gtag('event', 'page_view_aura');
+
+  /* 2) Clique em qualquer botão de WhatsApp */
+  document.addEventListener('click', function (ev) {
+    var alvo = ev.target;
+    var link = alvo && alvo.closest ? alvo.closest('a[href]') : null;
+    if (!link) return;
+    var href = link.getAttribute('href') || '';
+    if (!/wa\.me|api\.whatsapp|web\.whatsapp|chat\.whatsapp|whatsapp\.com/i.test(href)) return;
+
+    var ehGrupo  = /chat\.whatsapp\.com/i.test(href);
+    var servico  = (link.getAttribute('href').match(/text=[^&]*agendar\+?([^&.]*)/i) || [])[1] || '';
+    servico = decodeURIComponent(servico.replace(/\+/g, ' ')).trim().slice(0, 60);
+
+    gtag('event', 'conversion', {
+      send_to: ehGrupo ? CONV_GRUPO : CONV_WHATSAPP,
+      value: ehGrupo ? 10 : 100,
+      currency: 'BRL'
+    });
+    gtag('event', ehGrupo ? 'entrou_no_grupo' : 'generate_lead', {
+      metodo: 'whatsapp',
+      servico: servico || (link.textContent || '').trim().slice(0, 60) || 'geral'
+    });
+  }, true);
+})();
+</script>
+<!-- ===== fim Google tag ===== -->
+
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
