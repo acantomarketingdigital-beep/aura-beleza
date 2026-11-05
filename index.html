@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AURA Beleza & Estética | Vila Olímpia – São Paulo</title>
+<title>AURA Beleza e Estética | Vila Olímpia – São Paulo</title>
 <meta name="description" content="Studio de beleza premium em Vila Olímpia. Cabelos, unhas, estética, sobrancelha, depilação e podologia. Agende pelo WhatsApp.">
-<!-- ===== Google tag (gtag.js) — AURA Beleza & Estética ===== -->
+<!-- ===== Google tag (gtag.js) — AURA Beleza e Estética ===== -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18440379010"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -112,6 +112,15 @@
   .nav-logo-icon { width:44px; height:44px; }
   .nav-logo-text { font-family:'Cormorant Garamond',serif; font-size:1.3rem; color:var(--gold); letter-spacing:.12em; line-height:1.1; }
   .nav-logo-sub { font-size:.55rem; letter-spacing:.25em; color:var(--cream-muted); display:block; font-family:'Inter',sans-serif; font-weight:300; }
+  /* Logo em texto (identidade atual: STUDIO / AURA / BELEZA E ESTÉTICA, sem a figura) */
+  .logo-txt { display:inline-flex; flex-direction:column; align-items:center; line-height:1; text-decoration:none; }
+  .logo-txt-studio { font-family:'Inter',sans-serif; font-weight:300; font-size:.5rem; letter-spacing:.55em; margin-right:-.55em; color:var(--cream); }
+  .logo-txt-aura { font-family:'Cormorant Garamond',serif; font-weight:400; font-size:2rem; letter-spacing:.14em; margin:2px -.14em 3px 0; color:var(--gold); }
+  .logo-txt-linha { width:100%; height:1px; background:linear-gradient(90deg,transparent,var(--gold),transparent); margin-bottom:4px; }
+  .logo-txt-sub { font-family:'Inter',sans-serif; font-weight:300; font-size:.48rem; letter-spacing:.32em; margin-right:-.32em; color:var(--cream-muted); }
+  .logo-txt.grande .logo-txt-studio { font-size:.62rem; }
+  .logo-txt.grande .logo-txt-aura { font-size:2.6rem; }
+  .logo-txt.grande .logo-txt-sub { font-size:.6rem; }
   .nav-links { display:flex; gap:36px; list-style:none; }
   .nav-links a { color:var(--cream-muted); text-decoration:none; font-size:.75rem; letter-spacing:.18em; text-transform:uppercase; transition:color .3s; }
   .nav-links a:hover { color:var(--gold); }
@@ -385,16 +394,16 @@
   .depo-slide.active { display:block; }
   @keyframes depoIn { from{opacity:0;transform:translateX(20px)} to{opacity:1;transform:translateX(0)} }
   .depo-stars { color:var(--gold); font-size:1rem; letter-spacing:4px; margin-bottom:28px; display:block; }
-  .depo-text { font-family:'Cormorant Garamond',serif; font-size:clamp(1.3rem,2.5vw,1.9rem); font-weight:300; font-style:italic; line-height:1.5; color:var(--cream); margin-bottom:36px; }
+  .depo-text { font-family:'Cormorant Garamond',serif; font-size:clamp(1.15rem,2.1vw,1.6rem); font-weight:300; font-style:italic; line-height:1.5; color:var(--cream); margin-bottom:36px; }
   .depo-text::before { content:'\201C'; color:var(--gold); }
   .depo-text::after { content:'\201D'; color:var(--gold); }
   .depo-author { display:flex; align-items:center; gap:16px; }
   .depo-avatar { width:48px; height:48px; border-radius:50%; background:linear-gradient(135deg,var(--gold-dark),var(--gold)); display:flex; align-items:center; justify-content:center; font-family:'Cormorant Garamond',serif; font-size:1.2rem; color:var(--black); font-weight:600; flex-shrink:0; }
   .depo-name { font-size:.88rem; color:var(--cream); font-weight:500; margin-bottom:2px; }
   .depo-role { font-size:.72rem; color:var(--cream-muted); letter-spacing:.1em; }
-  .depo-controls { display:flex; gap:12px; margin-top:48px; }
-  .depo-dot { width:24px; height:2px; background:rgba(201,168,76,.25); cursor:pointer; transition:all .3s; border:none; }
-  .depo-dot.active { background:var(--gold); width:48px; }
+  .depo-controls { display:flex; flex-wrap:wrap; gap:8px; margin-top:48px; }
+  .depo-dot { width:18px; height:2px; background:rgba(201,168,76,.25); cursor:pointer; transition:all .3s; border:none; }
+  .depo-dot.active { background:var(--gold); width:36px; }
 
   /* ── LOCALIZAÇÃO ── */
   #localizacao { padding:120px 40px; max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:start; }
@@ -656,15 +665,15 @@
 <!-- NAV -->
 <nav id="navbar">
   <a href="#" class="nav-logo" aria-label="AURA Beleza e Estética">
-    <img src="logo-horizontal.png" alt="AURA Beleza & Estética" style="height:58px;width:auto;object-fit:contain;">
+    <span class="logo-txt"><span class="logo-txt-studio">STUDIO</span><span class="logo-txt-aura">AURA</span><span class="logo-txt-linha"></span><span class="logo-txt-sub">BELEZA E ESTÉTICA</span></span>
   </a>
   <ul class="nav-links">
-    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#sobre">Sobre Nós</a></li>
     <li><a href="#servicos">Serviços</a></li>
-    <li><a href="#depoimentos">Depoimentos</a></li>
-    <li><a href="#localizacao">Localização</a></li>
     <li><a href="#produtos">Produtos</a></li>
     <li><a href="#promocoes">Promoções</a></li>
+    <li><a href="#localizacao">Localização</a></li>
+    <li><a href="#depoimentos">Depoimentos</a></li>
     <li><a href="social.html">Social</a></li>
   </ul>
   <a href="https://www.instagram.com/studiocarioca_elviraferraz/" target="_blank" rel="noopener" aria-label="Instagram" style="display:flex;align-items:center;">
@@ -691,12 +700,12 @@
 <div class="mobile-menu" id="mobileMenu">
   <button class="mobile-close" id="mobileClose" aria-label="Fechar">✕</button>
   <a href="#" onclick="closeMobileMenu()">Início</a>
-  <a href="#sobre" onclick="closeMobileMenu()">Sobre</a>
+  <a href="#sobre" onclick="closeMobileMenu()">Sobre Nós</a>
   <a href="#servicos" onclick="closeMobileMenu()">Serviços</a>
-  <a href="#depoimentos" onclick="closeMobileMenu()">Depoimentos</a>
-  <a href="#localizacao" onclick="closeMobileMenu()">Localização</a>
   <a href="#produtos" onclick="closeMobileMenu()">Produtos</a>
   <a href="#promocoes" onclick="closeMobileMenu()">Promoções</a>
+  <a href="#localizacao" onclick="closeMobileMenu()">Localização</a>
+  <a href="#depoimentos" onclick="closeMobileMenu()">Depoimentos</a>
   <a href="social.html" onclick="closeMobileMenu()">Social</a>
   <a href="https://wa.me/5511921028116?text=Vim+do+site+e+gostaria+de+agendar+um+horário." class="mobile-menu-wa" target="_blank" rel="noopener" onclick="closeMobileMenu()">Agendar pelo WhatsApp</a>
 </div>
@@ -708,10 +717,10 @@
   <canvas id="particles-canvas"></canvas>
 
   <div class="parallax-content">
-    <p class="hero-eyebrow">Vila Olímpia · São Paulo</p>
     <h1 class="hero-title">AURA</h1>
-    <p class="hero-subtitle">Beleza & Estética</p>
+    <p class="hero-subtitle">Beleza e Estética</p>
     <div class="hero-divider"></div>
+    <p class="hero-eyebrow" style="margin-bottom:0;animation-delay:1.1s;">Vila Olímpia · São Paulo</p>
   </div>
 
   <a href="#promocoes" class="hero-scroll" aria-label="Role para baixo">
@@ -727,45 +736,13 @@
       <h2 class="promo-title">Destaques do Mês</h2>
       <p class="promo-subtitle">Aproveite nossas ofertas exclusivas. Agende pelo WhatsApp e informe a promoção desejada.</p>
     </div>
-    <!-- CAMPANHA COM DATA: some sozinha depois de data-ate e os cartões normais voltam -->
-    <div class="campanha" id="campanha-podologia" data-ate="2026-10-31T23:59:59-03:00">
-      <div class="campanha-grid">
-        <a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+na+QUINZENA+DA+PODOLOGIA" target="_blank" rel="noopener"><img src="podologia-01.webp" alt="Quinzena da Podologia: de 19 a 31/10, sessão de podologia de R$200 por R$160" width="800" height="1000" loading="lazy"></a>
-        <a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+na+QUINZENA+DA+PODOLOGIA" target="_blank" rel="noopener"><img src="podologia-02.webp" alt="Conheça nossa podóloga Andrea Godoy" width="800" height="1000" loading="lazy"></a>      </div>
+    <!-- DESTAQUE DO MÊS (nov/2026): arte enviada pela Fernanda em 04/11. Para trocar: nova imagem + texto do WhatsApp -->
+    <div class="campanha ativa" id="campanha-hidratacao-escova">
+      <div class="campanha-grid" style="grid-template-columns:1fr;max-width:460px;">
+        <a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+a+HIDRATA%C3%87%C3%83O+%2B+ESCOVA" target="_blank" rel="noopener"><img src="destaque-hidratacao-escova.webp" alt="Segunda e terça-feira com desconto: Tratamento Hidratação + Escova com linha L'Oréal por R$198 e 20% off na escova" width="1099" height="1431" loading="lazy"></a>
+      </div>
       <div style="text-align:center;margin-top:28px;">
-        <a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+na+QUINZENA+DA+PODOLOGIA" class="promo-card-btn" target="_blank" rel="noopener" style="font-size:.7rem;padding:12px 28px;">Agendar podologia</a>
-      </div>
-    </div>
-    <div class="promo-grid">
-      <div class="promo-card reveal" data-posicao="1">
-        <div class="promo-card-bg" style="background:linear-gradient(135deg,#1A1000,#2A1F00);"></div>
-        <div class="promo-card-overlay"></div>
-        <span class="promo-badge">PROMOÇÃO</span>
-        <div class="promo-card-body">
-          <div class="promo-card-name">SPA dos Pés Completo</div>
-          <div class="promo-card-desc">Pedicure + Hidratação + Massagem</div>
-          <a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+saber+mais+sobre+o+DESTAQUE+DO+M%C3%8AS" class="promo-card-btn" target="_blank" rel="noopener">Agendar</a>
-        </div>
-      </div>
-      <div class="promo-card reveal" style="transition-delay:.1s" data-posicao="2">
-        <div class="promo-card-bg" style="background:linear-gradient(135deg,#0A1A0A,#001A10);"></div>
-        <div class="promo-card-overlay"></div>
-        <span class="promo-badge">DESTAQUE</span>
-        <div class="promo-card-body">
-          <div class="promo-card-name">Design de Sobrancelha</div>
-          <div class="promo-card-desc">Limpeza + Design + Tintura</div>
-          <a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+saber+mais+sobre+o+DESTAQUE+DO+M%C3%8AS" class="promo-card-btn" target="_blank" rel="noopener">Agendar</a>
-        </div>
-      </div>
-      <div class="promo-card reveal" style="transition-delay:.2s" data-posicao="3">
-        <div class="promo-card-bg" style="background:linear-gradient(135deg,#1A0A1A,#1A001A);"></div>
-        <div class="promo-card-overlay"></div>
-        <span class="promo-badge">NOVIDADE</span>
-        <div class="promo-card-body">
-          <div class="promo-card-name">Maquiagem Social</div>
-          <div class="promo-card-desc">Make profissional com agendamento prévio</div>
-          <a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+saber+mais+sobre+o+DESTAQUE+DO+M%C3%8AS" class="promo-card-btn" target="_blank" rel="noopener">Agendar</a>
-        </div>
+        <a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+a+HIDRATA%C3%87%C3%83O+%2B+ESCOVA" class="promo-card-btn" target="_blank" rel="noopener" style="font-size:.7rem;padding:12px 28px;">Agendar pelo WhatsApp</a>
       </div>
     </div>
   </section>
@@ -1001,32 +978,86 @@
     <div class="depo-slider">
       <div class="depo-slide active">
         <span class="depo-stars">★★★★★</span>
-        <p class="depo-text">Fui pela primeira vez sem expectativa e saí completamente encantada. O ambiente é lindo, a equipe é super atenciosa e o resultado do design de sobrancelha ficou perfeito para o meu rosto.</p>
+        <p class="depo-text">Adoro a proposta do Studio Aura! É um espaço completo, onde você encontra manicure e pedicure, cabelo, massagens e tratamentos corporais. O que mais gosto, além da qualidade dos serviços, é a atenção com a experiência de quem está ali. Recomendo conhecer para quem procura um lugar diferenciado para cuidar da beleza e do bem-estar.</p>
+        <div class="depo-author">
+          <div class="depo-avatar">G</div>
+          <div><div class="depo-name">Gisela Castellá</div><div class="depo-role">Cliente · Escova, Manicure, Pedicure e Massagem</div></div>
+        </div>
+      </div>
+      <div class="depo-slide">
+        <span class="depo-stars">★★★★★</span>
+        <p class="depo-text">Excelentes profissionais, atendimento de qualidade e ambiente sempre limpo, organizado e agradável. Recomendo!</p>
+        <div class="depo-author">
+          <div class="depo-avatar">A</div>
+          <div><div class="depo-name">Antonio Marcos Pinheiro</div><div class="depo-role">Cliente</div></div>
+        </div>
+      </div>
+      <div class="depo-slide">
+        <span class="depo-stars">★★★★★</span>
+        <p class="depo-text">Já fui algumas vezes no salão e a experiência sempre foi muito boa! Todo mundo é muito atencioso, o serviço é maravilhoso e o cuidado é o diferencial. Na última visita fiz uma hidratação com escova, design de sobrancelha, manicure e pedicure e todas as profissionais que me atenderam foram muito boas!</p>
+        <div class="depo-author">
+          <div class="depo-avatar">M</div>
+          <div><div class="depo-name">Mariana A.B.</div><div class="depo-role">Cliente · Hidratação, Escova, Sobrancelha, Manicure e Pedicure</div></div>
+        </div>
+      </div>
+      <div class="depo-slide">
+        <span class="depo-stars">★★★★★</span>
+        <p class="depo-text">Pontuais, gentis, preço bom e resultados excelentes, além de fácil estacionamento em frente ao salão. Recomendo!</p>
         <div class="depo-author">
           <div class="depo-avatar">F</div>
-          <div><div class="depo-name">Fernanda Oliveira</div><div class="depo-role">Cliente · Design de Sobrancelha</div></div>
+          <div><div class="depo-name">Flavia Marchiori</div><div class="depo-role">Cliente · Escova e Pedicure</div></div>
         </div>
       </div>
       <div class="depo-slide">
         <span class="depo-stars">★★★★★</span>
-        <p class="depo-text">Faço minhas unhas aqui há meses e nunca me decepcionei. O SPA dos pés então é uma experiência à parte — saio me sentindo renovada. Indico de olhos fechados!</p>
-        <div class="depo-author">
-          <div class="depo-avatar">J</div>
-          <div><div class="depo-name">Juliana Martins</div><div class="depo-role">Cliente VIP · Unhas & SPA dos Pés</div></div>
-        </div>
-      </div>
-      <div class="depo-slide">
-        <span class="depo-stars">★★★★★</span>
-        <p class="depo-text">Vim fazer a progressiva e além do resultado incrível, adorei o atendimento personalizado. Senti que realmente se importaram com a saúde do meu cabelo, não só com o resultado imediato.</p>
+        <p class="depo-text">Fiz tratamento nos pés e foi muito bom! Excelente atendimento. Ambiente organizado e profissionais especializados.</p>
         <div class="depo-author">
           <div class="depo-avatar">R</div>
-          <div><div class="depo-name">Renata Costa</div><div class="depo-role">Cliente recorrente · Cabelos</div></div>
+          <div><div class="depo-name">Rodolfo Souza</div><div class="depo-role">Cliente · Podologia</div></div>
+        </div>
+      </div>
+      <div class="depo-slide">
+        <span class="depo-stars">★★★★★</span>
+        <p class="depo-text">Comecei a frequentar o Aura por comodidade de localização, pois ficava ao lado do meu trabalho. Me surpreendi com a excelente qualidade dos profissionais e o acolhimento de toda a equipe. Hoje, mesmo tendo mudado de trabalho, faço questão de me locomover para continuar sendo cliente lá. Recomendo demais!</p>
+        <div class="depo-author">
+          <div class="depo-avatar">F</div>
+          <div><div class="depo-name">Fernanda Lopes</div><div class="depo-role">Cliente · Manicure e Depilação</div></div>
+        </div>
+      </div>
+      <div class="depo-slide">
+        <span class="depo-stars">★★★★★</span>
+        <p class="depo-text">Adoro todos os serviços, principalmente manicure, pedicure e depilação. Sempre sou muito bem atendida. Estão de parabéns!</p>
+        <div class="depo-author">
+          <div class="depo-avatar">C</div>
+          <div><div class="depo-name">Camilla Gomes</div><div class="depo-role">Cliente · Manicure, Pedicure e Depilação</div></div>
+        </div>
+      </div>
+      <div class="depo-slide">
+        <span class="depo-stars">★★★★★</span>
+        <p class="depo-text">Ótimo atendimento! O profissional Binho é maravilhoso, espetacular! Deixa os cabelos lindos, de dar inveja a todos! Sabe muito bem o que faz para nos deixar lindas e maravilhosas!</p>
+        <div class="depo-author">
+          <div class="depo-avatar">C</div>
+          <div><div class="depo-name">Carmem Yamamoto</div><div class="depo-role">Cliente · Cabelo</div></div>
+        </div>
+      </div>
+      <div class="depo-slide">
+        <span class="depo-stars">★★★★★</span>
+        <p class="depo-text">Muito bem atendida, lugar confortável com diferentes serviços. Já fiz minha sobrancelha e cortei o cabelo, gostei muito dos dois resultados.</p>
+        <div class="depo-author">
+          <div class="depo-avatar">A</div>
+          <div><div class="depo-name">Amanda Antunes</div><div class="depo-role">Cliente · Cabelo e Sobrancelha</div></div>
         </div>
       </div>
       <div class="depo-controls">
         <button class="depo-dot active" onclick="goSlide(0,this)" aria-label="1"></button>
         <button class="depo-dot" onclick="goSlide(1,this)" aria-label="2"></button>
         <button class="depo-dot" onclick="goSlide(2,this)" aria-label="3"></button>
+        <button class="depo-dot" onclick="goSlide(3,this)" aria-label="4"></button>
+        <button class="depo-dot" onclick="goSlide(4,this)" aria-label="5"></button>
+        <button class="depo-dot" onclick="goSlide(5,this)" aria-label="6"></button>
+        <button class="depo-dot" onclick="goSlide(6,this)" aria-label="7"></button>
+        <button class="depo-dot" onclick="goSlide(7,this)" aria-label="8"></button>
+        <button class="depo-dot" onclick="goSlide(8,this)" aria-label="9"></button>
       </div>
     </div>
   </div>
@@ -1037,25 +1068,24 @@
   <div id="localizacao">
     <div class="reveal-left">
       <span class="loc-info-tag">Como nos encontrar</span>
-      <h2 class="loc-title">Estamos na Vila Olímpia</h2>
       <div class="loc-items">
         <div class="loc-item">
           <div class="loc-item-icon">📍</div>
           <div><div class="loc-item-label">Endereço</div><div class="loc-item-value">R. Elvira Ferraz, 309<br>Vila Olímpia · São Paulo, SP</div></div>
         </div>
         <div class="loc-item">
-          <div class="loc-item-icon" style="padding:0;">
-            <svg width="22" height="22" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="display:block;margin:auto;"><path fill="#25D366" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path fill="#25D366" d="M5.077 21.783l.688-2.514a9.37 9.37 0 01-1.25-4.7C4.515 9.784 8.76 5.54 14.052 5.54c2.565 0 4.97.999 6.779 2.814a9.548 9.548 0 012.807 6.79c-.002 5.295-4.247 9.54-9.538 9.54a9.507 9.507 0 01-4.554-1.163l-4.47 1.262zm4.739-2.73l.289.172a7.893 7.893 0 004.006 1.089c4.366 0 7.921-3.556 7.923-7.927a7.896 7.896 0 00-2.326-5.626 7.86 7.86 0 00-5.595-2.322c-4.369 0-7.925 3.556-7.927 7.926a7.904 7.904 0 001.218 4.228l.19.303-.808 2.956 3.03-.799z"/></svg>
-          </div>
-          <div><div class="loc-item-label">WhatsApp</div><div class="loc-item-value">(11) 92102-8116</div></div>
-        </div>
-        <div class="loc-item">
           <div class="loc-item-icon">🕐</div>
-          <div><div class="loc-item-label">Horário</div><div class="loc-item-value">Segunda a sábado<br>Das 9h às 19h</div></div>
+          <div><div class="loc-item-label">Horário</div><div class="loc-item-value">Segunda a Sábado<br>Das 9h às 19h</div></div>
         </div>
         <div class="loc-item">
           <div class="loc-item-icon">🅿️</div>
           <div><div class="loc-item-label">Estacionamento</div><div class="loc-item-value">Próprio e gratuito</div></div>
+        </div>
+        <div class="loc-item">
+          <div class="loc-item-icon" style="padding:0;">
+            <svg width="22" height="22" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="display:block;margin:auto;"><path fill="#25D366" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path fill="#25D366" d="M5.077 21.783l.688-2.514a9.37 9.37 0 01-1.25-4.7C4.515 9.784 8.76 5.54 14.052 5.54c2.565 0 4.97.999 6.779 2.814a9.548 9.548 0 012.807 6.79c-.002 5.295-4.247 9.54-9.538 9.54a9.507 9.507 0 01-4.554-1.163l-4.47 1.262zm4.739-2.73l.289.172a7.893 7.893 0 004.006 1.089c4.366 0 7.921-3.556 7.923-7.927a7.896 7.896 0 00-2.326-5.626 7.86 7.86 0 00-5.595-2.322c-4.369 0-7.925 3.556-7.927 7.926a7.904 7.904 0 001.218 4.228l.19.303-.808 2.956 3.03-.799z"/></svg>
+          </div>
+          <div><div class="loc-item-label">WhatsApp</div><div class="loc-item-value">(11) 92102-8116</div></div>
         </div>
       </div>
       <a href="https://wa.me/5511921028116?text=Vim+do+site+e+gostaria+de+agendar+um+horário." class="btn-primary" target="_blank" rel="noopener">
@@ -1083,7 +1113,7 @@
     <div class="footer-top">
       <div>
         <div class="footer-brand-logo">
-          <img src="logo-horizontal.png" alt="AURA Beleza & Estética" style="height:80px;width:auto;object-fit:contain;">
+          <span class="logo-txt grande"><span class="logo-txt-studio">STUDIO</span><span class="logo-txt-aura">AURA</span><span class="logo-txt-linha"></span><span class="logo-txt-sub">BELEZA E ESTÉTICA</span></span>
         </div>
         <p class="footer-desc">Studio de beleza premium em Vila Olímpia. Cabelos, unhas, estética, sobrancelha, depilação e podologia.</p>
         <div class="footer-social">
@@ -1130,7 +1160,7 @@
     </div>
     <div class="footer-bottom">
       <div style="display:flex;align-items:center;gap:8px;">
-        <p class="footer-copy">© 2025 <span>AURA</span> Beleza & Estética. Todos os direitos reservados.</p>
+        <p class="footer-copy">© 2025 <span>AURA</span> Beleza e Estética. Todos os direitos reservados.</p>
         <a href="#" id="admin-trigger" style="font-size:.75rem;color:rgba(201,168,76,0.5);text-decoration:none;line-height:1;transition:color 0.3s;" onmouseover="this.style.color='rgba(201,168,76,1)'" onmouseout="this.style.color='rgba(201,168,76,0.5)'" aria-label="Admin">🔒</a>
       </div>
       <p class="footer-copy">Vila Olímpia · São Paulo, SP</p>
@@ -1146,7 +1176,7 @@
     <button class="admin-close-btn" onclick="fecharAdmin()">✕</button>
     <div class="admin-login-mark">A</div>
     <h3>Painel Admin</h3>
-    <p class="admin-login-sub">AURA Beleza & Estética</p>
+    <p class="admin-login-sub">AURA Beleza e Estética</p>
     <input type="email" class="admin-input" id="adminEmail" placeholder="Email" autocomplete="email">
     <input type="password" class="admin-input" id="adminPass" placeholder="Senha" autocomplete="current-password">
     <p class="admin-error" id="adminError"></p>
