@@ -658,6 +658,19 @@
   .admin-upload-status.loading { color:var(--gold); }
   @media (max-width:700px) { .admin-destaque-grid { grid-template-columns:1fr; } }
 
+
+  /* ── PRODUTOS · ATENDIMENTO EXTERNO ── */
+  #produtos { padding:100px 40px 110px; scroll-margin-top:70px; }
+  #produtos .section-header { max-width:760px; }
+  #produtos .section-sub { line-height:1.85; }
+  .ext-grid { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:28px; }
+  .ext-card { background:var(--black-card); border:1px solid rgba(201,168,76,.18); padding:44px 38px; display:flex; flex-direction:column; align-items:flex-start; }
+  .ext-icone { font-size:1.8rem; margin-bottom:18px; }
+  .ext-titulo { font-family:'Cormorant Garamond',serif; font-size:1.8rem; font-weight:400; color:var(--gold); line-height:1.2; margin-bottom:20px; }
+  .ext-texto { font-size:.88rem; color:var(--cream-muted); line-height:1.85; font-weight:300; margin-bottom:14px; }
+  .ext-chamada { color:var(--cream); font-weight:400; margin-bottom:28px; }
+  .ext-card .btn-primary { margin-top:auto; }
+  @media (max-width:768px) { #produtos { padding:60px 20px 80px; } .ext-grid { grid-template-columns:1fr; } .ext-card { padding:32px 24px; } }
 </style>
 </head>
 <body>
@@ -913,6 +926,35 @@
   </section>
 </div>
 
+<!-- PRODUTOS · ATENDIMENTO EXTERNO (texto enviado pelo Marcelo em 06/11) -->
+<div class="content-section">
+  <section id="produtos">
+    <div class="section-header reveal">
+      <span class="section-tag">Nossos Serviços</span>
+      <h2 class="section-title">Atendimento <em>Externo</em></h2>
+      <p class="section-sub">Além do atendimento em nosso espaço próprio, oferecemos possibilidade de atendimento externo, com variedade de serviços pensados para proporcionar cuidado, bem-estar, beleza e experiências especiais.<br>Conheça nossos serviços de atendimento externo e descubra tudo o que podemos fazer por você!</p>
+    </div>
+    <div class="ext-grid">
+      <div class="ext-card reveal">
+        <span class="ext-icone">🏢</span>
+        <h3 class="ext-titulo">Atendimento in loco nas empresas</h3>
+        <p class="ext-texto">Levamos nossos serviços até sua equipe! Realizamos atendimentos diretamente nas empresas, tanto em datas especiais e ações pontuais quanto em dias fixos previamente estabelecidos, de acordo com a necessidade e a disponibilidade de cada empresa.</p>
+        <p class="ext-texto">Uma solução prática e conveniente, que proporciona mais facilidade, comodidade e acesso aos nossos serviços, sem a necessidade de deslocamento.</p>
+        <p class="ext-texto ext-chamada">Entre em contato e saiba como podemos organizar um atendimento personalizado para sua empresa!</p>
+        <a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+saber+sobre+o+Atendimento+Externo+in+loco+na+minha+empresa." class="btn-primary" target="_blank" rel="noopener">Atendimento in loco</a>
+      </div>
+      <div class="ext-card reveal" style="transition-delay:.1s">
+        <span class="ext-icone">🤝</span>
+        <h3 class="ext-titulo">Atendimento em parceria com causas sociais</h3>
+        <p class="ext-texto">Acreditamos que cuidar também é um ato de solidariedade! Por isso, estamos abertos a parcerias com instituições, projetos e iniciativas sociais que compartilham do propósito de promover o bem-estar e fazer a diferença na vida das pessoas.</p>
+        <p class="ext-texto">Disponibilizamos nossos serviços para ações sociais, eventos beneficentes e projetos especiais, contribuindo com nosso trabalho para levar cuidado, atenção e acolhimento a quem mais precisa. Acreditamos que, juntos, podemos transformar realidades e construir uma sociedade mais solidária.</p>
+        <p class="ext-texto ext-chamada">Entre em contato e vamos conversar sobre uma possível parceria!</p>
+        <a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+conversar+sobre+uma+parceria+em+causas+sociais." class="btn-primary" target="_blank" rel="noopener">Parcerias em causas sociais</a>
+      </div>
+    </div>
+  </section>
+</div>
+
 <!-- GALERIA DE RESULTADOS -->
 <div class="content-section" style="display:none">
   <section id="galeria">
@@ -1104,7 +1146,6 @@
 </div>
 
 <!-- Âncoras de navegação -->
-<div id="produtos"></div>
 <div id="social"></div>
 
 <!-- FOOTER -->

@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Projeto Social | AURA Beleza & Estética – Doação de Cabelos</title>
-<meta name="description" content="O Studio AURA participa de doação de cabelos para confecção de perucas para pacientes oncológicos. Saiba como participar.">
+<title>Social | Studio AURA Beleza e Estética – Atos de amor</title>
+<meta name="description" content="Mais do que beleza, atos de amor: parceria com a ABRALE (Corte Solidário) e atendimento solidário no Espaço Imaginário Marisa Monte, no Hospital das Clínicas.">
 <!-- ===== Google tag (gtag.js) — AURA Beleza & Estética ===== -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18440379010"></script>
 <script>
@@ -645,6 +645,34 @@
     .cta-buttons { flex-direction: column; align-items: center; }
     .cta-buttons a { width: 100%; max-width: 320px; text-align: center; }
   }
+
+  /* ── LOGO EM TEXTO (igual ao index) ── */
+  .logo-txt { display:inline-flex; flex-direction:column; align-items:center; line-height:1; text-decoration:none; }
+  .logo-txt-studio { font-family:'Inter',sans-serif; font-weight:300; font-size:.5rem; letter-spacing:.55em; margin-right:-.55em; color:var(--cream); }
+  .logo-txt-aura { font-family:'Cormorant Garamond',serif; font-weight:400; font-size:2rem; letter-spacing:.14em; margin:2px -.14em 3px 0; color:var(--gold); }
+  .logo-txt-linha { width:100%; height:1px; background:linear-gradient(90deg,transparent,var(--gold),transparent); margin-bottom:4px; }
+  .logo-txt-sub { font-family:'Inter',sans-serif; font-weight:300; font-size:.48rem; letter-spacing:.32em; margin-right:-.32em; color:var(--cream-muted); }
+  .logo-txt.grande .logo-txt-studio { font-size:.62rem; }
+  .logo-txt.grande .logo-txt-aura { font-size:2.6rem; }
+  .logo-txt.grande .logo-txt-sub { font-size:.6rem; }
+
+  /* ── SOCIAL (textos 06/11) ── */
+  .soc-intro { max-width:760px; margin:0 auto; padding:90px 24px 10px; text-align:center; }
+  .soc-intro .sobre-text { font-size:1.05rem; color:var(--cream); }
+  .soc-bloco { padding-top:70px; }
+  .soc-alt { background:var(--black-section); }
+  .soc-sub { display:block; font-size:.5em; color:var(--cream-muted); letter-spacing:.04em; margin-top:10px; font-style:italic; }
+  .soc-cards { max-width:1100px; margin:70px auto 0; display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+  .soc-card { background:var(--black-card); border:1px solid rgba(201,168,76,.18); padding:36px 30px; display:flex; flex-direction:column; align-items:flex-start; }
+  .soc-card-title { font-family:'Cormorant Garamond',serif; font-size:1.55rem; font-weight:400; color:var(--gold); margin-bottom:16px; line-height:1.2; }
+  .soc-card-text { font-size:.86rem; color:var(--cream-muted); line-height:1.85; font-weight:300; margin-bottom:24px; }
+  .soc-card .btn-gold { margin-top:auto; }
+  .soc-fecho { max-width:760px; margin:64px auto 0; text-align:center; }
+  .soc-frase { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:clamp(1.3rem,2.6vw,1.75rem); color:var(--gold); line-height:1.4; }
+  @media (max-width:900px) {
+    .soc-cards { grid-template-columns:1fr; }
+    .soc-invertido .sobre-img-wrap { order:2; }
+  }
 </style>
 </head>
 <body>
@@ -652,15 +680,15 @@
 <!-- NAV -->
 <nav id="navbar">
   <a href="index.html" class="nav-logo" aria-label="AURA Beleza e Estética">
-    <img src="logo-horizontal.png" alt="AURA Beleza & Estética">
+    <span class="logo-txt"><span class="logo-txt-studio">STUDIO</span><span class="logo-txt-aura">AURA</span><span class="logo-txt-linha"></span><span class="logo-txt-sub">BELEZA E ESTÉTICA</span></span>
   </a>
   <ul class="nav-links">
-    <li><a href="index.html#sobre">Sobre</a></li>
+    <li><a href="index.html#sobre">Sobre Nós</a></li>
     <li><a href="index.html#servicos">Serviços</a></li>
-    <li><a href="index.html#depoimentos">Depoimentos</a></li>
-    <li><a href="index.html#localizacao">Localização</a></li>
     <li><a href="index.html#produtos">Produtos</a></li>
     <li><a href="index.html#promocoes">Promoções</a></li>
+    <li><a href="index.html#localizacao">Localização</a></li>
+    <li><a href="index.html#depoimentos">Depoimentos</a></li>
     <li><a href="social.html" class="active">Social</a></li>
   </ul>
   <a href="https://www.instagram.com/studiocarioca_elviraferraz/" target="_blank" rel="noopener" aria-label="Instagram" style="display:flex;align-items:center;">
@@ -687,185 +715,87 @@
 <div class="mobile-menu" id="mobileMenu">
   <button class="mobile-close" id="mobileClose" aria-label="Fechar">✕</button>
   <a href="index.html" onclick="closeMobileMenu()">Início</a>
-  <a href="index.html#sobre" onclick="closeMobileMenu()">Sobre</a>
+  <a href="index.html#sobre" onclick="closeMobileMenu()">Sobre Nós</a>
   <a href="index.html#servicos" onclick="closeMobileMenu()">Serviços</a>
-  <a href="index.html#depoimentos" onclick="closeMobileMenu()">Depoimentos</a>
-  <a href="index.html#localizacao" onclick="closeMobileMenu()">Localização</a>
   <a href="index.html#produtos" onclick="closeMobileMenu()">Produtos</a>
   <a href="index.html#promocoes" onclick="closeMobileMenu()">Promoções</a>
+  <a href="index.html#localizacao" onclick="closeMobileMenu()">Localização</a>
+  <a href="index.html#depoimentos" onclick="closeMobileMenu()">Depoimentos</a>
   <a href="social.html" class="active" onclick="closeMobileMenu()">Social</a>
   <a href="https://wa.me/5511921028116?text=Vim+do+site+e+gostaria+de+agendar+um+horário." class="mobile-menu-wa" target="_blank" rel="noopener" onclick="closeMobileMenu()">Agendar pelo WhatsApp</a>
 </div>
 
-<!-- 1. HERO -->
+<!-- 1. TOPO -->
 <section class="social-hero">
   <div class="social-hero-bg" id="heroBg"></div>
   <div class="social-hero-overlay"></div>
   <div class="social-hero-content">
-    <span class="hero-tag">Projeto Social</span>
+    <span class="hero-tag">Social</span>
     <h1 class="hero-main-title">
-      Beleza que<br>
-      <em>transforma vidas</em>
+      Mais do que beleza<br>
+      <em>Atos de amor</em>
     </h1>
-    <div class="hero-divider"></div>
-    <p class="hero-subtitle">Cada fio doado carrega consigo dignidade, amor e esperança</p>
   </div>
 </section>
 
-<!-- 2. SOBRE O PROJETO -->
-<section class="social-sobre">
+<!-- 2. INTRODUÇÃO (textos enviados pelo Marcelo em 06/11) -->
+<section class="soc-intro">
+  <p class="sobre-text reveal">Nós do Studio Aura acreditamos que a beleza vai além do espelho. Por isso, participamos ativamente de iniciativas sociais que utilizam a beleza como instrumento de transformação e dignidade humana.</p>
+  <div class="sobre-divider" style="margin:28px auto;"></div>
+  <span class="sobre-tag reveal" style="margin-bottom:0;">Conheça nossas ações e engajamento</span>
+</section>
+
+<!-- 3. ABRALE (foto provisória: trocar pela foto real do corte solidário quando o cliente mandar) -->
+<section class="social-sobre soc-bloco">
   <div class="social-sobre-inner">
     <div class="reveal-left">
-      <span class="sobre-tag">Quem somos no social</span>
-      <h2 class="sobre-title">Mais do que beleza — um ato de amor</h2>
-      <p class="sobre-text">O Studio AURA acredita que a beleza vai além do espelho. Por isso, participamos ativamente de iniciativas sociais que utilizam a beleza como instrumento de transformação e dignidade humana.</p>
-      <p class="sobre-text">Nossa equipe se une periodicamente para coletar doações de cabelo destinadas à confecção de perucas para pacientes em tratamento oncológico — devolvendo autoestima e confiança para quem mais precisa.</p>
-      <p class="sobre-text">Acreditamos que cada cliente que passa pelo nosso studio pode fazer parte dessa corrente do bem. Seja doando seus fios ou simplesmente espalhando essa mensagem.</p>
-      <div class="sobre-divider"></div>
-      <a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+saber+sobre+o+projeto+social+de+doação+de+cabelos+da+AURA." class="btn-gold" target="_blank" rel="noopener">Quero participar</a>
+      <span class="sobre-tag">Parceria Social</span>
+      <h2 class="sobre-title">ABRALE<small class="soc-sub">Associação Brasileira de Câncer do Sangue</small></h2>
+      <p class="sobre-text">Acreditamos que a solidariedade transforma vidas e que pequenos gestos podem gerar grandes impactos. Por isso, temos a satisfação de desenvolver ações em parceria com a ABRALE – Associação Brasileira de Câncer do Sangue, unindo esforços para proporcionar acolhimento, autoestima, bem-estar e momentos especiais a pacientes oncológicos e seus familiares.</p>
+      <p class="sobre-text">Nossa parceria contempla diferentes iniciativas, entre elas:</p>
     </div>
     <div class="sobre-img-wrap reveal-right">
-      <img src="https://images.unsplash.com/photo-1559599101-f09722fb4948?w=700&q=80&auto=format&fit=crop" alt="Projeto social AURA — doação de cabelos" loading="lazy">
-      <div class="sobre-img-badge">❤️ Projeto Ativo</div>
+      <img src="https://images.unsplash.com/photo-1559599101-f09722fb4948?w=700&q=80&auto=format&fit=crop" alt="Corte solidário do Studio Aura em parceria com a ABRALE" loading="lazy">
     </div>
+  </div>
+
+  <div class="soc-cards">
+    <div class="soc-card reveal">
+      <h3 class="soc-card-title">Corte Solidário</h3>
+      <p class="soc-card-text">Promovemos ações de corte de cabelo solidário, nas quais os cabelos cortados são destinados à confecção de perucas, posteriormente doadas gratuitamente a pacientes em tratamento oncológico. Uma iniciativa que vai além da transformação visual, contribuindo para o resgate da autoestima e da confiança de quem enfrenta esse momento tão delicado. Para saber mais, clique no botão abaixo.</p>
+      <a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+fazer+o+Corte+Solid%C3%A1rio." class="btn-gold" target="_blank" rel="noopener">Quero Fazer Corte Solidário</a>
+    </div>
+    <div class="soc-card reveal" style="transition-delay:.1s">
+      <h3 class="soc-card-title">Apoio às ações beneficentes</h3>
+      <p class="soc-card-text">Participamos das iniciativas promovidas pela ABRALE por meio da doação de prendas e brindes para os tradicionais bingos e eventos beneficentes da associação, contribuindo para fortalecer sua atividade, ações e projetos.</p>
+    </div>
+    <div class="soc-card reveal" style="transition-delay:.2s">
+      <h3 class="soc-card-title">Momentos de acolhimento e integração</h3>
+      <p class="soc-card-text">Também realizamos ações periódicas em nossas instalações, recebendo pacientes e familiares para vivências especiais, momentos de interação, integração e descontração. A proposta é proporcionar experiências diferentes da rotina hospitalar, criando oportunidades de convivência, lazer e bem-estar em um ambiente acolhedor.</p>
+    </div>
+  </div>
+
+  <div class="soc-fecho reveal">
+    <p class="sobre-text">Mais do que uma parceria institucional, essa iniciativa representa nosso compromisso com a responsabilidade social e com a valorização da vida.</p>
+    <p class="soc-frase">Acreditamos que a beleza também está em cuidar, acolher, compartilhar e fazer a diferença na vida das pessoas.</p>
   </div>
 </section>
 
-<!-- 3. NÚMEROS -->
-<section class="social-numeros">
-  <div class="numeros-header reveal">
-    <h2 class="numeros-title">Nosso impacto</h2>
-  </div>
-  <div class="numeros-grid">
-    <div class="numero-card reveal">
-      <div class="numero-value">∞</div>
-      <span class="numero-label">Amor</span>
-      <p class="numero-desc">Cada doação carrega uma história única de generosidade</p>
+<!-- 4. ESPAÇO IMAGINÁRIO MARISA MONTE (foto provisória: trocar pela foto real do atendimento quando o cliente mandar) -->
+<section class="social-sobre soc-bloco soc-alt">
+  <div class="social-sobre-inner soc-invertido">
+    <div class="sobre-img-wrap reveal-left">
+      <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=700&q=80&auto=format&fit=crop" alt="Atendimento solidário no Espaço Imaginário Marisa Monte" loading="lazy">
     </div>
-    <div class="numero-card reveal" style="transition-delay:.1s">
-      <div class="numero-value">100%</div>
-      <span class="numero-label">Voluntário</span>
-      <p class="numero-desc">Todo o projeto é movido por pessoas que acreditam na transformação</p>
+    <div class="reveal-right">
+      <span class="sobre-tag">Atendimento Solidário</span>
+      <h2 class="sobre-title">Espaço Imaginário<br><em>Marisa Monte</em></h2>
+      <p class="sobre-text">Acreditamos que o cuidado vai muito além dos serviços que oferecemos: ele também se manifesta por meio da solidariedade, do acolhimento e da atenção ao próximo.</p>
+      <p class="sobre-text">Por isso, temos a alegria de realizar atendimentos periódicos solidários no Espaço Imaginário Marisa Monte, localizado nas instalações do Hospital das Clínicas, em São Paulo.</p>
+      <p class="sobre-text">Essa iniciativa representa nosso compromisso social e nosso desejo de contribuir para um ambiente mais acolhedor, levando cuidado, carinho e atenção aos pacientes e seus familiares que vivenciam esse espaço.</p>
+      <p class="sobre-text">Mais do que oferecer nossos serviços, queremos fazer parte de uma corrente de solidariedade, acreditando que pequenos gestos podem transformar experiências e fazer a diferença na vida de muitas pessoas.</p>
+      <p class="soc-frase" style="text-align:left;">Porque cuidar também é compartilhar, acolher e fazer o bem!</p>
     </div>
-    <div class="numero-card reveal" style="transition-delay:.2s">
-      <div class="numero-value">1 fio</div>
-      <span class="numero-label">Já faz a diferença</span>
-      <p class="numero-desc">Cabelos com mínimo 20cm podem ser doados e mudar uma vida</p>
-    </div>
-  </div>
-</section>
-
-<!-- 4. COMO FUNCIONA -->
-<section class="social-como">
-  <div class="como-header reveal">
-    <h2 class="como-title">Como doar seus cabelos</h2>
-    <p class="como-subtitle">O processo é simples e cheio de significado</p>
-  </div>
-  <div class="timeline">
-    <div class="timeline-item reveal">
-      <div class="timeline-num">1</div>
-      <div class="timeline-body">
-        <h3 class="timeline-step-title">Agende sua visita</h3>
-        <p class="timeline-step-desc">Entre em contato pelo WhatsApp e agende um horário especial para a doação</p>
-      </div>
-    </div>
-    <div class="timeline-item reveal" style="transition-delay:.1s">
-      <div class="timeline-num">2</div>
-      <div class="timeline-body">
-        <h3 class="timeline-step-title">Prepare seus fios</h3>
-        <p class="timeline-step-desc">O cabelo deve ter no mínimo 20cm, estar limpo, seco e sem coloração química recente</p>
-      </div>
-    </div>
-    <div class="timeline-item reveal" style="transition-delay:.2s">
-      <div class="timeline-num">3</div>
-      <div class="timeline-body">
-        <h3 class="timeline-step-title">O corte solidário</h3>
-        <p class="timeline-step-desc">Nossa equipe realiza o corte com todo cuidado e carinho, garantindo o melhor resultado para você e para quem receberá</p>
-      </div>
-    </div>
-    <div class="timeline-item reveal" style="transition-delay:.3s">
-      <div class="timeline-num">4</div>
-      <div class="timeline-body" style="padding-bottom:0">
-        <h3 class="timeline-step-title">A transformação acontece</h3>
-        <p class="timeline-step-desc">Os fios doados são encaminhados para confecção de perucas destinadas a pacientes em tratamento oncológico</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 5. PARALLAX CENTRAL -->
-<section class="social-parallax">
-  <div class="social-parallax-bg" id="parallaxBg"></div>
-  <div class="social-parallax-overlay"></div>
-  <div class="social-parallax-content">
-    <span class="parallax-tag">Faça parte</span>
-    <h2 class="parallax-title">
-      Sua beleza pode<br>
-      <em>mudar uma vida</em>
-    </h2>
-    <a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+minha+doação+de+cabelo+na+AURA." class="btn-gold-outline" target="_blank" rel="noopener">Agendar minha doação</a>
-  </div>
-</section>
-
-<!-- 6. GALERIA -->
-<section class="social-galeria">
-  <div class="galeria-header reveal">
-    <h2 class="galeria-title">
-      Momentos que<br>
-      <em>tocam o coração</em>
-    </h2>
-  </div>
-  <div class="galeria-grid">
-    <div class="galeria-item reveal">
-      <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=600&q=80" alt="Solidariedade" loading="lazy">
-      <div class="galeria-item-overlay">
-        <span class="galeria-item-label">Solidariedade</span>
-      </div>
-    </div>
-    <div class="galeria-item reveal" style="transition-delay:.1s">
-      <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=80" alt="Transformação" loading="lazy">
-      <div class="galeria-item-overlay">
-        <span class="galeria-item-label">Transformação</span>
-      </div>
-    </div>
-    <div class="galeria-item reveal" style="transition-delay:.2s">
-      <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600&q=80" alt="Esperança" loading="lazy">
-      <div class="galeria-item-overlay">
-        <span class="galeria-item-label">Esperança</span>
-      </div>
-    </div>
-  </div>
-  <div class="galeria-instagram reveal">
-    <span>📸 Acompanhe nossos momentos sociais no Instagram</span>
-    <a href="https://www.instagram.com/studiocarioca_elviraferraz/" target="_blank" rel="noopener">
-      <svg width="18" height="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <radialGradient id="ig-galeria" cx="30%" cy="107%" r="150%">
-            <stop offset="0%" stop-color="#fdf497"/>
-            <stop offset="5%" stop-color="#fdf497"/>
-            <stop offset="45%" stop-color="#fd5949"/>
-            <stop offset="60%" stop-color="#d6249f"/>
-            <stop offset="90%" stop-color="#285AEB"/>
-          </radialGradient>
-        </defs>
-        <path fill="url(#ig-galeria)" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
-      </svg>
-      @studiocarioca_elviraferraz
-    </a>
-  </div>
-</section>
-
-<!-- 7. CTA FINAL -->
-<section class="social-cta">
-  <span class="cta-icon reveal">❤️</span>
-  <h2 class="cta-title reveal">
-    Juntos somos<br>
-    <em>mais fortes</em>
-  </h2>
-  <p class="cta-subtitle reveal">Seja parte dessa corrente do bem. Agende sua doação ou indique alguém especial.</p>
-  <div class="cta-buttons reveal">
-    <a href="https://wa.me/5511921028116?text=Vim+do+site+e+quero+agendar+minha+doação+de+cabelo." class="btn-gold" target="_blank" rel="noopener">Agendar minha doação</a>
-    <a href="https://api.whatsapp.com/send?text=Conheci+o+projeto+social+do+Studio+AURA+de+doação+de+cabelos.+Acesse:+https://aura-beleza.vercel.app/social.html" class="btn-gold-outline" target="_blank" rel="noopener">Compartilhar no WhatsApp</a>
   </div>
 </section>
 
@@ -875,7 +805,7 @@
     <div class="footer-top">
       <div>
         <div style="margin-bottom:20px;">
-          <img src="logo-horizontal.png" alt="AURA Beleza & Estética" style="height:80px;width:auto;object-fit:contain;">
+          <span class="logo-txt grande"><span class="logo-txt-studio">STUDIO</span><span class="logo-txt-aura">AURA</span><span class="logo-txt-linha"></span><span class="logo-txt-sub">BELEZA E ESTÉTICA</span></span>
         </div>
         <p class="footer-desc">Studio de beleza premium em Vila Olímpia. Cabelos, unhas, estética, sobrancelha, depilação e podologia.</p>
         <div class="footer-social">
@@ -921,7 +851,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p class="footer-copy">© 2025 <span>AURA</span> Beleza & Estética. Todos os direitos reservados.</p>
+      <p class="footer-copy">© 2025 <span>AURA</span> Beleza e Estética. Todos os direitos reservados.</p>
       <p class="footer-copy">Vila Olímpia · São Paulo, SP</p>
     </div>
   </div>
